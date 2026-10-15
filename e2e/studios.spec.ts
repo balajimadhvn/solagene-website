@@ -39,10 +39,29 @@ test('sequence: primer design and Golden Gate demo work', async ({ page }) => {
   expect(errs).toEqual([]);
 });
 
-test('genome: real minimap2 + samtools recover planted variants', async ({ page }) => {
+test('genome: real minimap2 + samtools + bcftools recover planted SNVs and indels', async ({ page }) => {
   const errs = watch(page); await page.goto('/genome');
   await page.getByRole('tab', { name: 'Mapping & variants' }).click(); await page.getByRole('button', { name: /Demo: simulated/ }).click(); await page.getByRole('button', { name: 'Map & call' }).click();
-  await expect(page.getByText(/5\/5 planted variants recovered, 0 false positive/)).toBeVisible({ timeout: 60_000 });
+  await expect(page.getByText(/8\/8 planted variants recovered, 0 false positive/)).toBeVisible({ timeout: 60_000 });
+  await expect(page.getByRole('cell', { name: 'deletion' }).first()).toBeVisible(); await expect(page.getByRole('cell', { name: 'insertion' })).toBeVisible();
+  // Haploid calling runs (the 40 % allele is a mixture, so a haploid caller may genotype it as reference).
+  await page.locator('label.field', { hasText: 'Ploidy' }).locator('select').selectOption('1'); await page.getByRole('button', { name: 'Map & call' }).click();
+  await expect(page.getByText(/[78]\/8 planted variants recovered, 0 false positive/)).toBeVisible({ timeout: 60_000 });
+  // The built-in caller is SNV-only: it finds the 5 SNVs and none of the 3 indels.
+  await page.locator('label.field', { hasText: 'Caller' }).locator('select').selectOption('builtin'); await page.getByRole('button', { name: 'Map & call' }).click();
+  await expect(page.getByText(/5\/8 planted variants recovered, 0 false positive/)).toBeVisible({ timeout: 60_000 });
+  expect(errs).toEqual([]);
+});
+
+test('phylogenetics: maximum likelihood with parallel bootstrap support', async ({ page }) => {
+  const errs = watch(page); await page.goto('/phylogenetics');
+  await page.getByRole('button', { name: /Demo: 12-protein family/ }).click(); await page.getByRole('button', { name: 'Run progressive alignment' }).click();
+  await page.locator('label.field', { hasText: 'Method' }).locator('select').selectOption('ml');
+  await page.locator('label.field', { hasText: 'Bootstrap replicates' }).locator('input[type=range]').fill('10');
+  await expect(page.getByText(/Bootstrap replicates: 10 \(ML, in parallel on \d+ cores?\)/)).toBeVisible();
+  await page.getByRole('button', { name: 'Build tree' }).click();
+  await expect(page.getByText(/12 tips · bootstrap 10/)).toBeVisible({ timeout: 80_000 });
+  await expect(page.locator('.card', { hasText: 'Paste a Newick tree' }).locator('textarea')).toHaveValue(/\)\d{1,3}:/); // internal nodes carry support values
   expect(errs).toEqual([]);
 });
 
@@ -89,6 +108,19 @@ test('expression: batch-effect demo runs ComBat and offers corrected PCA', async
   await page.getByRole('tab', { name: 'PCA' }).click();
   await expect(page.getByText(/after ComBat/)).toBeVisible(); await expect(page.getByText(/2 batches detected/)).toBeVisible();
   await page.locator('select').filter({ hasText: 'Uncorrected' }).selectOption('raw'); await expect(page.getByText(/before ComBat/)).toBeVisible();
+  expect(errs).toEqual([]);
+});
+
+test('expression: paired design, F-test and design errors', async ({ page }) => {
+  const errs = watch(page); await page.goto('/expression');
+  await page.getByRole('button', { name: /Load paired demo/ }).click();
+  await expect(page.getByText(/~ treatment \+ donor · 6 coefficients · 6 residual df/)).toBeVisible();
+  await page.getByRole('button', { name: 'Run analysis' }).click();
+  await expect(page.locator('.callout', { hasText: 'Validation against planted truth' })).toContainText(/sensitivity (8\d|9\d)%/, { timeout: 40_000 });
+  await page.locator('label.field', { hasText: 'Question' }).locator('select').selectOption('anova'); await page.getByRole('button', { name: 'Run analysis' }).click();
+  await expect(page.getByText(/any difference between treatment levels/)).toBeVisible({ timeout: 40_000 }); await expect(page.getByRole('columnheader', { name: 'F', exact: true })).toBeVisible();
+  await page.getByLabel('Use treatment in the model').uncheck(); await expect(page.locator('.callout', { hasText: 'must be in the design' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Run analysis' })).toBeDisabled();
   expect(errs).toEqual([]);
 });
 
