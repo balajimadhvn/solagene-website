@@ -1,0 +1,1 @@
+import{wt as e}from"./index-DMxdfCM4.js";var t=e();function n(e,n){(0,t.createRoot)(n).render(e)}export{n as renderReact18};

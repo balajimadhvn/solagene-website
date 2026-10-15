@@ -1,0 +1,1 @@
+var e=e=>new URL(`/`+e.replace(/^\//,``),location.origin).href;export{e as t};

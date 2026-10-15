@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbfcfe" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#071027" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="author" content="Vivofold" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- GitHub Pages cannot send security headers, so the policy is set here. 'unsafe-inline' covers the theme script and
+         JSON-LD; 'wasm-unsafe-eval' lets RDKit, minimap2 and samtools (WebAssembly) run. Workbench studios fetch public
+         APIs over https. Change form-action/connect-src only if a form backend on another scheme is added. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss: ws: data: blob:; worker-src 'self' blob:; frame-src 'self' https:; media-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Import nf-core results | Vivofold</title>
+    <meta name="description" content="Import nf-core results: part of the Nayancode Workbench by Vivofold. Free bioinformatics in your browser, with nothing uploaded." />
+    <link rel="canonical" href="https://vivofold.in/import/" />
+    <meta name="robots" content="noindex" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vivofold" />
+    <meta property="og:title" content="Import nf-core results | Vivofold" />
+    <meta property="og:description" content="Import nf-core results: part of the Nayancode Workbench by Vivofold. Free bioinformatics in your browser, with nothing uploaded." />
+    <meta property="og:url" content="https://vivofold.in/import/" />
+    <meta property="og:image" content="https://vivofold.in/og-nayancode.png" />
+    <meta property="og:image:alt" content="Vivofold: Biology, unfolded." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Import nf-core results | Vivofold" />
+    <meta name="twitter:description" content="Import nf-core results: part of the Nayancode Workbench by Vivofold. Free bioinformatics in your browser, with nothing uploaded." />
+    <meta name="twitter:image" content="https://vivofold.in/og-nayancode.png" />
+    <meta name="geo.region" content="IN-KA" />
+    <meta name="geo.placename" content="Bengaluru" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://vivofold.in/#organization","name":"Vivofold","url":"https://vivofold.in/","logo":{"@type":"ImageObject","url":"https://vivofold.in/brand/vivofold-logo-512.png","width":512,"height":512},"image":"https://vivofold.in/og.png","description":"Vivofold is a computational biotechnology company. We combine generative AI, physics-based simulation and multi-omics biology to discover first-in-class targets and design small molecules, proteins and novel biologics with biopharma and research partners. Vedicgen (education) and Nayancode (scientific software) are part of Vivofold.","slogan":"Biology, unfolded.","email":"contact@vivofold.in","address":[{"@type":"PostalAddress","streetAddress":"2nd Floor, No. 754, 19th Main Rd, 22nd Cross Rd, Sector 2, HSR Layout","addressLocality":"Bengaluru","addressRegion":"Karnataka","postalCode":"560102","addressCountry":"IN"},{"@type":"PostalAddress","addressLocality":"Chennai","addressRegion":"Tamil Nadu","addressCountry":"IN"}],"contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"contact@vivofold.in","areaServed":["IN","Worldwide"],"availableLanguage":["English"]},{"@type":"ContactPoint","contactType":"admissions","email":"help@vivofold.in","areaServed":["IN","Worldwide"],"availableLanguage":["English"]},{"@type":"ContactPoint","contactType":"technical support","email":"support@vivofold.in","areaServed":"Worldwide","availableLanguage":["English"]}],"areaServed":["India","Worldwide"],"priceRange":"₹₹","department":[{"@id":"https://vivofold.in/vedicgen/#school"},{"@id":"https://vivofold.in/nayancode/#software"}],"knowsAbout":["AI drug discovery","Generative AI for chemistry","Physics-based drug design","Free-energy calculations","Multi-omics integration","Spatial biology","Target discovery","Clinical variant interpretation","Pharmacogenomics","Biotechnology","Bioinformatics","Computational biology","Genomics","Transcriptomics","RNA-seq","Next-generation sequencing","Molecular biology","Cell culture","Microbiology","Molecular docking","Cheminformatics","QSAR","Machine learning in biology","Scientific software","Cloud computing for genomics","Geoinformatics","Health informatics"]}]}</script>
+    <link rel="preload" href="/assets/ibm-plex-sans-latin-wght-normal-IvpUvPa2.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      // Theme before first paint: stored choice, else OS preference, else light.
+      (function () {
+        var d = document.documentElement, t;
+        try { t = localStorage.getItem('wb.theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        d.dataset.theme = t;
+        // Reveal-on-scroll is enabled only with JS; if the app never starts, show everything.
+        d.classList.add('js');
+        setTimeout(function () { if (!window.__appReady) d.classList.remove('js'); }, 3500);
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DMxdfCM4.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-hePW80VL.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-Cvdyeg_0.js">
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-DjzSQ1t3.js">
+    <link rel="modulepreload" crossorigin href="/assets/chunk-OB3PAWPO-B5Xd-3pF.js">
+    <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-NZYk81nU.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DJ7cutKw.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

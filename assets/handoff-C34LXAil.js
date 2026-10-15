@@ -1,0 +1,1 @@
+import{Et as e}from"./index-DMxdfCM4.js";function t(e){setTimeout(()=>n.setState({[e]:null}),1500)}var n=e(e=>({vcf:null,setVcf:t=>e({vcf:t}),structure:null,setStructure:t=>e({structure:t}),expr:null,setExpr:t=>e({expr:t}),sc:null,setSc:t=>e({sc:t})}));export{n,t};

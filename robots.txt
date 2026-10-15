@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /report/
+Disallow: /import/
+Disallow: /licenses/
+
+Sitemap: https://vivofold.in/sitemap.xml
