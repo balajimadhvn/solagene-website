@@ -5,3 +5,4 @@ test-results
 .claude
 playwright-report
 dist-ssr
+.wrangler/
