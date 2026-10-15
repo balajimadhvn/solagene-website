@@ -2,7 +2,7 @@
 // (public/brand/vivofold-logo-512.png, -192.png, apple-touch-icon.png, favicon-32.png) from the brand files.
 // Re-run after changing the logo, company name or taglines:  npm run og
 // Fonts are read from the installed @fontsource packages, so no network access is needed.
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -49,7 +49,9 @@ const SHOTS = [
   ['og-nayancode.png', og({ kicker: 'Scientific software', title: nc.tagline, sub: 'Bioinformatics studios that run privately in your browser: genomics, RNA-seq, single-cell, chemistry and structure.', glowA: 'rgba(106,85,212,0.7)', glowB: 'rgba(31,111,224,0.4)', accent: '#b3a6ff', chip: 'Nayancode' })],
 ];
 const icon = (size, bg) => `<!doctype html><html><head><style>* { margin: 0; } body { width: ${size}px; height: ${size}px; display: grid; place-items: center; background: ${bg}; } i { display: block; width: ${Math.round(size * 0.74)}px; height: ${Math.round(size * 0.76)}px; background: url(${mark}) center / contain no-repeat; }</style></head><body><i></i></body></html>`;
-const ICONS = [['brand/vivofold-logo-512.png', 512, '#ffffff'], ['brand/vivofold-logo-192.png', 192, '#ffffff'], ['brand/apple-touch-icon.png', 180, '#ffffff'], ['brand/favicon-32.png', 32, 'transparent']];
+const ICONS = [['brand/vivofold-logo-512.png', 512, '#ffffff'], ['brand/vivofold-logo-192.png', 192, '#ffffff'], ['brand/apple-touch-icon.png', 180, '#ffffff'], ['brand/favicon-32.png', 32, 'transparent'], ['brand/favicon-16.png', 16, 'transparent'],
+  // Google Search shows the site favicon only if it is square and at least 48 px (multiples of 48 preferred).
+  ['brand/favicon-48.png', 48, '#ffffff'], ['brand/favicon-96.png', 96, '#ffffff'], ['brand/favicon-192.png', 192, '#ffffff']];
 
 const browser = await chromium.launch({ args: ['--no-sandbox'] });
 for (const [file, html] of SHOTS) {
@@ -63,3 +65,10 @@ for (const [file, size, bg] of ICONS) {
   await page.screenshot({ path: join(root, 'public', file), omitBackground: bg === 'transparent' }); await page.close(); console.log(`wrote public/${file}`);
 }
 await browser.close();
+
+// /favicon.ico (16, 32, 48 px PNG frames): crawlers and old browsers request it at the site root.
+const frames = ['brand/favicon-16.png', 'brand/favicon-32.png', 'brand/favicon-48.png'].map((f) => readFileSync(join(root, 'public', f)));
+const head = Buffer.alloc(6 + 16 * frames.length); head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(frames.length, 4);
+let offset = head.length;
+frames.forEach((png, i) => { const size = png.readUInt32BE(16), e = 6 + 16 * i; head.writeUInt8(size % 256, e); head.writeUInt8(size % 256, e + 1); head.writeUInt16LE(1, e + 4); head.writeUInt16LE(32, e + 6); head.writeUInt32LE(png.length, e + 8); head.writeUInt32LE(offset, e + 12); offset += png.length; });
+writeFileSync(join(root, 'public', 'favicon.ico'), Buffer.concat([head, ...frames])); console.log('wrote public/favicon.ico');
