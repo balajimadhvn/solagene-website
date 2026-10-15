@@ -149,11 +149,14 @@ Cloudflare Pages `_headers`).
 - Workers project `vivofold-website` (Git-connected to balajimadhvn/vivofold-website, build `npm run build`, deploy
   `npx wrangler deploy`, config `wrangler.jsonc`) builds green; live at https://vivofold-website.balajimadhvn.workers.dev
   with all security headers from public/_headers.
-- NEXT: (1) Worker → Settings → Domains & Routes → add custom domains vivofold.in and www.vivofold.in (first delete
-  the 4 A records and the www CNAME, they conflict). (2) SSL/TLS → Edge Certificates → Always Use HTTPS on.
-  (3) Email Routing overview should show DNS "configured"; send a test mail. (4) Remove the custom domain from
-  GitHub Pages (`gh api -X PUT repos/balajimadhvn/vivofold-website/pages -F cname=null`) and consider disabling the
-  GitHub Pages deploy job in this repo. (5) Search Console: submit https://vivofold.in/sitemap.xml, request indexing.
+- DONE 2026-10-16: Worker route `*vivofold.in/*` (fail open → falls back to the GitHub Pages origin) serves the
+  Cloudflare build with all security headers; www CNAME proxied; Always Use HTTPS on (http → 301 https); Redirect Rule
+  "www → root" (301). GitHub Pages keeps its custom domain only as the fail-open fallback origin. Favicon for Google:
+  /favicon.ico (16/32/48) + 48/96/192 px PNGs (scripts/og.mjs). Note: wrangler.jsonc has no `routes`; the route lives in
+  the dashboard (adding it to wrangler.jsonc would reset failure mode to fail-closed).
+- NEXT: Search Console (Domain property; submit https://vivofold.in/sitemap.xml; inspect + request indexing for home,
+  /vedicgen/courses/, /vedicgen/internships/), Bing Webmaster Tools import. SEO session `seo-visibility` (worktree of
+  this repo) is doing research + on-page/structured-data work and will open a PR.
 - Tool sessions (worktrees under ../nayancode/.claude/worktrees/): docking-studio, genome-tools, lab-and-figures (2nd
   attempt); each opens a PR on balajimadhvn/nayancode — review, merge, then sync the site. Benchmarks session on
   nayancode main: IQ-TREE + bcftools + case studies, may still be uncommitted.
