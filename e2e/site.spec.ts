@@ -43,9 +43,10 @@ test('every public page is prerendered, hydrates without errors and has a unique
   expect(errs).toEqual([]);
 });
 
-test('GitHub Pages behaviour: slashless URLs redirect, unknown URLs are a real 404, old URLs redirect', async ({ request, page }) => {
+test('Static-host behaviour: slashless URLs redirect, unknown URLs are a real 404, old URLs redirect', async ({ request, page }) => {
   const r = await request.get('/vedicgen/courses', { maxRedirects: 0 });
-  expect(r.status()).toBe(301); expect(r.headers().location).toBe('/vedicgen/courses/');
+  // GitHub Pages answers 301, Cloudflare's static assets 307; canonical tags carry the slash URL either way.
+  expect([301, 307, 308]).toContain(r.status()); expect(new URL(r.headers().location, 'http://x').pathname).toBe('/vedicgen/courses/');
   const nf = await request.get('/no-such-page/'); expect(nf.status()).toBe(404); expect(await nf.text()).toContain('could not be found');
   await page.goto('/courses/rna-seq-data-analysis/'); await expect(page).toHaveURL(/\/vedicgen\/courses\/rna-seq-data-analysis\/$/);
   await expect(page.locator('h1')).toHaveText(/RNA-seq Data Analysis/);
