@@ -137,6 +137,27 @@ are fine if they run client-side. Current build 21 MB, largest file 7.3 MB (limi
 Multi-threaded WebAssembly needs cross-origin isolation, which GitHub Pages cannot send (use `coi-serviceworker` there or
 Cloudflare Pages `_headers`).
 
+## Cloudflare move (2026-10-15 evening) — STATE AND NEXT STEPS
+- Account: Cloudflare (balajimadhvn@gmail.com), account id 6211801e8c89119bfbe6981f22954940. Zone vivofold.in is ACTIVE (Free).
+  Namecheap nameservers = alberto.ns.cloudflare.com, karina.ns.cloudflare.com (registry confirmed). Namecheap email
+  forwarders were deleted by the owner; Cloudflare Email Routing forwards contact@/help@/support@/balajimadhvn@ to
+  balajimadhvn@gmail.com (destination verified).
+- DNS at Cloudflare: 4 A records 185.199.108-111.153 (GitHub Pages) **proxied**, www CNAME balajimadhvn.github.io
+  (still DNS-only; switch to proxied), MX route1/2/3.mx.cloudflare.net, SPF include:_spf.mx.cloudflare.net, DKIM
+  cf2024-1._domainkey, DMARC p=reject, google-site-verification TXT. So right now Cloudflare proxies GitHub Pages:
+  https comes from Cloudflare's Universal SSL automatically once issued.
+- Workers project `vivofold-website` (Git-connected to balajimadhvn/vivofold-website, build `npm run build`, deploy
+  `npx wrangler deploy`, config `wrangler.jsonc`) builds green; live at https://vivofold-website.balajimadhvn.workers.dev
+  with all security headers from public/_headers.
+- NEXT: (1) Worker → Settings → Domains & Routes → add custom domains vivofold.in and www.vivofold.in (first delete
+  the 4 A records and the www CNAME, they conflict). (2) SSL/TLS → Edge Certificates → Always Use HTTPS on.
+  (3) Email Routing overview should show DNS "configured"; send a test mail. (4) Remove the custom domain from
+  GitHub Pages (`gh api -X PUT repos/balajimadhvn/vivofold-website/pages -F cname=null`) and consider disabling the
+  GitHub Pages deploy job in this repo. (5) Search Console: submit https://vivofold.in/sitemap.xml, request indexing.
+- Tool sessions (worktrees under ../nayancode/.claude/worktrees/): docking-studio, genome-tools, lab-and-figures (2nd
+  attempt); each opens a PR on balajimadhvn/nayancode — review, merge, then sync the site. Benchmarks session on
+  nayancode main: IQ-TREE + bcftools + case studies, may still be uncommitted.
+
 ## Still needs the owner (cannot be done in code)
 Also (2026-10-15): DMARC TXT record at Namecheap; ethics approval + participants for the usability study; confirm author list/affiliations
 and the target journal; decide on Cloudflare Pages if GitHub's certificate stays stuck; Cloudflare Web Analytics token (optional).
