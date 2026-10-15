@@ -1,4 +1,4 @@
-# Vivofold website: session progress and handoff (2026-10-14)
+# Vivofold website: session progress and handoff (updated 2026-10-15)
 
 Read this first when resuming. It records what was built in the "Vivofold / Vedicgen / Nayancode" session, the
 decisions and user preferences, and exactly what remains.
@@ -81,5 +81,63 @@ bio-IT, bioprocess, hybrid CRO/CDMO). Vedicgen and Nayancode are small but reach
 - Content caution: keep de novo protein design and novel-biologics copy at one-sentence positioning level (a safety
   filter stopped detailed drafts several times).
 
+## Nayancode Workbench: open source, DOI, benchmarks, security (2026-10-15)
+**Two repositories.** `../nayancode` (= github.com/balajimadhvn/nayancode, Apache-2.0) is the **source of truth** for the
+Workbench; this website repo gets it by `node scripts/sync-workbench.mjs` (copies src/studios, ui, pages, compute, viz,
+styles, core except brand.ts, public/wasm|rdkit|data, benchmarks). After syncing, stage only those Workbench paths (not
+`git add -A`), `git pull --rebase`, push. Both repos deploy to GitHub Pages on every push to main (tests, build, e2e).
+Live: https://balajimadhvn.github.io/nayancode/ and https://vivofold.in/.
+**Commit identity** (no global git identity on this machine): `git -c user.name=balajimadhvn -c user.email=maivannanrangan@gmail.com commit`.
+**Memory/notes:** `~/.claude/projects/-run-media-aji-1-TB-company-webpage/memory/` (see `nayancode-publication.md`).
+
+**Publication identifiers (done).** Author: Balaji Madhavan, ORCID 0009-0007-8654-3864, "Vivofold, India".
+Zenodo concept DOI **10.5281/zenodo.23393495** (v1.0.0 = 10.5281/zenodo.23393496); the Zenodo webhook is on, so every GitHub
+release mints a new version DOI. Software Heritage snapshot `swh:1:snp:67315dfae82fc87ef6305b079143593ebb115e45`.
+`CITATION.cff`, `.zenodo.json`, README badge and the Workbench's auto-written Methods all cite the DOI.
+
+**Engine work (done).** Expression Studio fits any design (TMM, voom, moderated t/F; sample-sheet design table, contrasts,
+F-test, numeric trends, paired samples; `src/studios/expression/{linear,design}.ts`). Matches limma-voom exactly after two
+fixes found by benchmarking (adaptive voom span; limma-style `fitFDist` prior). Single-Cell HVG/normalisation/PCA fixed to
+match Scanpy. New browser-side heavy tools: bcftools SNV+indel calling (WebAssembly), ML tree bootstrap in parallel workers;
+the "Needs a server later" card was removed. Downloads are named `vivofold-nayancode_<name>_<date>.<ext>`
+(`src/core/filename.ts`). Works over plain http (`src/core/id.ts`, `clipboard.ts` fallbacks). No inline scripts
+(`public/theme-init.js`), CSP without `unsafe-inline`, `public/.well-known/security.txt`, footer cookie-policy link.
+
+**Benchmarks (done, in CI).** `nayancode/benchmarks/` (`npm run bench`, results in `benchmarks/RESULTS.md`). Data fetched by
+`benchmarks/fetch.sh` with SHA-256 checks. Expression vs DESeq2/limma-voom/edgeR on airway + pasilla (identical to
+limma-voom; r 0.99+ with DESeq2/edgeR). Single-Cell vs Scanpy on PBMC3k (same cells, 1,996/2,000 shared HVGs, PC1-7 match,
+cluster ARI 0.75). Reference tools run only on this machine/CI, never shipped (GPL-safe). R refs: conda env `rna-seq`
+(`/home/aji/anaconda3/envs/rna-seq/bin/Rscript`). Scanpy: a venv built from Python 3.12 (`unidock` env python); Python 3.14
+has no wheels.
+
+**In progress (a separate Claude session, "Benchmarks ... browser heavy tools"):** bcftools-CLI benchmark (E. coli REL606 +
+SRR2584863 reads), IQ-TREE benchmark, three case studies (airway, PBMC3k, bacterial variants or a phylogeny) in
+`nayancode/docs/case-studies/`. Check `git log` in `../nayancode` and `benchmarks/RESULTS.md` for what has landed.
+
+**Usability study (kit done, study needs people).** `nayancode/docs/usability/`: PROTOCOL, CONSENT, TASKS (+ answer key),
+SUS, results-template.csv; `scripts/usability-materials.mjs` and `scripts/usability-analyse.mjs`. Needs ethics approval or a
+written exemption first (fill the reference into PROTOCOL/CONSENT), 12-20 students + 5-10 outside researchers.
+
+**Paper status (honest).** Software is citable now. A journal paper (NAR Web Server issue first choice; else Bioinformatics
+Application Note; JOSS for the library) still needs: bcftools + IQ-TREE comparisons, case studies, usability results,
+author list/affiliations confirmed, bioRxiv preprint, bio.tools + RRID entries. Plan: `docs/PUBLICATION-PLAN.md`.
+Tool roadmap (free-hosting-only): `nayancode/docs/ROADMAP.md`.
+
+**HTTPS on vivofold.in (open).** DNS is right (4 GitHub A records, www CNAME) but GitHub's certificate was stuck at
+"authorization_created"; the custom domain was removed and re-added on 2026-10-15 and a watcher was set to enforce HTTPS
+when issued. Check: `gh api repos/balajimadhvn/vivofold-website/pages -q '.https_certificate.state'`; when `approved`:
+`gh api -X PUT repos/balajimadhvn/vivofold-website/pages -F https_enforced=true`. If still stuck after a day, contact GitHub
+Support or move to Cloudflare Pages (free; reads `public/_headers`, which already holds frame-ancestors, HSTS, nosniff).
+robustdevs.co scan findings that GitHub Pages cannot fix: X-Content-Type-Options / X-Frame-Options headers and
+`Access-Control-Allow-Origin: *` (harmless for a public static site). **DMARC** needs a TXT record at Namecheap (owner):
+`_dmarc` = `v=DMARC1; p=reject; adkim=s; aspf=s` if nothing is ever sent *from* @vivofold.in, else `p=none; rua=mailto:support@vivofold.in`.
+
+**Hosting rule (owner, firm):** everything must be hostable free (GitHub Pages, or Cloudflare Pages if needed); heavy tools
+are fine if they run client-side. Current build 21 MB, largest file 7.3 MB (limits 1 GB site / 100 MB file / ~100 GB/month).
+Multi-threaded WebAssembly needs cross-origin isolation, which GitHub Pages cannot send (use `coi-serviceworker` there or
+Cloudflare Pages `_headers`).
+
 ## Still needs the owner (cannot be done in code)
+Also (2026-10-15): DMARC TXT record at Namecheap; ethics approval + participants for the usability study; confirm author list/affiliations
+and the target journal; decide on Cloudflare Pages if GitHub's certificate stays stuck; Cloudflare Web Analytics token (optional).
 Legal entity name, phone/WhatsApp, socials, TEAM/instructor profiles, Formspree endpoint (`VITE_FORM_ENDPOINT`), Search Console verification, cohort dates + payment links (`BATCHES`), review of fees/instalments/10% group discount/7-day refund rule/free Nayancode internship, confirmation that the wet-lab training venue is ready, lawyer review of legal pages. See `docs/LAUNCH-CHECKLIST.md`.
