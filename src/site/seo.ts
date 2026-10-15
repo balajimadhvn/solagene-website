@@ -153,7 +153,7 @@ export function metaFor(path: string): PageMeta | null {
   const studio = STUDIOS.find((x) => x.path === p);
   if (studio) return { path: p, title: `${studio.name}: Free Online ${studio.short} Analysis | Nayancode`.length > 65 ? `${studio.name}: Free Online Analysis | Nayancode` : `${studio.name}: Free Online ${studio.short} Analysis | Nayancode`, description: `${studio.blurb} Part of the Nayancode Workbench by ${BRAND.name}. Runs entirely in your browser; your files are never uploaded.`, type: 'website', brand: 'nayancode', jsonLd: [organization()] };
   const tool: Record<string, string> = { '/workbench': 'Nayancode Workbench', '/licenses': 'Open-source licences', '/report': 'Report builder', '/atlas': 'Gene Atlas', '/import': 'Import nf-core results' };
-  if (tool[p]) return { path: p, title: tool[p], description: `${tool[p]}: part of the Nayancode Workbench by ${BRAND.name}. Free bioinformatics in your browser, with nothing uploaded.`, type: 'website', brand: 'nayancode', jsonLd: [organization()], noindex: p !== '/workbench' };
+  if (tool[p]) return { path: p, title: tool[p], description: `${tool[p]}: part of the Nayancode Workbench by ${BRAND.name}. Free bioinformatics in your browser, and your files are never uploaded.`, type: 'website', brand: 'nayancode', jsonLd: [organization()], noindex: p !== '/workbench' };
   return null;
 }
 

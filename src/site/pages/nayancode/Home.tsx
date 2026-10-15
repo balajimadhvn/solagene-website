@@ -35,7 +35,7 @@ export default function NayancodeHome() {
           <div className="dhero-copy">
             <p className="kicker" style={{ color: '#b3a6ff' }}>Vivofold Nayancode · The software of Vivofold</p>
             <h1 id="nc-hero" className="t-display" style={{ fontSize: 'clamp(2.6rem, 1.6rem + 3.6vw, 4.6rem)' }}>See the biology <span className="grad-text">in your data.</span></h1>
-            <p className="lede">{DIVISIONS.nayancode.line} Nine analysis studios, a gene atlas, a report builder and {TOOLS.length} free tools. No installation, no account, nothing uploaded.</p>
+            <p className="lede">{DIVISIONS.nayancode.line} Nine analysis studios, a gene atlas, a report builder and {TOOLS.length} free tools. No installation, no account, and your files are never uploaded.</p>
             <div className="inline"><Link to="/workbench" className="button button--grad button--lg"><I.Grid width={18} height={18} />Launch the Workbench</Link><Link to="/nayancode/demo" className="button button--secondary button--lg">Request a demo</Link></div>
             <dl className="nc-stats"><div><dt>Analysis studios</dt><dd><CountUp to={STUDIOS.length} /></dd></div><div><dt>Products</dt><dd><CountUp to={PRODUCTS.length} /></dd></div><div><dt>Free tools</dt><dd><CountUp to={TOOLS.length} /></dd></div><div><dt>Bytes of your data uploaded</dt><dd>0</dd></div></dl>
           </div>

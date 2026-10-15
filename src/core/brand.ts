@@ -18,6 +18,8 @@ export const BRAND = {
   slogan: 'Computational discovery of drug targets and medicines.',
   description: 'Vivofold is a computational biotechnology company. We combine generative AI, physics-based simulation and multi-omics biology to discover first-in-class targets and design small molecules, proteins and novel biologics with biopharma and research partners. Vedicgen (education) and Nayancode (scientific software) are part of Vivofold.',
   version: '1.0.0',
+  /** Route of the Workbench overview on this website (the standalone Nayancode build uses '/'). */
+  workbenchHome: '/workbench',
   siteUrl: 'https://vivofold.in', // production origin without a trailing slash (canonical URLs, sitemap, share links)
   email: 'contact@vivofold.in', // general enquiries; forms fall back to the right inbox below
   emails: {
