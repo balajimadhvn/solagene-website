@@ -295,7 +295,7 @@ function Footer() {
         <div className="ftr-news-row"><div><p className="label">The Vivofold letter</p><p className="small">One practical guide a month, new cohorts and software releases. No spam.</p></div><Newsletter compact id="ftr-news" /></div>
         <div className="ftr-base">
           <span>© <span suppressHydrationWarning>{new Date().getFullYear()}</span> {BRAND.legalName || BRAND.name}. Vedicgen and Nayancode are divisions of {BRAND.name}. Research and education use; not for clinical decisions.</span>
-          <nav className="ftr-legal" aria-label="Legal"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link to="/refund-policy">Refunds & cancellations</Link><Link to="/licenses">Open-source licences</Link>{BRAND.socials.map((s) => <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>)}</nav>
+          <nav className="ftr-legal" aria-label="Legal"><Link to="/privacy">Privacy</Link><Link to="/privacy#cookies">Cookie policy</Link><Link to="/terms">Terms</Link><Link to="/refund-policy">Refunds & cancellations</Link><Link to="/licenses">Open-source licences</Link>{BRAND.socials.map((s) => <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>)}</nav>
           <ThemeSwitch />
         </div>
       </div>

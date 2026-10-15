@@ -5,6 +5,8 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 # Cross-origin isolation (WASM threads, SharedArrayBuffer) only on Workbench routes, so the public site can still
 # embed videos, forms and analytics. 'credentialless' keeps public-API fetches (RCSB, UniProt, EBI, NCBI) working.

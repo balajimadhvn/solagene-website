@@ -83,7 +83,7 @@ export function Privacy() {
       </ul>
       <h2>How forms are delivered</h2>
       <p>{backend ? <>Form submissions are delivered to our inbox through <b>{backend}</b>, a form-processing service that acts on our behalf.</> : <>When you submit a form, your own e-mail application opens with the message prepared; nothing is sent until you press send in your e-mail app.</>} If delivery fails, the form offers to open your e-mail application with the message prepared instead. Messages are received in our business e-mail.</p>
-      <h2>Cookies and analytics</h2>
+      <h2 id="cookies">Cookies and analytics</h2>
       <p>This website does not use advertising or tracking cookies. {INTEGRATIONS.cloudflareAnalyticsToken ? 'We use Cloudflare Web Analytics, which counts page views without cookies and without identifying you.' : 'We do not run third-party analytics.'} The site stores your colour-theme choice and Nayancode work-in-progress in your browser’s local storage; you can clear these at any time.</p>
       <h2>Nayancode software</h2>
       <p>Analyses run locally in your browser. Some features query public databases only when you ask (for example a gene or compound lookup); in that case only the identifier you typed is sent to that database, which has its own privacy policy.</p>
