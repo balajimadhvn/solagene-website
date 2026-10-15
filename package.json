@@ -1,0 +1,45 @@
+{
+  "name": "vivofold-website",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/site-index.mjs && vite",
+    "build": "node scripts/license-check.mjs && node scripts/site-index.mjs && tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr --emptyOutDir && node scripts/prerender.mjs",
+    "preview": "node scripts/serve.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "licenses": "node scripts/license-check.mjs",
+    "e2e": "playwright test",
+    "og": "node scripts/og.mjs",
+    "index": "node scripts/site-index.mjs",
+    "screens": "node scripts/screens.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/ibm-plex-sans": "^5.3.0",
+    "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@rdkit/rdkit": "^2026.3.6",
+    "igv": "^3.8.9",
+    "molstar": "^5.12.0",
+    "motion": "^13.5.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "sass": "^1.105.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  },
+  "scarfSettings": {
+    "enabled": false
+  }
+}

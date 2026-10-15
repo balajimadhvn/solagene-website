@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbfcfe" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#071027" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="author" content="Vivofold" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- GitHub Pages cannot send security headers, so the policy is set here. 'unsafe-inline' covers the theme script and
+         JSON-LD; 'wasm-unsafe-eval' lets RDKit, minimap2 and samtools (WebAssembly) run. Workbench studios fetch public
+         APIs over https. Change form-action/connect-src only if a form backend on another scheme is added. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss: ws: data: blob:; worker-src 'self' blob:; frame-src 'self' https:; media-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <!--head-->
+    <title>Vivofold: Biotechnology & Bioinformatics Company, Courses & Software</title>
+    <meta name="description" content="Vivofold is a biotechnology and bioinformatics company: Vedicgen courses and internships, Nayancode scientific software and research services." />
+    <!--/head-->
+    <script>
+      // Theme before first paint: stored choice, else OS preference, else light.
+      (function () {
+        var d = document.documentElement, t;
+        try { t = localStorage.getItem('wb.theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        d.dataset.theme = t;
+        // Reveal-on-scroll is enabled only with JS; if the app never starts, show everything.
+        d.classList.add('js');
+        setTimeout(function () { if (!window.__appReady) d.classList.remove('js'); }, 3500);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

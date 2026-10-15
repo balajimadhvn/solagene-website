@@ -1,0 +1,182 @@
+// Free web tools. Each tool has its own URL so it can be found by search, plus explanatory content that answers
+// the question behind the search (what it is, how it is computed, how to read the result).
+
+export type ToolGroup = 'DNA & RNA' | 'Protein' | 'Alignment & files';
+export const TOOL_GROUPS: ToolGroup[] = ['DNA & RNA', 'Protein', 'Alignment & files'];
+
+export interface ToolDef {
+  slug: string;
+  name: string;
+  group: ToolGroup;
+  /** Short monospace mark shown in the tool index. */
+  glyph: string;
+  seoTitle: string;
+  seoDescription: string;
+  short: string;
+  input: 'dna' | 'protein' | 'oligo' | 'fasta' | 'pair';
+  about: { h: string; p: string[] }[];
+  faq: { q: string; a: string }[];
+  related: string[];
+  keywords: string[];
+  course?: string; // related course slug
+}
+
+const PRIVACY = { q: 'Is my sequence uploaded anywhere?', a: 'No. The calculation runs in your browser with JavaScript. Nothing you paste is sent to a server, which makes the tool safe for unpublished or confidential sequences.' };
+
+export const TOOLS: ToolDef[] = [
+  {
+    slug: 'gc-content-calculator', group: 'DNA & RNA', glyph: 'GC%', name: 'GC Content Calculator', input: 'dna', course: 'bioinformatics-foundations',
+    seoTitle: 'GC Content Calculator with Sliding-Window Plot (Free)',
+    seoDescription: 'Calculate the GC content of DNA or RNA sequences instantly, with a sliding-window GC plot and per-record results for multi-FASTA. Free and private: runs in your browser.',
+    short: 'GC % per sequence with a sliding-window profile.',
+    about: [
+      { h: 'What is GC content?', p: ['GC content is the percentage of bases in a DNA or RNA sequence that are guanine (G) or cytosine (C). It is calculated as (G + C) / (A + T + G + C) × 100. Ambiguous bases such as N are excluded from the denominator, so a stretch of unknown sequence does not distort the result.', 'GC pairs are joined by three hydrogen bonds rather than two, so GC-rich DNA is more thermally stable. GC content therefore matters for PCR primer design, sequencing bias and genome annotation.'] },
+      { h: 'Why use a sliding window?', p: ['A single percentage hides local variation. A sliding-window profile computes GC content over consecutive windows along the sequence, revealing CpG islands, GC-rich promoters, horizontally transferred regions in bacteria and regions that may sequence poorly.', 'Smaller windows show finer detail but are noisier; for a gene-length sequence a window of 50 to 100 bases is a reasonable start.'] },
+      { h: 'Typical values', p: ['Genome-wide GC content ranges from below 25% in some bacteria to above 70% in others. The human genome averages about 41%, while human coding regions are typically higher. Comparing a sequence against the background of its organism is more informative than an absolute value.'] },
+    ],
+    faq: [{ q: 'Does the calculator accept RNA?', a: 'Yes. U is treated like T. Multi-FASTA input gives one result per record.' }, { q: 'How are ambiguous bases handled?', a: 'S (G or C) counts as GC and W (A or T) as AT. Other IUPAC codes such as N are reported separately and excluded from the percentage.' }, PRIVACY],
+    related: ['reverse-complement', 'primer-tm-calculator', 'fasta-validator'],
+    keywords: ['GC content calculator', 'calculate GC content', 'GC percentage DNA'],
+  },
+  {
+    slug: 'reverse-complement', group: 'DNA & RNA', glyph: '3′←5′', name: 'Reverse Complement Tool', input: 'dna', course: 'bioinformatics-foundations',
+    seoTitle: 'Reverse Complement DNA Sequence Online (Free)',
+    seoDescription: 'Get the reverse complement, reverse or complement of DNA and RNA sequences, with full IUPAC ambiguity-code support and multi-FASTA input. Runs privately in your browser.',
+    short: 'Reverse, complement or reverse-complement DNA and RNA.',
+    about: [
+      { h: 'What is a reverse complement?', p: ['DNA is double-stranded and the two strands run in opposite directions. The reverse complement of a sequence is the sequence of the opposite strand read 5′ to 3′: each base is replaced by its partner (A↔T, G↔C) and the result is reversed.', 'You need it whenever a feature lies on the minus strand, when designing reverse primers, or when comparing reads that map to the opposite strand.'] },
+      { h: 'Reverse vs complement vs reverse complement', p: ['The complement swaps bases without reversing; the reverse only reverses the order. Neither corresponds to a real strand read in the conventional direction, but both are useful in specific situations such as reading a sequence 3′ to 5′.'] },
+      { h: 'Ambiguity codes', p: ['IUPAC codes are complemented correctly: R (A/G) ↔ Y (C/T), K ↔ M, B ↔ V, D ↔ H, while S, W and N are their own complements.'] },
+    ],
+    faq: [{ q: 'Is case preserved?', a: 'The output is upper case, which is what most downstream tools expect.' }, PRIVACY],
+    related: ['dna-to-protein-translator', 'gc-content-calculator', 'orf-finder'],
+    keywords: ['reverse complement', 'reverse complement DNA', 'DNA complement tool'],
+  },
+  {
+    slug: 'dna-to-protein-translator', group: 'DNA & RNA', glyph: 'ATG→M', name: 'DNA to Protein Translator', input: 'dna', course: 'python-for-bioinformatics',
+    seoTitle: 'DNA to Protein Translation Tool (6 Frames)',
+    seoDescription: 'Translate DNA or RNA into protein in all six reading frames using the standard genetic code, with stop codons and ORFs highlighted. Free, private, in-browser.',
+    short: 'Six-frame translation with the standard genetic code.',
+    about: [
+      { h: 'How translation works', p: ['Translation reads a coding sequence three bases (a codon) at a time and maps each codon to an amino acid using the genetic code. ATG encodes methionine and is the usual start codon; TAA, TAG and TGA are stop codons, shown as *.'] },
+      { h: 'Why six frames?', p: ['Without annotation you do not know where a gene starts or which strand it is on. A sequence can be read starting at base 1, 2 or 3 on the forward strand and likewise on the reverse complement, giving six possible reading frames. The frame that produces a long stretch without stop codons is usually the real one.'] },
+    ],
+    faq: [{ q: 'Which genetic code is used?', a: 'The standard code (NCBI translation table 1). Mitochondrial and some microbial codes differ for a few codons.' }, { q: 'What does X mean in the output?', a: 'X marks a codon that contains an ambiguous base such as N, so its amino acid cannot be determined.' }, PRIVACY],
+    related: ['orf-finder', 'codon-usage-calculator', 'protein-molecular-weight-calculator'],
+    keywords: ['DNA to protein translation', 'translate DNA sequence', 'six frame translation'],
+  },
+  {
+    slug: 'orf-finder', group: 'DNA & RNA', glyph: 'ORF', name: 'ORF Finder', input: 'dna', course: 'bioinformatics-foundations',
+    seoTitle: 'ORF Finder: Find Open Reading Frames Online (Free)',
+    seoDescription: 'Find open reading frames (ATG to stop) in all six frames of a DNA sequence, with a minimum length filter, coordinates and protein sequences. Runs in your browser.',
+    short: 'ATG-to-stop open reading frames in six frames.',
+    about: [
+      { h: 'What is an open reading frame?', p: ['An open reading frame (ORF) is a stretch of sequence that starts with a start codon (ATG) and continues, codon by codon, until a stop codon. Long ORFs are candidate protein-coding genes, because random sequence contains a stop codon roughly every 21 codons.'] },
+      { h: 'Choosing a minimum length', p: ['Short ORFs occur by chance throughout any sequence. A minimum of 75 to 100 codons is a common starting point for bacterial genes; lower thresholds find small peptides but many more false positives. ORF finding is a first step, not a gene prediction: eukaryotic genes contain introns that split the coding sequence.'] },
+      { h: 'Reading the coordinates', p: ['Coordinates are 1-based positions on the forward strand of your input, including the stop codon. ORFs on the minus strand are reported with the same forward-strand coordinates so they can be compared directly.'] },
+    ],
+    faq: [{ q: 'Does it use alternative start codons?', a: 'Only ATG is used as a start codon. Bacteria also use GTG and TTG; treat the result as conservative for prokaryotes.' }, PRIVACY],
+    related: ['dna-to-protein-translator', 'reverse-complement', 'codon-usage-calculator'],
+    keywords: ['ORF finder', 'open reading frame finder', 'find ORF online'],
+  },
+  {
+    slug: 'protein-molecular-weight-calculator', group: 'Protein', glyph: 'kDa', name: 'Protein Molecular Weight Calculator', input: 'protein', course: 'molecular-docking-drug-discovery',
+    seoTitle: 'Protein Molecular Weight Calculator (kDa) & Composition',
+    seoDescription: 'Calculate protein molecular weight in Da and kDa from an amino acid sequence, with amino-acid composition, extinction coefficient and GRAVY. Free and private.',
+    short: 'Average molecular weight, composition, extinction coefficient.',
+    about: [
+      { h: 'How the molecular weight is calculated', p: ['The average molecular weight is the sum of the average masses of each amino-acid residue plus one water molecule (18.015 Da) for the free N- and C-termini. Average masses account for the natural abundance of isotopes, which is what SDS-PAGE and most biochemical calculations use.', 'Post-translational modifications, disulfide bonds and signal-peptide cleavage are not included, so the mass of a mature protein can differ from the value calculated from its sequence.'] },
+      { h: 'Extinction coefficient', p: ['The molar extinction coefficient at 280 nm is estimated from the number of tryptophan, tyrosine and cystine residues (Pace et al., 1995), assuming all cysteines form disulfide bonds. Divide the absorbance at 280 nm by this value to estimate protein concentration.'] },
+      { h: 'GRAVY', p: ['The grand average of hydropathy (GRAVY) is the mean Kyte–Doolittle hydropathy value over all residues. Positive values indicate a hydrophobic protein, negative values a hydrophilic one.'] },
+    ],
+    faq: [{ q: 'Can I paste a DNA sequence?', a: 'Translate it first with the DNA to Protein Translator, then paste the protein sequence here.' }, PRIVACY],
+    related: ['protein-isoelectric-point-calculator', 'dna-to-protein-translator', 'fasta-validator'],
+    keywords: ['protein molecular weight calculator', 'protein mass calculator', 'kDa calculator protein'],
+  },
+  {
+    slug: 'protein-isoelectric-point-calculator', group: 'Protein', glyph: 'pI', name: 'Protein Isoelectric Point (pI) Calculator', input: 'protein', course: 'molecular-docking-drug-discovery',
+    seoTitle: 'Protein Isoelectric Point (pI) Calculator Online',
+    seoDescription: 'Estimate the isoelectric point (pI) of a protein from its sequence and plot net charge against pH. Useful for ion-exchange chromatography and electrophoresis.',
+    short: 'Theoretical pI and a net-charge-vs-pH curve.',
+    about: [
+      { h: 'What is the isoelectric point?', p: ['The isoelectric point (pI) is the pH at which a protein carries no net electrical charge. Below its pI a protein is positively charged; above it, negatively charged. Proteins are often least soluble near their pI.'] },
+      { h: 'How it is estimated', p: ['The net charge at each pH is computed from the number of ionisable groups (N-terminus, C-terminus, Asp, Glu, Cys, Tyr, His, Lys, Arg) and their pKa values using the Henderson–Hasselbalch equation. The pI is the pH where the net charge crosses zero, found by bisection.', 'Different tools use different pKa sets, so theoretical pI values typically differ by a few tenths of a unit. Treat the value as an estimate for planning, not a measurement.'] },
+      { h: 'Using the pI in the lab', p: ['For ion-exchange chromatography, choose a buffer pH about one unit away from the pI: below the pI the protein binds a cation exchanger, above it an anion exchanger.'] },
+    ],
+    faq: [PRIVACY],
+    related: ['protein-molecular-weight-calculator', 'dna-to-protein-translator'],
+    keywords: ['isoelectric point calculator', 'protein pI calculator', 'calculate pI of protein'],
+  },
+  {
+    slug: 'codon-usage-calculator', group: 'DNA & RNA', glyph: 'RSCU', name: 'Codon Usage Calculator', input: 'dna', course: 'python-for-bioinformatics',
+    seoTitle: 'Codon Usage Calculator: Frequency & RSCU Table',
+    seoDescription: 'Compute codon usage for a coding sequence: counts, frequency per thousand, fraction among synonymous codons and RSCU, grouped by amino acid. Free and in-browser.',
+    short: 'Codon counts, per-thousand frequency and RSCU.',
+    about: [
+      { h: 'What is codon usage bias?', p: ['Most amino acids are encoded by more than one codon. Organisms do not use these synonymous codons equally, and highly expressed genes tend to favour codons that match abundant tRNAs. Codon usage matters when expressing a gene in a different host, for example a human gene in E. coli.'] },
+      { h: 'RSCU explained', p: ['Relative synonymous codon usage (RSCU) is the observed count of a codon divided by the count expected if all synonymous codons for that amino acid were used equally. RSCU = 1 means no bias; above 1 the codon is preferred; below 1 it is avoided.'] },
+      { h: 'Input requirements', p: ['Paste an in-frame coding sequence (starting at the first base of a codon). Multiple sequences in FASTA format are pooled. A trailing partial codon is ignored and reported.'] },
+    ],
+    faq: [{ q: 'Can I compare against a host organism?', a: 'This tool reports the usage of your sequence. Comparing with a host table (for example from the Kazusa or CoCoPUTs databases) shows which codons may limit expression.' }, PRIVACY],
+    related: ['dna-to-protein-translator', 'gc-content-calculator', 'orf-finder'],
+    keywords: ['codon usage calculator', 'RSCU calculator', 'codon frequency table'],
+  },
+  {
+    slug: 'fasta-validator', group: 'Alignment & files', glyph: '>id', name: 'FASTA Validator & Formatter', input: 'fasta', course: 'bioinformatics-foundations',
+    seoTitle: 'FASTA Validator & Formatter: Check FASTA Files Online',
+    seoDescription: 'Check FASTA files for missing headers, duplicate IDs, empty records, invalid characters and inconsistent line widths, then reformat to a fixed width. Private, in-browser.',
+    short: 'Find FASTA format errors and rewrap sequences.',
+    about: [
+      { h: 'The FASTA format', p: ['A FASTA file contains one or more records. Each record starts with a header line beginning with ">", followed by an identifier (the text up to the first space) and an optional description, then one or more lines of sequence.'] },
+      { h: 'Common problems this catches', p: ['Missing or empty headers, duplicate identifiers (which break indexing and many aligners), records without sequence, characters that are not valid for DNA, RNA or protein, a space straight after ">", and inconsistent line widths, which samtools faidx and some genome tools reject.'] },
+      { h: 'Formatting', p: ['After validation you can rewrap every record to a fixed line width, 60 or 80 characters being the most common, and copy or download the cleaned file.'] },
+    ],
+    faq: [{ q: 'Is there a file-size limit?', a: 'The tool runs in your browser, so it comfortably handles files of a few megabytes. For whole genomes use command-line tools such as seqkit.' }, PRIVACY],
+    related: ['gc-content-calculator', 'reverse-complement'],
+    keywords: ['FASTA validator', 'FASTA format checker', 'FASTA formatter online'],
+  },
+  {
+    slug: 'primer-tm-calculator', group: 'DNA & RNA', glyph: 'Tm', name: 'Primer Tm Calculator', input: 'oligo', course: 'bioinformatics-foundations',
+    seoTitle: 'Primer Tm Calculator (Nearest-Neighbour, Salt-Corrected)',
+    seoDescription: 'Calculate primer melting temperature with the nearest-neighbour method and salt correction, plus GC content, ΔG, 3′ GC clamp and hairpin or self-dimer warnings.',
+    short: 'Nearest-neighbour Tm with salt correction and primer checks.',
+    about: [
+      { h: 'How Tm is calculated', p: ['The melting temperature (Tm) is the temperature at which half of the primer is bound to its complement. This calculator uses the nearest-neighbour thermodynamic model (SantaLucia, 1998), which sums the enthalpy and entropy of each adjacent base pair, and corrects for monovalent and Mg²⁺ ions following Owczarzy et al. (2004, 2008, simplified).', 'Simple rules such as the Wallace rule (2 °C per A/T, 4 °C per G/C) are only adequate for very short oligos and can be off by several degrees.'] },
+      { h: 'Good primer properties', p: ['Typical PCR primers are 18–25 nucleotides long with 40–60% GC content, a Tm of 55–65 °C, and forward and reverse primers within about 2–3 °C of each other. One or two G or C bases at the 3′ end (a GC clamp) help priming, but more than three can promote mispriming.'] },
+      { h: 'Reaction conditions matter', p: ['Tm depends on salt, magnesium and primer concentration. Use the values of your actual PCR buffer; the defaults (50 mM Na⁺, 1.5 mM Mg²⁺, 0.2 mM dNTPs, 250 nM primer) are typical for Taq polymerase reactions.'] },
+    ],
+    faq: [{ q: 'Why does my polymerase supplier give a different Tm?', a: 'Suppliers use their own buffer compositions and sometimes different thermodynamic tables. Differences of 1–3 °C are normal; use one calculator consistently.' }, PRIVACY],
+    related: ['gc-content-calculator', 'reverse-complement'],
+    keywords: ['primer Tm calculator', 'oligo melting temperature calculator', 'PCR primer Tm'],
+  },
+  {
+    slug: 'pairwise-sequence-alignment', group: 'Alignment & files', glyph: 'A|A', name: 'Pairwise Sequence Alignment', input: 'pair', course: 'bioinformatics-foundations',
+    seoTitle: 'Pairwise Sequence Alignment Tool (Global & Local, Online)',
+    seoDescription: 'Align two DNA or protein sequences with Needleman–Wunsch (global) or Smith–Waterman (local) and affine gap penalties, with identity, similarity and gap statistics. Runs in your browser.',
+    short: 'Global or local alignment of two DNA or protein sequences.',
+    about: [
+      { h: 'Global and local alignment', p: ['A global alignment (Needleman–Wunsch) aligns two sequences from end to end and suits sequences of similar length that are related along their whole length. A local alignment (Smith–Waterman) finds the best-scoring region shared by the two sequences and ignores the rest, which suits a domain inside a longer protein or a read against a longer reference.', 'Both are computed exactly by dynamic programming. This tool uses affine gap penalties, in which opening a gap costs more than extending it, so a single long indel is preferred to many short ones, as in real sequence evolution.'] },
+      { h: 'Scoring', p: ['DNA is scored with a match reward of +2 and a mismatch penalty of −3, with a gap-open penalty of 5 and a gap-extension penalty of 2. Proteins are scored with the BLOSUM62 substitution matrix, a gap-open penalty of 11 and an extension penalty of 1, similar to the BLASTP defaults. A gap of length L costs open + extend × (L − 1).'] },
+      { h: 'Reading the result', p: ['In the middle line, | marks an identical position, : a positive BLOSUM62 score (a conservative substitution in proteins), . a mismatch and a space a gap. Identity is the fraction of aligned columns with identical residues; the alignment score depends on the scoring scheme and is only comparable between alignments scored the same way.'] },
+    ],
+    faq: [{ q: 'How long can the sequences be?', a: 'Up to a few thousand residues each: the alignment matrix grows with the product of the two lengths, and the browser limit is about 25 million cells. For database searches use BLAST.' }, { q: 'Is this the same as BLAST?', a: 'No. BLAST is a heuristic that searches a database quickly; this tool computes the exact optimal alignment of two sequences you supply.' }, PRIVACY],
+    related: ['fasta-validator', 'dna-to-protein-translator', 'reverse-complement'],
+    keywords: ['pairwise sequence alignment', 'needleman wunsch online', 'smith waterman alignment tool'],
+  },
+  {
+    slug: 'restriction-site-finder', group: 'DNA & RNA', glyph: 'G^AATTC', name: 'Restriction Site Finder', input: 'dna', course: 'bioinformatics-foundations',
+    seoTitle: 'Restriction Site Finder & Virtual Digest (Free, Online)',
+    seoDescription: 'Find restriction-enzyme sites in a DNA sequence and simulate a digest of linear or circular DNA, with cut positions, fragment sizes and a virtual gel. Runs in your browser.',
+    short: 'Restriction sites, fragment sizes and a virtual gel for linear or circular DNA.',
+    about: [
+      { h: 'What the tool does', p: ['The finder scans a DNA sequence for the recognition sites of 32 common Type II restriction enzymes, reports every site with its position and the overhang the enzyme leaves, and simulates a digest with the enzymes you select. Fragment sizes are shown in a table and on a virtual agarose gel against a ladder.'] },
+      { h: 'Linear and circular DNA', p: ['A plasmid is circular, so n cuts give n fragments, while a linear molecule such as a PCR product gives n + 1. Sites that span the end of a circular sequence are found as well. Choose the topology that matches your molecule.'] },
+      { h: 'Planning a cloning digest', p: ['Enzymes that cut only once in a vector and not at all in the insert are candidates for directional cloning. Check that the overhangs of the two enzymes are compatible with your strategy, and remember that methylation and star activity are not modelled here.'] },
+    ],
+    faq: [{ q: 'Which enzymes are included?', a: 'Thirty-two widely used palindromic Type II enzymes, including EcoRI, BamHI, HindIII, XhoI, NotI, NdeI, NcoI, XbaI, PstI and KpnI. Type IIS enzymes used in Golden Gate assembly are handled in the cloning tools of Sequence Studio.' }, { q: 'Does it account for DNA methylation?', a: 'No. Dam, Dcm and CpG methylation can block some enzymes; check the supplier’s information for your host strain.' }, PRIVACY],
+    related: ['reverse-complement', 'gc-content-calculator', 'primer-tm-calculator'],
+    keywords: ['restriction site finder', 'restriction enzyme map', 'virtual digest online'],
+  },
+];
+
+export const toolBySlug = (slug: string) => TOOLS.find((t) => t.slug === slug);

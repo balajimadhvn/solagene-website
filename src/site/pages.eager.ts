@@ -1,0 +1,20 @@
+// Server (prerender) uses eager page modules; the browser uses pages.lazy.ts. Keep the keys identical.
+export { default as Home } from './pages/Home';
+export { About, Contact } from './pages/Company';
+export { Privacy, Refunds, Terms, Verify } from './pages/Legal';
+export { ResearchArea, ResearchHub } from './pages/Research';
+export { ServiceDetail, ServicesHub } from './pages/Services';
+export { ArticlePage, LearnHub } from './pages/Learn';
+export { Industry, Science, Solutions } from './pages/Science';
+export { default as NotFound } from './pages/NotFound';
+export { default as VedicgenHome } from './pages/vedicgen/Home';
+export { default as CourseCatalogue } from './pages/vedicgen/Catalogue';
+export { default as CourseDetail } from './pages/vedicgen/CourseDetail';
+export { ProgramDetail, ProgramsHub } from './pages/vedicgen/Programs';
+export { InternshipDetail, InternshipsHub } from './pages/vedicgen/Internships';
+export { Institutions, ResearchTraining, Workshops } from './pages/vedicgen/Training';
+export { Apply, Pricing } from './pages/vedicgen/Admissions';
+export { default as NayancodeHome } from './pages/nayancode/Home';
+export { ProductDetail, ProductsHub } from './pages/nayancode/Products';
+export { ToolPage, ToolsHub } from './pages/nayancode/Tools';
+export { Demo, Docs, Licensing } from './pages/nayancode/Support';
