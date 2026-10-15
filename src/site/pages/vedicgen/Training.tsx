@@ -17,7 +17,7 @@ export function Workshops() {
   const list = WORKSHOPS.filter((w) => mode === 'all' || w.mode === mode);
   return (
     <>
-      <PageHeader crumbs={crumbs('Workshops', '/vedicgen/workshops')} label="Vivofold Vedicgen · Workshops" title="Short, hands-on workshops"
+      <PageHeader crumbs={crumbs('Workshops', '/vedicgen/workshops')} label="Vivofold Vedicgen · Workshops" title="Bioinformatics and biotechnology workshops, online and in person"
         lede={`${WORKSHOPS.length} workshops of one or two days: online for computational topics, in person for bench techniques. A fast way to learn one method well, with a certificate of participation.`}
         actions={<a href="#register" onClick={jump('register')} className="button button--accent button--lg">Register interest <I.Arrow /></a>} />
       <section className="section">

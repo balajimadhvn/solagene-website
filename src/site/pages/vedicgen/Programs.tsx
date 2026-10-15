@@ -20,8 +20,8 @@ const FAQ = [
 export function ProgramsHub() {
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Programmes', path: '/vedicgen/programs' }]} label="Vivofold Vedicgen · Professional programmes" title="Professional programmes: a path, not a pile of courses"
-        lede={`${PROGRAMS.length} programmes that combine courses in the right order with an integrated capstone, priced below the courses bought separately. Dry lab online, wet lab in person, or both.`} />
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Programmes', path: '/vedicgen/programs' }]} label="Vivofold Vedicgen · Professional programmes" title="Bioinformatics and biotechnology certificate programmes"
+        lede={`${PROGRAMS.length} certificate programmes that combine courses in the right order with an integrated capstone, priced below the courses bought separately. Dry lab online, wet lab in person, or both.`} />
       <section className="section">
         <div className="container"><div className="cgrid">{PROGRAMS.map((p, i) => <ProgramCard key={p.slug} p={p} index={i} />)}</div></div>
       </section>

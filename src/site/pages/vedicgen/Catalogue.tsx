@@ -128,8 +128,8 @@ export default function CourseCatalogue() {
 
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Courses', path: '/vedicgen/courses' }]} label="Vivofold Vedicgen · Course catalogue" title="Courses in bioinformatics, biotechnology and scientific computing"
-        lede={`${COURSES.length} courses with published syllabi and fees: in-person wet-lab bench training, live online cohorts and self-paced study, each ending in assessed work and a verifiable certificate.`}
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Courses', path: '/vedicgen/courses' }]} label="Vivofold Vedicgen · Course catalogue" title="Bioinformatics, biotechnology and computing courses in India"
+        lede={`${COURSES.length} courses of up to four weeks with published syllabi and fees: in-person wet-lab bench training, live online cohorts and self-paced online study, each ending in assessed work and a certificate you can verify online.`}
         actions={<><a href="#catalogue" className="button button--accent button--lg">Browse the catalogue <I.Arrow /></a><a href="#finder" className="button button--secondary button--lg">Find my course</a></>} />
 
       <section className="section" id="catalogue" aria-labelledby="catalogue-h" style={{ paddingTop: 'clamp(32px, 4vw, 56px)' }}>
