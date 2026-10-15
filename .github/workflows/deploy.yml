@@ -1,0 +1,41 @@
+# Deploys the site to GitHub Pages on every push to main (free hosting, no server).
+# One-time set-up: repository Settings → Pages → Source: "GitHub Actions"; add the custom domain vivofold.in there
+# (public/CNAME already contains it) and tick "Enforce HTTPS".
+# Optional repository variables (Settings → Secrets and variables → Actions → Variables):
+#   VITE_FORM_ENDPOINT     e.g. https://formspree.io/f/xxxxxxx   (form backend; without it forms open the e-mail app)
+#   VITE_FORM_ACCESS_KEY   Web3Forms access key (only for Web3Forms)
+#   VITE_GOOGLE_SITE_VERIFICATION   Search Console HTML-tag token (or verify the domain by DNS instead)
+#   BASE_PATH              only when serving from https://<user>.github.io/<repo>/ without a custom domain, e.g. /repo/
+name: Deploy to GitHub Pages
+on:
+  push: { branches: [main] }
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VITE_FORM_ENDPOINT: ${{ vars.VITE_FORM_ENDPOINT }}
+      VITE_FORM_ACCESS_KEY: ${{ vars.VITE_FORM_ACCESS_KEY }}
+      VITE_GOOGLE_SITE_VERIFICATION: ${{ vars.VITE_GOOGLE_SITE_VERIFICATION }}
+      BASE_PATH: ${{ vars.BASE_PATH || '/' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e   # public site + every Workbench studio, against the production build served like GitHub Pages
+        env: { GH_PAGES: '1' }
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
