@@ -32,10 +32,13 @@ const contacts = () => [
   { '@type': 'ContactPoint', contactType: 'technical support', email: BRAND.emails.support, areaServed: 'Worldwide', availableLanguage: ['English'] },
 ];
 export function organization(): Json {
+  const full = BRAND.locations.filter((l) => l.line1 && l.postalCode), partial = BRAND.locations.filter((l) => !(l.line1 && l.postalCode));
   return {
     '@type': ['Organization', 'LocalBusiness'], '@id': ORG, name: BRAND.name, ...(BRAND.legalName ? { legalName: BRAND.legalName } : {}), url: abs('/'),
     logo: { '@type': 'ImageObject', url: abs('/brand/solagene-logo-512.png').replace(/\/$/, ''), width: 512, height: 512 }, image: `${BRAND.siteUrl}/og.png`,
-    description: BRAND.description, slogan: BRAND.tagline, email: BRAND.emails.general, address: BRAND.locations.length ? [postal(), ...BRAND.locations.map(postalOf)] : postal(), contactPoint: contacts(),
+    description: BRAND.description, slogan: BRAND.tagline, email: BRAND.emails.general, address: full.length ? [postal(), ...full.map(postalOf)] : postal(), contactPoint: contacts(),
+    // Offices without a street address are listed as places: Google's LocalBusiness rules expect a street address on every address.
+    ...(partial.length ? { location: partial.map((l) => ({ '@type': 'Place', name: `${BRAND.name} ${l.label}`, address: postalOf(l) })) } : {}),
     ...(BRAND.phone ? { telephone: BRAND.phone } : {}), ...(BRAND.foundingYear ? { foundingDate: BRAND.foundingYear } : {}), ...(BRAND.socials.length ? { sameAs: BRAND.socials.map((s) => s.url) } : {}),
     areaServed: ['India', 'Worldwide'], priceRange: '₹₹',
     department: [{ '@id': VG }, { '@id': NC }],
@@ -56,7 +59,7 @@ const NCc = { name: 'Nayancode', path: '/nayancode' };
 
 type Static = Omit<PageMeta, 'path' | 'jsonLd'> & { jsonLd?: () => Json[]; parent?: { name: string; path: string }; name?: string };
 const STATIC: Record<string, Static> = {
-  '/': { title: `${BRAND.name}: Bioinformatics Courses, Software & Services`, description: `${BRAND.name} is a computational biotech company in India: AI drug discovery and bioinformatics services, Vedicgen courses and internships, free Nayancode software.`, type: 'website', priority: 1, jsonLd: () => [{ '@type': 'WebSite', '@id': `${BRAND.siteUrl}/#website`, name: BRAND.name, alternateName: ['Solagene.com', `${BRAND.name} ${DIVISIONS.vedicgen.name}`], url: abs('/'), publisher: { '@id': ORG }, inLanguage: 'en-IN' }, vedicgen(), nayancode(), faqLd(HOME_FAQ)] },
+  '/': { title: `${BRAND.name}: Bioinformatics Courses, Software & Services`, description: `${BRAND.name}, computational biotech in India: AI drug discovery and bioinformatics services, Vedicgen courses and free Nayancode software.`, type: 'website', priority: 1, jsonLd: () => [{ '@type': 'WebSite', '@id': `${BRAND.siteUrl}/#website`, name: BRAND.name, alternateName: ['Solagene.com', `${BRAND.name} ${DIVISIONS.vedicgen.name}`], url: abs('/'), publisher: { '@id': ORG }, inLanguage: 'en-IN' }, vedicgen(), nayancode(), faqLd(HOME_FAQ)] },
   '/about': { name: 'About', title: `About ${BRAND.name}: Computational Biotechnology Company`, description: `${BRAND.name} is a computational biotechnology company in India. Our approach, how Vedicgen and Nayancode fit in, our mission and our offices.`, type: 'website', priority: 0.7, jsonLd: () => [vedicgen(), nayancode()] },
   '/contact': { name: 'Contact', title: `Contact ${BRAND.name}: Courses, Software & Research Services`, description: `Contact ${BRAND.name}: ${BRAND.emails.general} for general enquiries, ${BRAND.emails.help} for admissions and ${BRAND.emails.support} for software support.`, type: 'website', priority: 0.7 },
   '/science': { name: 'Our science', title: 'Our Science: Generative AI, Physics-Based Drug Discovery', description: 'Solagene focus areas: generative AI and physics-based drug discovery, de novo design, multi-omics and spatial biology, target discovery and novel biologics.', type: 'website', priority: 0.9 },
