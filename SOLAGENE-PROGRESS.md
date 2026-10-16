@@ -1,3 +1,79 @@
+# ▶ RESUME HERE (written 2026-10-16, before /clear)
+
+**The company was renamed Vivofold → Solagene on 2026-10-16** (owner's decision). Domain is now **solagene.com**
+(registered at Namecheap 2026-10-16, auto-renew OFF — owner should turn it on). vivofold.in stays only as a 301
+redirect to solagene.com. Sub-brands unchanged: Vedicgen (school), Nayancode (software), both under Solagene.
+Commit identity: `git -c user.name=balajimadhvn -c user.email=maivannanrangan@gmail.com commit` + Co-Authored-By trailer.
+Owner wants sub-sessions on cheaper models (Sonnet / Haiku). Owner's Chrome has the Claude extension with Cloudflare
+and Namecheap signed in (Namecheap sessions expire; ask the owner to sign in again if needed).
+
+## Done in this session (2026-10-16)
+- **Logo:** official Solagene artwork (owner supplied `public/brand/solagene-logo-original.webp`). Built
+  `public/brand/solagene-mark.svg` (potrace vector outline clipping the original colouring, exact look),
+  `solagene-mark.webp` (light render used in the header/footer), `solagene-logo.svg` (lockup, navy text),
+  `solagene-logo-on-dark.svg`, `solagene-wordmark.svg`; `src/site/wordmark.ts` = traced SOLAGENE outlines
+  (currentColor). `scripts/og.mjs` regenerates favicons (16/32/48/96/192, favicon.ico, apple-touch, logo 192/512)
+  and the 3 share images (layout fixed so long titles don't overlap). Build scripts for the trace are not in the repo
+  (scratch); the outputs are.
+- **Website repo** (`balajimadhvn/solagene-website`, renamed from vivofold-website; local remote updated): every
+  Vivofold → Solagene, vivofold.in → solagene.com, emails @solagene.com, `VIVOFOLD-PROGRESS.md` → this file,
+  `vivofold.css` → `solagene.css`, `VivofoldMark` → `SolageneMark`, tagline "Research, education, innovation."
+  (from the logo). 237 unit + 33 e2e (GH_PAGES mode) passed. Commits 84cf127, d8288b9. Merged before rename:
+  SEO PR #1 (titles, Course markup, IndexNow key file, docs/SEO-RESEARCH-2026.md, docs/SEO-OWNER-CHECKLIST.md).
+- **nayancode repo:** rebrand commit cc5572b (README logo + "By Solagene", CITATION/.zenodo.json affiliation
+  "Solagene, India", NOTICE, CONTRIBUTING, brand.ts, download prefix `solagene-nayancode_<name>_<date>.<ext>`,
+  favicons). Repo description updated. Merged: Lab calculators + figure export (#2), genome tools (#1, abfd7d4);
+  benchmarks session pushed 214cac9 (bcftools + IQ-TREE comparisons, case studies).
+- **Cloudflare** (account 6211801e8c89119bfbe6981f22954940):
+  - Zone **solagene.com** ACTIVE (nameservers alberto/karina.ns.cloudflare.com set at Namecheap). DNS: 4 A
+    185.199.108–111.153 + www CNAME balajimadhvn.github.io (all PROXIED, GitHub Pages = fail-open origin), MX
+    route1/2/3.mx.cloudflare.net, SPF, DKIM cf2024-1._domainkey, DMARC p=reject. Always Use HTTPS ON.
+  - **Email Routing solagene.com:** contact@, help@, support@, balajimadhvn@ → balajimadhvn@gmail.com (all Active).
+  - Worker renamed **vivofold-website → solagene-website** (wrangler.jsonc name updated; Git build still works after
+    the repo rename). Routes: `*solagene.com/*` and `*vivofold.in/*`, both fail-open.
+  - **vivofold.in:** Redirect Rule "vivofold.in moved to solagene.com" (`*vivofold.in/*` → `https://solagene.com/${2}`,
+    301, keep query) — verified. Old www→root rule still there. Email routing for @vivofold.in kept.
+  - GitHub Pages custom domain of solagene-website set to solagene.com (fallback origin only).
+- Verified live: https://solagene.com → 200, Solagene title, security headers; vivofold.in/* → 301 solagene.com/*.
+
+## NOT finished — do these next, in order
+1. **www.solagene.com → solagene.com redirect**: currently returns 200 (rule from template "Redirect from WWW to root"
+   on zone solagene.com may not have saved). Check Rules → Redirect Rules on solagene.com; create/deploy it.
+2. **Docking PR #3** (balajimadhvn/nayancode, branch claude/docking-studio-4ae2f0, worktree
+   ../nayancode/.claude/worktrees/docking-studio-4ae2f0): CONFLICTING after genome PR #1 merged. Session
+   `docking-studio` (local_9bd173e3-79e8-4f7a-8931-a6ed07c2c974) hit its usage limit (resets 17:00 IST); either
+   message it to rebase, or rebase yourself: `git fetch && git rebase origin/main`, keep both sides in
+   studios.ts / App.tsx / provenance.ts / data-sources.ts / e2e / RESULTS.md / fetch.sh; `npm test`, `npm run build`,
+   `GH_PAGES=1 npm run e2e --workers=1` (RAM is tight: run e2e with one worker), push --force-with-lease, wait for
+   checks, `gh pr merge 3 --squash`. Result to report: redocking 15/42 = 35.7 % top pose < 2 Å, identical to native
+   Vina 1.2.7 on the same inputs (r = 0.991 scores).
+3. **Sync the Workbench into the website** after docking merges: in company-webpage `git pull`, `node
+   scripts/sync-workbench.mjs`, stage ONLY Workbench paths (src/studios, src/core except brand.ts, src/ui, src/pages,
+   src/compute, src/viz, src/styles, public/wasm, public/rdkit, public/data, benchmarks), check `git grep -i vivofold`
+   is empty, `npx vitest run`, `npm run build`, `GH_PAGES=1 E2E_PORT=4182 npx playwright test --workers=1`, commit, push.
+4. **nayancode v1.1.0 release** (makes Zenodo mint a new version DOI with Solagene metadata): move CHANGELOG
+   "Unreleased" to "1.1.0 (date)", bump package.json, CITATION.cff (version, date-released) and .zenodo.json version;
+   update test counts in README; commit, push, CI green, `gh release create v1.1.0`. Then check
+   `https://zenodo.org/api/records?q=%22Nayancode%20Workbench%22&sort=mostrecent` for the new DOI and add it to
+   README/CITATION identifiers. Optionally edit the 1.0.0 Zenodo record's affiliation (needs owner's Zenodo login).
+5. **Search engines**: Search Console Domain property for solagene.com (ask the owner which Google account; the
+   signed-in one showed avatar "P"), submit https://solagene.com/sitemap.xml, request indexing for /, /vedicgen/courses/,
+   /vedicgen/internships/; in Search Console use "Change of address" from vivofold.in if that property exists;
+   Bing Webmaster import; run `node scripts/indexnow.mjs` (key file in public/).
+6. Update memory notes (company is Solagene) and this file's older sections when convenient (they still describe
+   the vivofold.in-era setup historically).
+
+## Sub-sessions (linked to the original session)
+| name | id | state |
+|---|---|---|
+| docking-studio | local_9bd173e3-79e8-4f7a-8931-a6ed07c2c974 | PR #3 open, conflicting; hit usage limit |
+| genome-tools | local_b28c1fdb-2d4b-49fe-8972-0d0121c627d4 | DONE, merged (#1) |
+| lab-and-figures-2 | local_51cbb3b3-1ee6-4ef2-a573-2a856baefee4 | DONE, merged (#2) |
+| seo-visibility | local_1c26dbeb-bfd5-4dbe-ad0e-aa551d79f3b0 | DONE, merged (website #1) |
+| benchmarks-deseq2-done-s | local_c89432c4-6649-4969-b162-0bea7a128a67 | DONE, pushed 214cac9 |
+
+---
+
 # Solagene website: session progress and handoff (updated 2026-10-15)
 
 Read this first when resuming. It records what was built in the "Solagene / Vedicgen / Nayancode" session, the
