@@ -385,7 +385,7 @@ export const BIOINFO_MORE: CourseInput[] = [
     datasets: [{ name: 'ChEMBL bioactivity data', source: 'ChEMBL (CC BY-SA 3.0)', use: 'Known actives and validation' }, { name: 'DUD-E actives and decoys', source: 'dude.docking.org', use: 'Retrospective enrichment' }, { name: 'ZINC purchasable compounds', source: 'ZINC database', use: 'Screening library' }],
     readings: ['Sliwoski G, Kothiwale S, Meiler J, Lowe EW (2014). Computational methods in drug discovery. Pharmacological Reviews 66:334–395.', 'Daina A, Michielin O, Zoete V (2017). SwissADME: a free web tool to evaluate pharmacokinetics, drug-likeness and medicinal chemistry friendliness. Scientific Reports 7:42717.'],
     project: { title: 'Run a virtual-screening campaign', body: 'Design and validate a combined ligand- and structure-based screen against a target and deliver a prioritised, justified shortlist of compounds.' },
-    studio: { label: 'Chemistry Studio', to: '/chemistry' },
+    studio: { label: 'Docking & Chemistry Studios', to: '/docking' },
     faq: [FORMAT, SETUP(), CERT, DATES],
     keywords: ['computer aided drug design course', 'CADD training India', 'virtual screening course', 'ADMET prediction tutorial'],
   },

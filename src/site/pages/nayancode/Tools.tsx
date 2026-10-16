@@ -17,7 +17,7 @@ export function ToolsHub() {
   return (
     <>
       <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Nayancode', path: '/nayancode' }, { name: 'Free tools', path: '/nayancode/tools' }]} label="Free tools" title="Free bioinformatics tools that run in your browser"
-        lede="Calculators for everyday sequence work, each with an explanation of how the result is computed, and nine full analysis studios. Your sequences are processed on your own device: nothing is uploaded, and there is nothing to install or sign up for.">
+        lede="Calculators for everyday sequence work, each with an explanation of how the result is computed, and eleven full analysis studios. Your sequences are processed on your own device: nothing is uploaded, and there is nothing to install or sign up for.">
         <label className="searchbox" style={{ maxWidth: 520, marginTop: 8, width: '100%' }}><span className="sr-only">Search tools</span><I.Search width={17} height={17} /><input type="search" placeholder="Search tools, e.g. GC content, Tm, alignment" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search tools" />{q && <button type="button" className="clear" onClick={() => setQ('')} aria-label="Clear search"><I.X width={14} height={14} /></button>}</label>
       </PageHeader>
 

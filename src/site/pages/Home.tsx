@@ -130,7 +130,7 @@ function FamilyBand() {
         <Reveal className="band-head"><div><p className="kicker">Also from {BRAND.name}</p><h2 id="fam-h">Training and software, run by the same team.</h2></div></Reveal>
         <div className="famrow">
           <Reveal className="ccard-wrap"><Link to="/vedicgen" className="fam fam--vg"><b>Vedicgen</b><span>Our school. {COURSES.length} wet-lab and computational courses, professional programmes and mentored internships for students and working scientists.</span><span className="ccard-go">Visit Vedicgen <I.Arrow width={15} height={15} /></span></Link></Reveal>
-          <Reveal index={1} className="ccard-wrap"><Link to="/nayancode" className="fam fam--nc"><b>Nayancode</b><span>Our software. Nine analysis studios and {TOOLS.length} free tools that run in the browser, so research data never leaves the user’s computer.</span><span className="ccard-go">Visit Nayancode <I.Arrow width={15} height={15} /></span></Link></Reveal>
+          <Reveal index={1} className="ccard-wrap"><Link to="/nayancode" className="fam fam--nc"><b>Nayancode</b><span>Our software. Eleven analysis studios and {TOOLS.length} free tools that run in the browser, so research data never leaves the user’s computer.</span><span className="ccard-go">Visit Nayancode <I.Arrow width={15} height={15} /></span></Link></Reveal>
         </div>
       </div>
     </section>

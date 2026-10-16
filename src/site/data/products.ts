@@ -35,9 +35,9 @@ const shot = (slug: string) => `/img/products/${slug}.webp`;
 export const PRODUCTS: Product[] = [
   {
     slug: 'workbench', name: 'Nayancode Workbench', line: 'Platform', app: '/workbench', shot: shot('workbench'), courses: ['ngs-data-analysis', 'rna-seq-data-analysis', 'cheminformatics-qsar-modelling'],
-    tagline: 'Nine analysis studios. One private workspace in your browser.',
+    tagline: 'Eleven analysis studios. One private workspace in your browser.',
     short: 'The complete suite: sequence, genome, variant, expression, single-cell, microbiome, chemistry, structure and phylogenetics studios.',
-    description: ['Nayancode Workbench brings nine analysis studios together in one workspace that runs entirely in your web browser. Files are analysed on your own computer with Web Workers and WebAssembly, so unpublished or confidential data never leave your device.', 'Every analysis records its tool, version, parameters and input checksum and writes a methods paragraph with citations. Figures can be collected into a report and exported with the methods, so results stay reproducible from the first click.'],
+    description: ['Nayancode Workbench brings eleven analysis studios together in one workspace that runs entirely in your web browser. Files are analysed on your own computer with Web Workers and WebAssembly, so unpublished or confidential data never leave your device.', 'Every analysis records its tool, version, parameters and input checksum and writes a methods paragraph with citations. Figures can be collected into a report and exported with the methods, so results stay reproducible from the first click.'],
     features: [
       { t: 'Private by design', d: 'Computation happens in your browser. A live network meter shows exactly how many bytes have been sent anywhere.' },
       { t: 'Methods that write themselves', d: 'Each analysis records parameters and versions and produces a citable methods paragraph.' },
@@ -250,7 +250,7 @@ export const PRODUCTS: Product[] = [
     keywords: ['online phylogenetic tree maker', 'maximum likelihood tree online', 'multiple sequence alignment online'],
   },
   {
-    slug: 'lab-studio', name: 'Nayancode Lab Studio', line: 'Knowledge & reporting', studio: 'lab', app: st('lab').path, shot: shot('lab-studio'), courses: ['molecular-biology-techniques', 'biostatistics-experimental-design', 'scientific-data-visualisation'],
+    slug: 'lab-studio', name: 'Nayancode Lab Studio', line: 'Knowledge & reporting', studio: 'lab', app: st('lab').path, shot: shot('lab-studio'), courses: ['qpcr-gene-expression', 'biostatistics-experimental-design', 'scientific-data-visualisation'],
     tagline: 'qPCR, dose–response and power calculations, checked against R.',
     short: 'Bench calculators: qPCR ΔΔCt and Pfaffl, 4PL / 5PL dose–response with IC50, and power and sample size, with publication-ready figures.',
     description: ['Lab Studio covers the calculations a wet lab does every week. qPCR relative quantification by ΔΔCt (Livak) or efficiency-corrected Pfaffl with several reference genes, geNorm stability, replicate outlier flags and statistics on ΔCt; standard-curve efficiency; 4PL and 5PL dose–response fits with IC50 confidence intervals; and power and sample size for t tests, ANOVA, proportions, survival and RNA-seq.', 'Every method is validated against the original papers and R packages (drc, pwr, RNASeqPower, gsDesign, NormqPCR), and every chart exports to SVG, PDF or 300 / 600 dpi PNG.'],

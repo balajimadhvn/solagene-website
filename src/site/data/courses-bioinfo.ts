@@ -238,7 +238,7 @@ export const BIOINFO_CORE: CourseInput[] = [
     ],
     readings: ['Trott O, Olson AJ (2010). AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. Journal of Computational Chemistry 31:455–461.', 'Eberhardt J, Santos-Martins D, Tillack AF, Forli S (2021). AutoDock Vina 1.2.0: new docking methods, expanded force field, and Python bindings. Journal of Chemical Information and Modeling 61:3891–3898.', 'Mysinger MM, Carchia M, Irwin JJ, Shoichet BK (2012). Directory of useful decoys, enhanced (DUD-E). Journal of Medicinal Chemistry 55:6582–6594.'],
     project: { title: 'Run a validated virtual screen', body: 'Screen a compound library against a protein target, validate the protocol with known actives and decoys, and report the hits with interaction analysis and the limits of the method.' },
-    studio: { label: 'Structure Studio', to: '/structure' },
+    studio: { label: 'Docking Studio (AutoDock Vina)', to: '/docking' },
     faq: [{ q: 'Does the course cover molecular dynamics?', a: 'Molecular dynamics is introduced as the next step after docking, with a short demonstration. It is not covered in depth.' }, { q: 'Can docking show that a compound works?', a: 'No. Docking ranks plausible binders and suggests poses; activity has to be measured experimentally. The course teaches how to report docking as what it is, a prioritisation step.' }, FORMAT, SETUP(), CERT, DATES],
     keywords: ['molecular docking course', 'AutoDock Vina tutorial', 'computer aided drug design course', 'structure based drug design'],
   },

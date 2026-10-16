@@ -92,3 +92,5 @@ A slope of about −3.32 corresponds to 100% efficiency. Efficiencies between ab
 ## Learn it at the bench
 
 Analysing qPCR data well starts with generating it well. Our hands-on [Real-Time PCR (qPCR) & Gene Expression Analysis](/vedicgen/courses/qpcr-gene-expression) course takes you from RNA to cDNA to Ct values and fold changes, including standard curves, melt curves and MIQE reporting. For a quick start, the online [qPCR Data Analysis & MIQE workshop](/vedicgen/workshops#qpcr-data-analysis) focuses on the calculations.
+
+To run these calculations on your own plate, [Nayancode Lab Studio](/nayancode/products/lab-studio) computes ΔΔCt (Livak) and efficiency-corrected Pfaffl ratios with several reference genes, flags outlying technical replicates and tests ΔCt between groups, in your browser. It reproduces the Livak and Schmittgen worked example exactly.

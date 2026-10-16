@@ -81,7 +81,7 @@ export function Science() {
           <Reveal className="band-head"><div><p className="kicker">Also from Solagene</p><h2 id="fam-h">The people and the software behind the science</h2></div></Reveal>
           <div className="famrow">
             <Reveal className="ccard-wrap"><Link to="/vedicgen" className="fam fam--vg"><b>Vedicgen</b><span>Our school: wet-lab and dry-lab courses, internships and research training.</span><span className="ccard-go">Visit Vedicgen <I.Arrow width={15} height={15} /></span></Link></Reveal>
-            <Reveal index={1} className="ccard-wrap"><Link to="/nayancode" className="fam fam--nc"><b>Nayancode</b><span>Our software: nine analysis studios and free tools that run privately in your browser.</span><span className="ccard-go">Visit Nayancode <I.Arrow width={15} height={15} /></span></Link></Reveal>
+            <Reveal index={1} className="ccard-wrap"><Link to="/nayancode" className="fam fam--nc"><b>Nayancode</b><span>Our software: eleven analysis studios and free tools that run privately in your browser.</span><span className="ccard-go">Visit Nayancode <I.Arrow width={15} height={15} /></span></Link></Reveal>
           </div>
         </div>
       </section>

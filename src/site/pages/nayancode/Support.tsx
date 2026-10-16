@@ -19,6 +19,8 @@ const FORMATS: [string, string, string][] = [
   ['Feature table + metadata', '.csv, .tsv, Newick', 'Microbiome Studio'],
   ['SMILES / compound tables', '.smi, .csv', 'Chemistry Studio'],
   ['Structures', 'PDB ID, UniProt ID, .pdb, .cif', 'Structure Studio'],
+  ['Receptor + ligands for docking', 'PDB ID, AlphaFold DB, .pdb, .cif; SMILES, .sdf, .mol2', 'Docking Studio'],
+  ['qPCR plates, dose–response data', '.csv (long or wide)', 'Lab Studio'],
   ['Sanger traces', '.ab1', 'Sequence Studio'],
   ['Trees', 'Newick (.nwk, .tree)', 'Phylogenetics Studio'],
 ];

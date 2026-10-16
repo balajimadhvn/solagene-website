@@ -47,7 +47,7 @@ export const ALGOS: Algo[] = [
   { name: 'Neighbour-joining, UPGMA + bootstrap', area: 'Phylogenetics', where: 'Phylogenetics', check: 'Recovers an additive tree and planted bootstrap-supported clades' },
   { name: 'Maximum-likelihood trees (JC69, K80, HKY85, Poisson, ±Γ)', area: 'Phylogenetics', where: 'Phylogenetics', check: 'Matches closed-form likelihoods; recovers the true topology on simulated data' },
   { name: 'MinHash ANI', area: 'Genome', where: 'Genome Studio', check: 'Zero distance for identical genomes; estimates ANI of diverged ones' },
-  { name: 'Read mapping & SNV calling (minimap2 + samtools, WebAssembly)', area: 'Genome', where: 'Genome Studio', check: 'End-to-end test recovers 5 of 5 planted variants, no false positives' },
+  { name: 'Read mapping, SNV and indel calling (minimap2 + samtools + bcftools, WebAssembly)', area: 'Genome', where: 'Genome Studio', check: 'Compared with the native tools on real E. coli reads with 230 planted edits; end-to-end test recovers planted SNVs and indels' },
   { name: 'Moderated-t differential expression', area: 'Expression', where: 'Expression Studio', check: 'Recovers planted genes with controlled FDR; BH matches R' },
   { name: 'ComBat batch correction', area: 'Expression', where: 'Expression Studio', check: 'Removes a planted batch shift and keeps the biological effect' },
   { name: 'ORA and preranked GSEA', area: 'Expression', where: 'Expression Studio', check: 'Detects planted sets; planted pathway ranks first end to end' },
@@ -56,13 +56,15 @@ export const ALGOS: Algo[] = [
   { name: 'Weighted / unweighted UniFrac, PERMANOVA', area: 'Microbiome', where: 'Microbiome Studio', check: 'Matches hand-computed values; detects a planted effect, not a shuffled one' },
   { name: 'Random forest / kNN / ridge QSAR, Butina clustering', area: 'Chemistry', where: 'Chemistry Studio', check: 'Learns a known function; Y-randomisation collapses performance' },
   { name: 'Interaction profiling, pockets, SASA, Kabsch + TM-score', area: 'Structure', where: 'Structure Studio', check: 'Engineered-site tests; SASA and superposition recover known values; checked on PDB 1HSG' },
+  { name: 'AutoDock Vina 1.2.7 docking (WebAssembly)', area: 'Docking', where: 'Docking Studio', check: 'Redocking on 42 complexes: 35.7 % of top poses within 2 Å, identical to native Vina on the same inputs' },
+  { name: 'qPCR ΔΔCt / Pfaffl, 4PL / 5PL dose–response, power and sample size', area: 'Lab', where: 'Lab Studio', check: 'Reproduces the Livak 2001 worked example and R (drc, pwr, RNASeqPower, NormqPCR)' },
 ];
 
 // ---------- Products ----------
 export type Stage = 'Live' | 'Validation' | 'Prototype' | 'Research';
 export interface Product { id: string; name: string; tag: string; stage: Stage; body: string; points: string[]; live?: boolean }
 export const PRODUCTS: Product[] = [
-  { id: 'workbench', name: 'The Workbench', tag: 'Analysis platform', stage: 'Live', live: true, body: 'Nine integrated studios for sequences, genomes, variants, expression, single-cell, microbiome, chemistry and structure. Runs in your browser; your files stay on your device.', points: ['0 bytes of your data uploaded', 'Auto-written methods and provenance', 'Nothing to install'] },
+  { id: 'workbench', name: 'The Workbench', tag: 'Analysis platform', stage: 'Live', live: true, body: 'Eleven integrated studios for sequences, genomes, variants, expression, single-cell, microbiome, chemistry, structure, docking and lab calculations. Runs in your browser; your files stay on your device.', points: ['0 bytes of your data uploaded', 'Auto-written methods and provenance', 'Nothing to install'] },
   { id: 'copilot', name: 'Analysis Copilot', tag: 'AI · in development', stage: 'Prototype', body: 'An assistant that turns a plain-language question into a reproducible workflow you can read, rerun and cite, with every step visible.', points: ['Shows its plan before it runs', 'Every output links to code and parameters', 'No release date announced'] },
   { id: 'cloud', name: 'Pipeline Cloud', tag: 'Compute · in development', stage: 'Research', body: 'Managed execution of heavy pipelines, such as FASTQ to counts and large alignments, that exceed what a laptop browser should attempt.', points: ['Same job spec as the Workbench', 'Results flow back into the studios', 'No release date announced'] },
   { id: 'molecule', name: 'Molecule & Structure Intelligence', tag: 'AI · in development', stage: 'Research', body: 'Learned models for properties and interactions, built on the QSAR discipline we already enforce: honest validation and stated applicability.', points: ['Cluster-aware evaluation by default', 'Model cards with explicit limits', 'No release date announced'] },

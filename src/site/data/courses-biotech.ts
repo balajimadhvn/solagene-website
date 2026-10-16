@@ -67,6 +67,7 @@ export const BIOTECH: CourseInput[] = [
   },
   {
     ...wet, slug: 'qpcr-gene-expression', title: 'Real-Time PCR (qPCR) & Gene Expression Analysis', level: 'Intermediate', category: 'Molecular biology', tier: 'core', days: 3, hours: 18, fees: { 'in-person': 8499 }, figure: 'qpcr', featured: true,
+    studio: { label: 'Lab Studio (qPCR ΔΔCt and Pfaffl)', to: '/lab' },
     seoTitle: 'qPCR Training: Real-Time PCR & Gene Expression (Hands-on)',
     seoDescription: 'Hands-on qPCR training: RNA to cDNA, SYBR Green and probe assays, standard curves, efficiency, melt curves, ΔΔCt analysis and MIQE guidelines.',
     short: 'From RNA to cDNA to Ct values and fold change, with MIQE-standard analysis.',

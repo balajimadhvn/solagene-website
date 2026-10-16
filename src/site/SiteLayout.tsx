@@ -182,7 +182,7 @@ function Header() {
           {link('/about', 'About')}
         </nav>
         <div className="hdr-right">
-          <Link to="/workbench" className="button button--secondary button--sm hdr-wb" title="Open the Nayancode Workbench: nine analysis studios in your browser" aria-label="Open the Workbench"><I.Grid width={15} height={15} /><span>Workbench</span></Link>
+          <Link to="/workbench" className="button button--secondary button--sm hdr-wb" title="Open the Nayancode Workbench: eleven analysis studios in your browser" aria-label="Open the Workbench"><I.Grid width={15} height={15} /><span>Workbench</span></Link>
           <Link to="/contact" className="button button--primary button--sm hdr-cta">Partner with us</Link>
           <button type="button" ref={menuBtn} className="button button--ghost button--icon hdr-menu" onClick={() => setMobile((v) => !v)} aria-expanded={mobile} aria-controls="mnav" aria-label={mobile ? 'Close menu' : 'Open menu'}>{mobile ? <I.X width={20} height={20} /> : <I.Menu width={20} height={20} />}</button>
         </div>

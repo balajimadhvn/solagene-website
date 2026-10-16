@@ -84,6 +84,7 @@ export const LIFE: CourseInput[] = [
   },
   {
     ...life, slug: 'biostatistics-experimental-design', title: 'Biostatistics & Experimental Design', level: 'Beginner', category: 'Research & professional skills', fees: { live: 5999, 'self-paced': 2999 }, usd: { live: 99, 'self-paced': 39 }, weeks: 4, hours: 20, figure: 'groups', featured: true,
+    studio: { label: 'Lab Studio (power and sample size)', to: '/lab' },
     seoTitle: 'Biostatistics & Experimental Design Course (No Coding)',
     seoDescription: 'Biostatistics for biologists without coding: experimental design, replicates and power, choosing statistical tests, regression, multiple testing and reporting, using jamovi.',
     short: 'Design experiments well and choose the right statistical test, without coding.',

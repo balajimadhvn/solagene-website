@@ -1,5 +1,5 @@
 // Source for the generated site index (src/site/data/site-index.json): compact records for menus, cards and
-// listings, so the full content of 73 courses, 19 services, 13 products and 16 articles is only loaded on the pages
+// listings, so the full content of 73 courses, 19 services, 15 products and 16 articles is only loaded on the pages
 // that show it. Built by scripts/site-index.mjs; never imported by the app.
 import { ARTICLES } from './articles';
 import { COURSES, toLite } from './courses-all';

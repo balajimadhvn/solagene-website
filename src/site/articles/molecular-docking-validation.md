@@ -74,4 +74,4 @@ If you are screening a library, check whether your protocol can tell known activ
 
 ## Learn and practise
 
-The full structure-based workflow, from target selection to a validated virtual screen, is taught in our Molecular Docking & Structure-Based Drug Discovery course. Our Structure Studio lets you load a PDB entry in your browser and profile protein–ligand interactions immediately.
+The full structure-based workflow, from target selection to a validated virtual screen, is taught in our Molecular Docking & Structure-Based Drug Discovery course. To try redocking yourself, [Nayancode Docking Studio](/nayancode/products/docking-studio) runs AutoDock Vina in your browser and reports the RMSD of each pose to the crystal ligand; on 42 complexes, 35.7 % of its top poses fall within 2 Å. [Structure Studio](/nayancode/products/structure-studio) loads a PDB entry and profiles protein–ligand interactions.
