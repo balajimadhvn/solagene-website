@@ -58,6 +58,16 @@ export const STUDIOS: StudioDef[] = [
     cloudLater: 'Structure prediction, MD, virtual screening',
   },
   {
+    id: 'docking', path: '/docking', name: 'Docking Studio', short: 'Docking',
+    blurb: 'Dock small molecules into protein structures with AutoDock Vina, in your browser.',
+    status: 'live', milestone: 'M1', accent: 35,
+    inputs: ['PDB ID / AlphaFold DB / PDB or mmCIF file', 'SMILES, SDF, MOL2 or PubChem name'],
+    analyses: ['Receptor and ligand preparation (pH 7.4, Gasteiger charges, PDBQT)', 'Vina 1.2.7 docking with box from a co-crystal ligand, residues or coordinates', 'Pose viewer and interaction profile', 'Small virtual screen (up to 300 compounds)', 'Redocking validation against crystal poses'],
+    engines: 'AutoDock Vina 1.2.7 (WebAssembly, threads when cross-origin isolated) + RDKit + TypeScript preparation',
+    limits: 'Rigid receptor, one box up to 40 Å, ligands up to 70 heavy atoms and 20 rotatable bonds, up to 300 compounds per screen; scores are estimates, not binding free energies',
+    cloudLater: 'Flexible side chains, GPU and large-library screening',
+  },
+  {
     id: 'phylo', path: '/phylogenetics', name: 'Alignment & Phylogenetics', short: 'Phylogenetics',
     blurb: 'MSA, curation, tree inference and publication-grade tree figures.',
     status: 'live', milestone: 'M1', accent: 120,
@@ -71,10 +81,10 @@ export const STUDIOS: StudioDef[] = [
     id: 'genome', path: '/genome', name: 'Genome Studio', short: 'Genome',
     blurb: 'Read QC, small-genome alignment, assembly QC, comparison and tracks.',
     status: 'live', milestone: 'M1', accent: 55,
-    inputs: ['FASTQ', 'FASTA', 'BED / GFF'],
-    analyses: ['Streaming FASTQ read QC', 'Mapping, SNV & indel calling (minimap2, samtools, bcftools)', 'igv.js genome browser', 'Assembly metrics', 'BED algebra', 'MinHash ANI'],
+    inputs: ['FASTQ', 'FASTA', 'BAM / CRAM + index', 'VCF', 'BED / GFF / GTF', 'bigWig'],
+    analyses: ['Streaming FASTQ read QC', 'Mapping, SNV & indel calling (minimap2, samtools, bcftools)', 'igv.js genome viewer (local BAM, CRAM, VCF, BED, GFF, bigWig)', '8 bundled RefSeq reference genomes', 'Primer specificity and off-target amplicons', 'CRISPR off-targets with CFD and MIT scores', 'Assembly metrics', 'BED algebra', 'MinHash ANI'],
     engines: 'WebAssembly (minimap2, samtools) + igv.js',
-    limits: 'Mapping up to about a 100 Mb reference and 300 MB of reads; SNVs and short indels, no structural variants',
+    limits: 'Mapping up to about a 100 Mb reference and 300 MB of reads; SNVs and short indels, no structural variants. Primer and CRISPR searches suit genomes up to a few tens of Mb (bundled: phage, bacteria, yeast)',
     cloudLater: 'Assembly, human alignment & variant calling',
   },
   {
@@ -106,6 +116,16 @@ export const STUDIOS: StudioDef[] = [
     engines: 'TypeScript kernels in a Web Worker',
     limits: 'Amplicon-scale feature tables',
     cloudLater: 'DADA2, shotgun profiling, MAGs',
+  },
+  {
+    id: 'lab', path: '/lab', name: 'Lab Studio', short: 'Lab',
+    blurb: 'Bench calculators: qPCR relative quantification, dose–response curves, power and sample size.',
+    status: 'live', milestone: 'M1', accent: 40,
+    inputs: ['Plate CSV (long or wide)', 'Dose–response CSV', 'Standard-curve CSV'],
+    analyses: ['qPCR ΔΔCt (Livak) and efficiency-corrected Pfaffl, multiple reference genes, geNorm', 'Technical-replicate outlier flags, t-test / ANOVA on ΔCt', 'Standard-curve efficiency', '4PL / 5PL dose–response (IC50, Hill slope, 95 % CI)', 'Power and sample size: t, ANOVA, proportions, log-rank, RNA-seq'],
+    engines: 'TypeScript (Levenberg–Marquardt, non-central t/F)',
+    limits: 'Equal-sized groups in the power tools; dose–response assumes independent replicates and constant variance',
+    cloudLater: '',
   },
 ];
 

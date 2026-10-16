@@ -19,10 +19,12 @@ const live: Record<string, ReturnType<typeof lazyRetry<() => React.JSX.Element>>
   chemistry: lazyRetry(() => import('@/studios/chemistry/ChemistryStudio')),
   structure: lazyRetry(() => import('@/studios/structure/StructureStudio')),
   phylo: lazyRetry(() => import('@/studios/phylo/PhyloStudio')),
+  docking: lazyRetry(() => import('@/studios/docking/DockingStudio')),
   genome: lazyRetry(() => import('@/studios/genome/GenomeStudio')),
   variant: lazyRetry(() => import('@/studios/variants/VariantStudio')),
   singlecell: lazyRetry(() => import('@/studios/singlecell/SingleCellStudio')),
   microbiome: lazyRetry(() => import('@/studios/microbiome/MicrobiomeStudio')),
+  lab: lazyRetry(() => import('@/studios/lab/LabStudio')),
 };
 setPrefetch(prefetchRoute);
 
