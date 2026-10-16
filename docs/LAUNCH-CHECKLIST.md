@@ -1,4 +1,4 @@
-# Vivofold launch checklist
+# Solagene launch checklist
 
 The site is complete and deployable as it is. The items below are **owner inputs** (facts only you can supply) and
 **external accounts** (free services that need your login). Nothing on the site is a fake placeholder: empty values are
@@ -6,14 +6,14 @@ simply hidden until you fill them in.
 
 ## A. Must do before going public
 - [ ] **Push to GitHub and enable Pages** (README → "Deploy to GitHub Pages").
-- [ ] **DNS for vivofold.in** at your domain registrar (README → "Custom domain").
+- [ ] **DNS for solagene.com** at your domain registrar (README → "Custom domain").
 - [ ] **Activate form delivery (FormSubmit, no account)**: after the site is live, send one test message from the Contact page
       for each team (General, Admissions & help, Software support) and click **Activate Form** in the e-mail each inbox receives.
-- [ ] **Inboxes exist and are monitored** (free: Namecheap → Redirect Email to your Gmail): contact@vivofold.in (general), help@vivofold.in (admissions/help), support@vivofold.in (software support).
+- [ ] **Inboxes exist and are monitored** (free: Namecheap → Redirect Email to your Gmail): contact@solagene.com (general), help@solagene.com (admissions/help), support@solagene.com (software support).
 - [ ] **Review business policies shown on the site** (see `docs/PRICING-RESEARCH.md` §3): fees, 10% group discount,
       instalments above ₹15,000, 7-day refund rule, free Nayancode internship, wet-lab venue.
 - [ ] **Legal pages**: have a lawyer review Privacy (DPDP Act 2023), Terms and Refunds in `src/site/pages/Legal.tsx`, and add
-      your registered legal entity name if it differs from "Vivofold".
+      your registered legal entity name if it differs from "Solagene".
 
 ## B. Company details (one file: `src/core/brand.ts`, all optional)
 - [ ] Chennai office: full street address in `BRAND.locations` (only the city is shown until then).
@@ -22,8 +22,8 @@ simply hidden until you fill them in.
 - [ ] `BRAND.hours` if different from Monday–Saturday, 10:00–18:00 IST.
 - [ ] `TEAM`: founder and instructor profiles (`name`, `role`, `bio`, optional `photo`, `credentials`, `links`). The About page shows a team section
       once this has entries. Course pages say instructors are named in the admission offer until then.
-- [ ] Logo: the files are in `public/brand/` (`vivofold-mark.svg`, `vivofold-wordmark.svg`, original artwork
-      `vivofold-logo-original.webp`). Replace them to change the logo everywhere, then run `npm run og` to regenerate the
+- [ ] Logo: the files are in `public/brand/` (`solagene-mark.svg`, `solagene-wordmark.svg`, original artwork
+      `solagene-logo-original.webp`). Replace them to change the logo everywhere, then run `npm run og` to regenerate the
       share images and app icons.
 
 ## C. Admissions data

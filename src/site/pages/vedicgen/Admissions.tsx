@@ -22,7 +22,7 @@ export function Pricing() {
   const tiers = [['foundation', 'Foundation (beginner)'], ['core', 'Core (intermediate)'], ['advanced', 'Advanced']] as const;
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Fees & pricing', path: '/vedicgen/pricing' }]} label="Vivofold Vedicgen · Fees" title="Transparent fees for every programme"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Fees & pricing', path: '/vedicgen/pricing' }]} label="Solagene Vedicgen · Fees" title="Transparent fees for every programme"
         lede="Every Vedicgen fee is published: online courses by level and format, wet-lab bench courses individually, programmes, internships, workshops, research training and institutional rates. All amounts in INR, exclusive of 18% GST."
         actions={<><a href="#courses" onClick={jump('courses')} className="button button--accent button--lg">Course fees <I.Arrow /></a><a href="#internships" onClick={jump('internships')} className="button button--secondary button--lg">Internship fees</a></>} />
 
@@ -113,7 +113,7 @@ export function Pricing() {
 const APPLY_FAQ = [
   { q: 'Is there an application fee?', a: 'No. Applying is free. You pay only after you accept an admission offer.' },
   { q: 'What documents will I need?', a: 'None to apply. After review we may ask for your latest marksheet or transcript and, for dissertations, your institution’s project-permission letter. Wet-lab participants sign a safety declaration on day one.' },
-  { q: 'How long does it take to hear back?', a: 'Two working days for courses and programmes, five for internships. If you have not heard from us, check your spam folder or write to help@vivofold.in.' },
+  { q: 'How long does it take to hear back?', a: 'Two working days for courses and programmes, five for internships. If you have not heard from us, check your spam folder or write to help@solagene.com.' },
   { q: 'Can I apply for more than one programme?', a: 'Yes. Mention all of them in your goals and an adviser will suggest a sensible order.' },
 ];
 
@@ -128,7 +128,7 @@ export function Apply() {
   ];
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Apply', path: '/vedicgen/apply' }]} label="Vivofold Vedicgen · Admissions" title="Apply to Vedicgen"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Apply', path: '/vedicgen/apply' }]} label="Solagene Vedicgen · Admissions" title="Apply to Vedicgen"
         lede="One application for any course, programme, internship, workshop or research training. Applying is free; an admissions adviser replies within two working days (five for internships)."
         actions={<a href="#form" onClick={jump('form')} className="button button--accent button--lg">Start your application <I.Arrow /></a>} />
       <section className="section" aria-labelledby="how-h">

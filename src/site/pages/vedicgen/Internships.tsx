@@ -35,7 +35,7 @@ export function InternshipsHub() {
   const list = INTERNSHIPS.filter((x) => d === 'all' || x.discipline === d);
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Internships', path: '/vedicgen/internships' }]} label="Vivofold Vedicgen · Internships" title="Bioinformatics and biotechnology internships for students"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Internships', path: '/vedicgen/internships' }]} label="Solagene Vedicgen · Internships" title="Bioinformatics and biotechnology internships for students"
         lede={`${INTERNSHIPS.length} internship tracks in bioinformatics, drug discovery, AI, Bio-IT, geoinformatics, scientific software, molecular biology, microbiology and cell culture, plus dissertations and summer research. Remote or in the laboratory, with real projects, weekly mentor review and a verifiable certificate. Internships are fee-based training, not paid jobs.`}
         actions={<><a href="#tracks" onClick={jump('tracks')} className="button button--accent button--lg">See the tracks <I.Arrow /></a><a href="#apply" onClick={jump('apply')} className="button button--secondary button--lg">Apply now</a></>}
         aside={<Figure caption={FIGURES.workflow.caption}><FIGURES.workflow.C /></Figure>} />

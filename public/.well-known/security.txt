@@ -1,6 +1,6 @@
-# Security contact for vivofold.in and the Nayancode Workbench (RFC 9116).
-Contact: mailto:support@vivofold.in
+# Security contact for solagene.com and the Nayancode Workbench (RFC 9116).
+Contact: mailto:support@solagene.com
 Expires: 2027-10-15T00:00:00.000Z
 Preferred-Languages: en
-Canonical: https://vivofold.in/.well-known/security.txt
-Policy: https://vivofold.in/terms
+Canonical: https://solagene.com/.well-known/security.txt
+Policy: https://solagene.com/terms

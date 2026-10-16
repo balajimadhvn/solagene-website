@@ -62,5 +62,5 @@ These appear on the site and are commercial decisions for the owner, not facts w
 * Up to three instalments for fees above ₹15,000 (Admissions page and course pages).
 * Full refund up to 7 days before the start; transfer to a later cohort (`pages/Legal.tsx` → Refunds, and Admissions).
 * Free Scientific Software Engineering internship (Nayancode), selective, no stipend.
-* Wet-lab training venue: the site says "our laboratory" at the Vivofold address. Confirm the laboratory is ready, or change
+* Wet-lab training venue: the site says "our laboratory" at the Solagene address. Confirm the laboratory is ready, or change
   wet-lab courses to "venue announced with your admission offer".

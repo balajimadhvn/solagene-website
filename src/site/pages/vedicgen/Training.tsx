@@ -17,7 +17,7 @@ export function Workshops() {
   const list = WORKSHOPS.filter((w) => mode === 'all' || w.mode === mode);
   return (
     <>
-      <PageHeader crumbs={crumbs('Workshops', '/vedicgen/workshops')} label="Vivofold Vedicgen · Workshops" title="Bioinformatics and biotechnology workshops, online and in person"
+      <PageHeader crumbs={crumbs('Workshops', '/vedicgen/workshops')} label="Solagene Vedicgen · Workshops" title="Bioinformatics and biotechnology workshops, online and in person"
         lede={`${WORKSHOPS.length} workshops of one or two days: online for computational topics, in person for bench techniques. A fast way to learn one method well, with a certificate of participation.`}
         actions={<a href="#register" onClick={jump('register')} className="button button--accent button--lg">Register interest <I.Arrow /></a>} />
       <section className="section">
@@ -54,7 +54,7 @@ export function Workshops() {
 export function ResearchTraining() {
   return (
     <>
-      <PageHeader crumbs={crumbs('Research training', '/vedicgen/research-training')} label="Vivofold Vedicgen · Research training" title="Research training and mentoring"
+      <PageHeader crumbs={crumbs('Research training', '/vedicgen/research-training')} label="Solagene Vedicgen · Research training" title="Research training and mentoring"
         lede="Build research skills with people who do research: an intensive bootcamp, supervised projects, one-to-one mentoring and small-group thesis clinics. We guide your work; we never write it for you." />
       <section className="section">
         <div className="container">
@@ -82,7 +82,7 @@ export function ResearchTraining() {
 export function Institutions() {
   return (
     <>
-      <PageHeader crumbs={crumbs('For institutions', '/vedicgen/institutions')} label="Vivofold Vedicgen · For institutions" title="Training for colleges, universities and companies"
+      <PageHeader crumbs={crumbs('For institutions', '/vedicgen/institutions')} label="Solagene Vedicgen · For institutions" title="Training for colleges, universities and companies"
         lede="Campus workshops, faculty development programmes, semester-long certificate courses, curriculum and lab consulting, and private cohorts for industry teams, designed around your students, your syllabus and your facilities."
         actions={<a href="#enquire" onClick={jump('enquire')} className="button button--accent button--lg">Plan a programme <I.Arrow /></a>} />
       <section className="section">
@@ -108,7 +108,7 @@ export function Institutions() {
         <div className="container split-4-8 align-start">
           <div className="rail-head"><p className="kicker kicker--vg">Enquire</p><h2 id="enq-h">Plan a programme for your institution</h2><p className="muted">We reply within two working days with a proposal and a quote. MoUs are welcome.</p><p className="small subtle"><a className="ulink" href={`mailto:${BRAND.emails.help}`}>{BRAND.emails.help}</a></p></div>
           <Reveal className="form-card"><Form kind="Institutional enquiry" inbox="help" subject={(v) => `[Institution] ${v.institution}: ${v.offer}`} submitLabel="Request a proposal" doneTitle="Thank you. We will send a proposal."
-            fields={[F.name, { name: 'designation', label: 'Designation', required: true, half: true, placeholder: 'e.g. Head of Department' }, { name: 'institution', label: 'Institution or company', required: true, half: true }, { name: 'city', label: 'City', required: true, half: true }, F.email, F.phoneReq, { name: 'offer', label: 'Programme type', type: 'select', required: true, options: INSTITUTIONAL.map((o) => o.title) }, { name: 'participants', label: 'Expected participants', type: 'select', required: true, half: true, options: ['Up to 30', '31–60', '61–120', 'More than 120'] }, { name: 'mode', label: 'Preferred mode', type: 'select', half: true, options: ['Online', 'On our campus', 'At the Vivofold laboratory', 'Not sure'] }, F.message('Topics and dates', 'Subjects, audience (UG/PG/faculty), preferred dates and anything else.'), F.consent]} /></Reveal>
+            fields={[F.name, { name: 'designation', label: 'Designation', required: true, half: true, placeholder: 'e.g. Head of Department' }, { name: 'institution', label: 'Institution or company', required: true, half: true }, { name: 'city', label: 'City', required: true, half: true }, F.email, F.phoneReq, { name: 'offer', label: 'Programme type', type: 'select', required: true, options: INSTITUTIONAL.map((o) => o.title) }, { name: 'participants', label: 'Expected participants', type: 'select', required: true, half: true, options: ['Up to 30', '31–60', '61–120', 'More than 120'] }, { name: 'mode', label: 'Preferred mode', type: 'select', half: true, options: ['Online', 'On our campus', 'At the Solagene laboratory', 'Not sure'] }, F.message('Topics and dates', 'Subjects, audience (UG/PG/faculty), preferred dates and anything else.'), F.consent]} /></Reveal>
         </div>
       </section>
     </>

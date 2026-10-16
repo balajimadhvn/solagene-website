@@ -4,28 +4,28 @@
 // here. Optional values left empty ('' or []) are hidden on the site rather than shown as placeholders.
 // `npm run build` prints a launch checklist of everything still unset.
 //
-// The logo is a component (src/site/brand.tsx → VivofoldMark). To use a final logo from a designer, replace that
-// component's SVG, public/favicon.svg and public/logo.svg, then run `npm run og` to regenerate the share images.
+// The logo is a component (src/site/brand.tsx → SolageneMark, files in public/brand/). To change it, replace
+// public/brand/solagene-mark.svg/.webp and src/site/wordmark.ts, then run `npm run og` to regenerate icons and share images.
 // ============================================================================================================
 
 export interface TeamMember { name: string; role: string; bio: string; photo?: string; credentials?: string[]; links?: { label: string; url: string }[] }
 
 export const BRAND = {
-  name: 'Vivofold',
-  short: 'Vivofold',
-  legalName: '', // registered company name, e.g. 'Vivofold Private Limited'; shown in the footer and structured data when set
-  tagline: 'Biology, unfolded.',
+  name: 'Solagene',
+  short: 'Solagene',
+  legalName: '', // registered company name, e.g. 'Solagene Private Limited'; shown in the footer and structured data when set
+  tagline: 'Research, education, innovation.',
   slogan: 'Computational discovery of drug targets and medicines.',
-  description: 'Vivofold is a computational biotechnology company. We combine generative AI, physics-based simulation and multi-omics biology to discover first-in-class targets and design small molecules, proteins and novel biologics with biopharma and research partners. Vedicgen (education) and Nayancode (scientific software) are part of Vivofold.',
+  description: 'Solagene is a computational biotechnology company. We combine generative AI, physics-based simulation and multi-omics biology to discover first-in-class targets and design small molecules, proteins and novel biologics with biopharma and research partners. Vedicgen (education) and Nayancode (scientific software) are part of Solagene.',
   version: '1.0.0',
   /** Route of the Workbench overview on this website (the standalone Nayancode build uses '/'). */
   workbenchHome: '/workbench',
-  siteUrl: 'https://vivofold.in', // production origin without a trailing slash (canonical URLs, sitemap, share links)
-  email: 'contact@vivofold.in', // general enquiries; forms fall back to the right inbox below
+  siteUrl: 'https://solagene.com', // production origin without a trailing slash (canonical URLs, sitemap, share links)
+  email: 'contact@solagene.com', // general enquiries; forms fall back to the right inbox below
   emails: {
-    general: 'contact@vivofold.in', // company, partnerships, research services, press
-    help: 'help@vivofold.in', // admissions, courses, internships, applications
-    support: 'support@vivofold.in', // Nayancode software, technical support, accounts
+    general: 'contact@solagene.com', // company, partnerships, research services, press
+    help: 'help@solagene.com', // admissions, courses, internships, applications
+    support: 'support@solagene.com', // Nayancode software, technical support, accounts
   },
   phone: '', // official phone, e.g. '+91 80 1234 5678'; shown on Contact and in the footer when set
   whatsapp: '', // digits only with country code, e.g. '918012345678'; enables the WhatsApp button
@@ -44,26 +44,26 @@ export const BRAND = {
   ] as { label: string; line1: string; line2: string; city: string; region: string; postalCode: string; country: string; countryCode: string }[],
   hours: 'Monday to Saturday, 10:00 to 18:00 IST', // business hours shown on Contact; '' hides it
   foundingYear: '', // e.g. '2026'
-  socials: [] as { label: string; url: string }[], // e.g. [{ label: 'LinkedIn', url: 'https://www.linkedin.com/company/vivofold' }]
+  socials: [] as { label: string; url: string }[], // e.g. [{ label: 'LinkedIn', url: 'https://www.linkedin.com/company/solagene' }]
 };
 
 /** The two divisions. Names, lines and colours are used by the logo lockups, page headers, metadata and share images. */
 export const DIVISIONS = {
   vedicgen: {
     name: 'Vedicgen',
-    role: 'Education division of Vivofold',
+    role: 'Education division of Solagene',
     tagline: 'From pipette to pipeline.',
     line: 'Hands-on training in biotechnology, bioinformatics and the life sciences: wet-lab and dry-lab courses, internships, workshops and research training.',
     path: '/vedicgen',
-    email: 'help@vivofold.in',
+    email: 'help@solagene.com',
   },
   nayancode: {
     name: 'Nayancode',
-    role: 'Software division of Vivofold',
+    role: 'Software division of Solagene',
     tagline: 'See the biology in your data.',
     line: 'Scientific software for genomics, transcriptomics, structural biology and cheminformatics, built to run privately in your browser.',
     path: '/nayancode',
-    email: 'support@vivofold.in',
+    email: 'support@solagene.com',
   },
 } as const;
 export type DivisionId = keyof typeof DIVISIONS;
@@ -75,8 +75,8 @@ export const INTEGRATIONS = {
   //  • Web3Forms (https://web3forms.com): set formEndpoint to 'https://api.web3forms.com/submit' and formAccessKey.
   // The endpoint can also be supplied at build time with the VITE_FORM_ENDPOINT / VITE_FORM_ACCESS_KEY environment
   // variables (for example as GitHub Actions repository variables). When empty, forms open the visitor's mail app
-  // with the application already written, addressed to the right Vivofold inbox.
-  //  • Default (no setup, no account): FormSubmit (https://formsubmit.co) delivers each form to its Vivofold inbox
+  // with the application already written, addressed to the right Solagene inbox.
+  //  • Default (no setup, no account): FormSubmit (https://formsubmit.co) delivers each form to its Solagene inbox
   //    (contact@, help@ or support@). The FIRST message to each address triggers a one-time "Activate Form" e-mail
   //    to that inbox; click it once per inbox. Set VITE_FORM_PROVIDER=mailto to switch this off.
   formEndpoint: (import.meta.env?.VITE_FORM_ENDPOINT as string | undefined) ?? '',

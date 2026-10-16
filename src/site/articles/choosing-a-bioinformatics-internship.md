@@ -42,4 +42,4 @@ If you are unsure which direction suits you, short internships are a low-risk wa
 
 ## Vedicgen internships
 
-Vedicgen, the school of Vivofold, publishes the eligibility, selection criteria, procedure, fees, mentorship and deliverables for each of its [internship tracks](/vedicgen/internships), including bioinformatics, drug discovery, AI, Bio-IT, molecular biology, microbiology, cell culture, dissertation projects and short summer internships. Whichever programme you choose, use the questions above to compare your options.
+Vedicgen, the school of Solagene, publishes the eligibility, selection criteria, procedure, fees, mentorship and deliverables for each of its [internship tracks](/vedicgen/internships), including bioinformatics, drug discovery, AI, Bio-IT, molecular biology, microbiology, cell culture, dissertation projects and short summer internships. Whichever programme you choose, use the questions above to compare your options.

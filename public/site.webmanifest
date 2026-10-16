@@ -1,13 +1,13 @@
 {
-  "name": "Vivofold",
-  "short_name": "Vivofold",
+  "name": "Solagene",
+  "short_name": "Solagene",
   "description": "Biotechnology, bioinformatics and computational biology: Vedicgen courses, Nayancode software and research services.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#071027",
   "theme_color": "#071027",
   "icons": [
-    { "src": "/brand/vivofold-logo-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/brand/vivofold-logo-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/brand/solagene-logo-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/brand/solagene-logo-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }

@@ -44,12 +44,12 @@ describe('titles and descriptions', () => {
     expect(t('/vedicgen/internships')).toMatch(/bioinformatics internships/);
     expect(t('/vedicgen/programs')).toMatch(/certificate programmes/);
     expect(t('/vedicgen/workshops')).toMatch(/workshops/);
-    for (const p of ['/vedicgen', '/vedicgen/courses', '/vedicgen/programs', '/vedicgen/internships', '/vedicgen/workshops', '/nayancode']) expect(t(p), p).toMatch(/vivofold/);
+    for (const p of ['/vedicgen', '/vedicgen/courses', '/vedicgen/programs', '/vedicgen/internships', '/vedicgen/workshops', '/nayancode']) expect(t(p), p).toMatch(/solagene/);
   });
   it('head tags: one canonical, hreflang, robots', () => {
     const h = headHtml(metaFor('/vedicgen/courses')!);
-    expect(h).toContain('<link rel="canonical" href="https://vivofold.in/vedicgen/courses/" />');
-    expect(h).toContain('hreflang="en-IN" href="https://vivofold.in/vedicgen/courses/"');
+    expect(h).toContain('<link rel="canonical" href="https://solagene.com/vedicgen/courses/" />');
+    expect(h).toContain('hreflang="en-IN" href="https://solagene.com/vedicgen/courses/"');
     expect(h).toContain('max-image-preview:large');
   });
 });
@@ -104,7 +104,7 @@ describe('structured data', () => {
     const urls = l.itemListElement.map((e: J) => e.url);
     expect(urls.length).toBeGreaterThanOrEqual(3);
     expect(new Set(urls).size).toBe(urls.length);
-    l.itemListElement.forEach((e: J, i: number) => { expect(e.position).toBe(i + 1); expect(urls[i]).toMatch(/^https:\/\/vivofold\.in\/vedicgen\/courses\/[a-z0-9-]+\/$/); });
+    l.itemListElement.forEach((e: J, i: number) => { expect(e.position).toBe(i + 1); expect(urls[i]).toMatch(/^https:\/\/solagene\.com\/vedicgen\/courses\/[a-z0-9-]+\/$/); });
   });
   it('programmes and internships are EducationalOccupationalProgram with a provider and offers', () => {
     for (const r of routes.filter((x) => /^\/vedicgen\/(programs|internships)\/./.test(x))) {

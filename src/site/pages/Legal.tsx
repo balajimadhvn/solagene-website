@@ -40,7 +40,7 @@ export function Verify() {
   useEffect(() => { const q = params.get('id'); if (q) { setId(q); void check(q); } /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, []);
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Verify a certificate', path: '/verify' }]} label="Vivofold Vedicgen · Certificates" title="Verify a certificate"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Verify a certificate', path: '/verify' }]} label="Solagene Vedicgen · Certificates" title="Verify a certificate"
         lede={`Every Vedicgen certificate issued by ${BRAND.name} carries a unique ID and QR code. Enter the ID below, or scan the QR code, to confirm that it is genuine.`} />
       <section className="section">
         <div className="container container--narrow">

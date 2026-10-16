@@ -9,7 +9,7 @@ export function DiscoveryLoop() {
   const R = 150, C = 200;
   const pts = STAGES.map((_, i) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / STAGES.length; return [C + R * Math.cos(a), C + R * Math.sin(a)] as const; });
   return (
-    <svg className="dloop" viewBox="0 0 400 400" role="img" aria-label="The Vivofold discovery loop: target, design, simulate, validate, learn" preserveAspectRatio="xMidYMid meet">
+    <svg className="dloop" viewBox="0 0 400 400" role="img" aria-label="The Solagene discovery loop: target, design, simulate, validate, learn" preserveAspectRatio="xMidYMid meet">
       <defs>
         <linearGradient id="dl-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#4f8bff" /><stop offset="0.55" stopColor="#8a7be6" /><stop offset="1" stopColor="#3fd0a8" /></linearGradient>
         <radialGradient id="dl-core" cx="50%" cy="50%" r="50%"><stop offset="0" stopColor="#4f8bff" stopOpacity="0.35" /><stop offset="1" stopColor="#4f8bff" stopOpacity="0" /></radialGradient>
@@ -25,7 +25,7 @@ export function DiscoveryLoop() {
           <text x={x} y={y + 4} textAnchor="middle" className="dl-label">{STAGES[i]}</text>
         </g>
       ))}
-      <text x={C} y={C - 4} textAnchor="middle" className="dl-core-t">VIVOFOLD</text>
+      <text x={C} y={C - 4} textAnchor="middle" className="dl-core-t">SOLAGENE</text>
       <text x={C} y={C + 16} textAnchor="middle" className="dl-core-s">discovery loop</text>
     </svg>
   );

@@ -161,7 +161,7 @@ export default function CourseDetail() {
                   <p className="muted">Learners who complete the course and pass its {wet ? 'practical assessment' : 'capstone'} receive a Vedicgen certificate of completion for <b>{c.title}</b>, issued by {BRAND.name}, stating the {wet ? 'bench hours and techniques performed' : 'guided hours and skills assessed'}. Each certificate has a unique ID and QR code that anyone can check.</p>
                   <p><Link to="/verify" className="textlink">Verify a certificate <I.Arrow width={15} height={15} /></Link></p>
                 </div>
-                <div className="cert-card"><div className="cert-head"><span className="label">Certificate of completion</span><span className="tag tag--plain">Sample</span></div><b>{c.title}</b><span className="small subtle">Awarded to the learner named on the certificate · {c.hours} hours</span><div className="cert-foot"><span className="mono xsmall">ID · VG-XXXX-XXXX</span><span className="small">Vivofold Vedicgen</span></div></div>
+                <div className="cert-card"><div className="cert-head"><span className="label">Certificate of completion</span><span className="tag tag--plain">Sample</span></div><b>{c.title}</b><span className="small subtle">Awarded to the learner named on the certificate · {c.hours} hours</span><div className="cert-foot"><span className="mono xsmall">ID · VG-XXXX-XXXX</span><span className="small">Solagene Vedicgen</span></div></div>
               </div>
             </section>
 
@@ -192,7 +192,7 @@ export default function CourseDetail() {
               <dl className="kv">
                 <div><dt>Duration</dt><dd>{durationOf(c, f)}</dd></div>
                 <div><dt>Level</dt><dd>{c.level}</dd></div>
-                <div><dt>Where</dt><dd>{f === 'in-person' ? 'Vivofold laboratory' : 'Online'}</dd></div>
+                <div><dt>Where</dt><dd>{f === 'in-person' ? 'Solagene laboratory' : 'Online'}</dd></div>
                 <div><dt>Certificate</dt><dd>Verifiable ID</dd></div>
               </dl>
               {b.paymentUrl ? <a href={b.paymentUrl} className="button button--accent button--block" target="_blank" rel="noopener noreferrer">Enrol and pay <I.External width={15} height={15} /></a> : <a href="#apply" onClick={jump('apply')} className="button button--accent button--block">Apply now <I.Arrow /></a>}

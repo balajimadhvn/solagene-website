@@ -1,5 +1,5 @@
 // Generates the share images (public/og.png, og-vedicgen.png, og-nayancode.png, 1200×630) and logo PNGs
-// (public/brand/vivofold-logo-512.png, -192.png, apple-touch-icon.png, favicon-32.png) from the brand files.
+// (public/brand/solagene-logo-512.png, -192.png, apple-touch-icon.png, favicon-32.png) from the brand files.
 // Re-run after changing the logo, company name or taglines:  npm run og
 // Fonts are read from the installed @fontsource packages, so no network access is needed.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -17,9 +17,9 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const font = (p) => `data:font/woff2;base64,${readFileSync(join(root, 'node_modules', p)).toString('base64')}`;
 const jak = font('@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2');
 const plex = font('@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2');
-const mark = `data:image/svg+xml;base64,${readFileSync(join(root, 'public/brand/vivofold-mark.svg')).toString('base64')}`;
+const mark = `data:image/webp;base64,${readFileSync(join(root, 'public/brand/solagene-mark.webp')).toString('base64')}`;
 const word = readFileSync(join(root, 'src/site/wordmark.ts'), 'utf8');
-const W = { w: +(word.match(/w: (\d+)/) ?? [])[1], h: +(word.match(/h: (\d+)/) ?? [])[1], d: (word.match(/d: '([^']+)'/) ?? [])[1] };
+const W = { w: +(word.match(/w: (\d+)/) ?? [])[1], h: +(word.match(/h: (\d+)/) ?? [])[1], d: (word.match(/d: ['"]([^'"]+)['"]/) ?? [])[1] };
 const wordSvg = (h, fill) => `<svg viewBox="0 -${W.h} ${W.w} ${W.h}" height="${h}" width="${Math.round((h * W.w) / W.h)}"><path d="${W.d}" fill="${fill}"/></svg>`;
 
 const css = `@font-face { font-family: J; src: url(${jak}) format('woff2'); font-weight: 200 800; }
@@ -32,15 +32,16 @@ body { background: radial-gradient(700px 420px at 88% 18%, ${glowA}, transparent
 .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse at 70% 40%, #000 20%, transparent 70%); }
 .top { position: absolute; left: 80px; top: 70px; display: flex; align-items: center; gap: 18px; }
 .chip { margin-left: 8px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); font: 700 20px J; color: ${accent}; }
-.k { position: absolute; left: 80px; top: 196px; font: 700 20px J; letter-spacing: 0.16em; text-transform: uppercase; color: ${accent}; }
-h1 { position: absolute; left: 80px; top: 236px; width: 720px; font: 800 74px/1.04 J; letter-spacing: -0.03em; }
-p.s { position: absolute; left: 80px; top: 420px; width: 700px; font: 400 26px/1.4 P; color: #c3cce4; }
+.col { position: absolute; left: 80px; top: 170px; width: 700px; display: flex; flex-direction: column; gap: 22px; }
+.k { font: 700 20px J; letter-spacing: 0.16em; text-transform: uppercase; color: ${accent}; }
+h1 { font: 800 ${title.length > 26 ? 60 : 74}px/1.04 J; letter-spacing: -0.03em; }
+p.s { font: 400 25px/1.4 P; color: #c3cce4; }
 .f { position: absolute; left: 80px; bottom: 60px; font: 600 22px J; color: #93a0bf; letter-spacing: 0.04em; }
 .m { position: absolute; right: 70px; top: 140px; width: 340px; height: 350px; background: url(${mark}) center / contain no-repeat; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5)); }
-.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, #1f6fe0, #6a55d4 52%, #2cb5a0); }
+.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, #2a9bc4, #3f5ad4 50%, #8e62d5); }
 </style></head><body><div class="grid"></div>
 <div class="top">${wordSvg(30, '#ffffff')}${chip ? `<span class="chip">${esc(chip)}</span>` : ''}</div>
-<div class="k">${esc(kicker)}</div><h1>${esc(title)}</h1><p class="s">${esc(sub)}</p><div class="f">${esc(site)}</div><div class="m"></div><div class="bar"></div></body></html>`;
+<div class="col"><div class="k">${esc(kicker)}</div><h1>${esc(title)}</h1><p class="s">${esc(sub)}</p></div><div class="f">${esc(site)}</div><div class="m"></div><div class="bar"></div></body></html>`;
 }
 
 const SHOTS = [
@@ -48,8 +49,8 @@ const SHOTS = [
   ['og-vedicgen.png', og({ kicker: 'Wet-lab · Dry-lab · Internships', title: vg.tagline, sub: 'Courses, programmes, internships and research training in biotechnology, bioinformatics and the life sciences.', glowA: 'rgba(44,181,160,0.55)', glowB: 'rgba(31,111,224,0.4)', accent: '#7fe3c4', chip: 'Vedicgen' })],
   ['og-nayancode.png', og({ kicker: 'Scientific software', title: nc.tagline, sub: 'Bioinformatics studios that run privately in your browser: genomics, RNA-seq, single-cell, chemistry and structure.', glowA: 'rgba(106,85,212,0.7)', glowB: 'rgba(31,111,224,0.4)', accent: '#b3a6ff', chip: 'Nayancode' })],
 ];
-const icon = (size, bg) => `<!doctype html><html><head><style>* { margin: 0; } body { width: ${size}px; height: ${size}px; display: grid; place-items: center; background: ${bg}; } i { display: block; width: ${Math.round(size * 0.74)}px; height: ${Math.round(size * 0.76)}px; background: url(${mark}) center / contain no-repeat; }</style></head><body><i></i></body></html>`;
-const ICONS = [['brand/vivofold-logo-512.png', 512, '#ffffff'], ['brand/vivofold-logo-192.png', 192, '#ffffff'], ['brand/apple-touch-icon.png', 180, '#ffffff'], ['brand/favicon-32.png', 32, 'transparent'], ['brand/favicon-16.png', 16, 'transparent'],
+const icon = (size, bg) => `<!doctype html><html><head><style>* { margin: 0; } body { width: ${size}px; height: ${size}px; display: grid; place-items: center; background: ${bg}; } i { display: block; width: ${Math.round(size * (size <= 48 ? 0.96 : 0.74))}px; height: ${Math.round(size * (size <= 48 ? 0.96 : 0.76))}px; background: url(${mark}) center / contain no-repeat; }</style></head><body><i></i></body></html>`;
+const ICONS = [['brand/solagene-logo-512.png', 512, '#ffffff'], ['brand/solagene-logo-192.png', 192, '#ffffff'], ['brand/apple-touch-icon.png', 180, '#ffffff'], ['brand/favicon-32.png', 32, 'transparent'], ['brand/favicon-16.png', 16, 'transparent'],
   // Google Search shows the site favicon only if it is square and at least 48 px (multiples of 48 preferred).
   ['brand/favicon-48.png', 48, '#ffffff'], ['brand/favicon-96.png', 96, '#ffffff'], ['brand/favicon-192.png', 192, '#ffffff']];
 

@@ -1,18 +1,18 @@
-# Vivofold website: vivofold.in
+# Solagene website: solagene.com
 
-The website of **Vivofold**, a computational biotechnology company: AI and physics-based drug discovery, multi-omics and
+The website of **Solagene**, a computational biotechnology company: AI and physics-based drug discovery, multi-omics and
 spatial biology, target discovery, and computational, clinical-genomics and bio-IT work for partners
 (`/science/`, `/solutions/`, `/industry/`, `/research/`, `/services/`). Two smaller parts of the company have their own sections:
 
-* **Vivofold Vedicgen** (school): 73 wet-lab and computational courses, 9 programmes, 12 internship tracks, workshops,
+* **Solagene Vedicgen** (school): 73 wet-lab and computational courses, 9 programmes, 12 internship tracks, workshops,
   research training and institutional programmes, with published INR fees, application forms and certificate verification.
-* **Vivofold Nayancode** (software): 13 products, including the **Workbench** (nine analysis studios that run in the
+* **Solagene Nayancode** (software): 13 products, including the **Workbench** (nine analysis studios that run in the
   browser) and 11 free online tools.
 
 It is a static site: no server, no database and no paid service. Hosting on GitHub Pages is free.
 
 > Before launch, read **`docs/LAUNCH-CHECKLIST.md`**. Pricing sources are in `docs/PRICING-RESEARCH.md`, the search plan in
-> `docs/SEO-STRATEGY.md`, and the full build history in `VIVOFOLD-PROGRESS.md`.
+> `docs/SEO-STRATEGY.md`, and the full build history in `SOLAGENE-PROGRESS.md`.
 
 ---
 
@@ -22,7 +22,7 @@ It is a static site: no server, no database and no paid service. Hosting on GitH
    ```bash
    git init
    git add .
-   git commit -m "Vivofold website"
+   git commit -m "Solagene website"
    git branch -M main
    git remote add origin https://github.com/<your-account>/vivofold-website.git
    git push -u origin main
@@ -41,9 +41,9 @@ It is a static site: no server, no database and no paid service. Hosting on GitH
    | `BASE_PATH` | `/vivofold-website/` | **Only** if you serve from `https://<account>.github.io/<repo>/` without a custom domain |
    After changing a variable, re-run the workflow (Actions → Deploy to GitHub Pages → Run workflow).
 
-### Custom domain: vivofold.in (bought at Namecheap)
-`public/CNAME` already contains `vivofold.in`.
-1. Log in to Namecheap → **Domain List** → **Manage** next to vivofold.in → **Advanced DNS**.
+### Custom domain: solagene.com (bought at Namecheap)
+`public/CNAME` already contains `solagene.com`.
+1. Log in to Namecheap → **Domain List** → **Manage** next to solagene.com → **Advanced DNS**.
 2. Delete any existing records for `@` and `www` that point to a Namecheap parking page (type URL Redirect or CNAME `parkingpage.namecheap.com`).
 3. Add these records (Host / Value, TTL Automatic):
    | Type | Host | Value |
@@ -53,13 +53,13 @@ It is a static site: no server, no database and no paid service. Hosting on GitH
    | A Record | `@` | `185.199.110.153` |
    | A Record | `@` | `185.199.111.153` |
    | CNAME Record | `www` | `<your-github-username>.github.io.` |
-4. In the GitHub repository: **Settings → Pages → Custom domain** → enter `vivofold.in` → Save. When the DNS check passes, tick **Enforce HTTPS**.
+4. In the GitHub repository: **Settings → Pages → Custom domain** → enter `solagene.com` → Save. When the DNS check passes, tick **Enforce HTTPS**.
 5. Recommended: GitHub → your profile **Settings → Pages → Add a verified domain** (prevents domain takeover).
 
 DNS can take from a few minutes to 24 hours. Do not touch the **Mail settings** section in Namecheap except to set up e-mail below.
 
-### E-mail for @vivofold.in
-The site sends people to contact@, help@ and support@vivofold.in, so these must receive mail. The free option: Namecheap →
+### E-mail for @solagene.com
+The site sends people to contact@, help@ and support@solagene.com, so these must receive mail. The free option: Namecheap →
 Manage → **Redirect Email** (Mail settings: "Email Forwarding") → forward `contact`, `help` and `support` to your existing
 Gmail. Paid mailboxes (Namecheap Private Email, Google Workspace, Zoho) also work.
 
@@ -78,10 +78,10 @@ entirely, set `VITE_FORM_PROVIDER=mailto`.
    | A | `@` | `185.199.111.153` |
    | AAAA (optional) | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
    | CNAME | `www` | `<your-account>.github.io` |
-2. In **Settings → Pages → Custom domain** enter `vivofold.in`, save, wait for the DNS check, then tick **Enforce HTTPS**.
+2. In **Settings → Pages → Custom domain** enter `solagene.com`, save, wait for the DNS check, then tick **Enforce HTTPS**.
 3. Recommended: verify the domain for your account (GitHub → Settings → Pages → *Add a verified domain*) to prevent takeover.
 
-DNS changes can take from minutes to 24 hours. Mail for `@vivofold.in` is not affected by these records (keep your MX records).
+DNS changes can take from minutes to 24 hours. Mail for `@solagene.com` is not affected by these records (keep your MX records).
 
 ---
 
@@ -91,7 +91,7 @@ DNS changes can take from minutes to 24 hours. Mail for `@vivofold.in` is not af
 |---|---|
 | Company name, tagline, e-mails, address, phone, WhatsApp, hours, socials | `src/core/brand.ts` (`BRAND`, `DIVISIONS`) |
 | Team / founder / instructor profiles | `TEAM` in `src/core/brand.ts` (the About page shows the team once filled) |
-| Logo | `public/brand/vivofold-mark.svg`, `vivofold-wordmark.svg` (+ `src/site/wordmark.ts` for the inline wordmark); then `npm run og` |
+| Logo | `public/brand/solagene-mark.svg`, `solagene-wordmark.svg` (+ `src/site/wordmark.ts` for the inline wordmark); then `npm run og` |
 | Courses (73) | `src/site/data/courses-bioinfo*.ts`, `courses-computing.ts`, `courses-biotech.ts`, `courses-life.ts` |
 | Course fee tiers | `TIER_FEES` / `TIER_USD` in `src/site/data/course-types.ts` (per-course `fees` overrides them) |
 | Cohort dates, seats, payment links, instructor | `BATCHES` in `src/site/data/courses-all.ts` |
@@ -136,7 +136,7 @@ npm run og         # regenerate share images and app icons from the logo
   URLs get the real `404.html` with status 404. 91 old URLs have redirect pages. `sitemap.xml` and `robots.txt` are generated.
 * **Code splitting**: the entry bundle carries only a small generated index (~115 KB gzipped JavaScript in total); the full
   course syllabi load only on course pages, and each Workbench studio loads on demand.
-* **Design system**: `src/site/vivofold.css` (tokens, components, light and dark themes, sub-brand accents) on top of
+* **Design system**: `src/site/solagene.css` (tokens, components, light and dark themes, sub-brand accents) on top of
   `src/site/site.css`; fonts are self-hosted (Plus Jakarta Sans, IBM Plex Sans/Mono). Animations respect
   `prefers-reduced-motion`.
 * **Workbench**: `src/studios/*` (each studio = tested kernels + worker + UI), `src/core`, `src/compute`, `src/viz`,

@@ -1,7 +1,7 @@
 # Market review: AI drug discovery and bioinformatics (October 2026)
 
 Used for the Industry landscape page (`/industry/`, data in `src/site/data/focus.ts` → `LANDSCAPE`) and for positioning
-Vivofold's areas of work and solutions. Figures are as reported by the sources below; most are company-reported or come
+Solagene's areas of work and solutions. Figures are as reported by the sources below; most are company-reported or come
 from trackers and press releases, not audited filings.
 
 | Signal | What was reported | Source |
@@ -16,7 +16,7 @@ from trackers and press releases, not audited filings.
 | Biologics funding | Earendil Labs $787M private round (Mar 2026); Astellas option exercise with Dyno Therapeutics (Apr 2026) | https://www.businesswire.com/news/home/20260408079855/en/ |
 | India | Growth of computational biotech start-ups in Indian metros | https://www.biotecnika.org/2026/03/ai-in-drug-discovery-startups-career-paths-2026 |
 
-How it shaped the site: lead with AI + physics rather than AI alone; present Vivofold as a platform and data partner;
+How it shaped the site: lead with AI + physics rather than AI alone; present Solagene as a platform and data partner;
 sell documented evidence (methods, code, uncertainty); keep the wet-lab loop in view; avoid unverifiable metrics.
 
 Re-check these figures before quoting them in sales material; update `LANDSCAPE` every six months.

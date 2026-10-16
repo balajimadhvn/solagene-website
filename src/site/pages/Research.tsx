@@ -24,7 +24,7 @@ export function ResearchHub() {
   const areas = [...new Set(ALGOS.map((a) => a.area))];
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Research', path: '/research' }]} label="Vivofold Research" title="Research questions behind our work"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Research', path: '/research' }]} label="Solagene Research" title="Research questions behind our work"
         lede="Seven areas of research, from the reliability of genomic analyses and structure-based drug design to machine learning for biology and validated scientific software. Each area lists the questions we are asking and the methods we use."
         actions={<><a href="#areas" onClick={jump('areas')} className="button button--accent button--lg">Research areas <I.Arrow /></a><a href="#collaborate" onClick={jump('collaborate')} className="button button--secondary button--lg">Collaborate</a></>}
         aside={<Figure caption={FIGURES.workflow.caption}><FIGURES.workflow.C /></Figure>} />
@@ -66,7 +66,7 @@ export function ResearchArea() {
   const fig = FIGURES[r.figure];
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Research', path: '/research' }, { name: r.title, path: `/research/${r.slug}` }]} label="Vivofold Research" title={r.title} lede={r.intro}
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Research', path: '/research' }, { name: r.title, path: `/research/${r.slug}` }]} label="Solagene Research" title={r.title} lede={r.intro}
         actions={<a href="#collaborate" onClick={jump('collaborate')} className="button button--accent button--lg">Collaborate <I.Arrow /></a>} aside={<Figure caption={fig.caption}><fig.C /></Figure>} />
       <section className="section">
         <div className="container col2 align-start">
@@ -82,7 +82,7 @@ export function ResearchArea() {
       </section>
       <section className="section" aria-labelledby="rel-h">
         <div className="container">
-          <Reveal className="band-head"><div><p className="kicker">Across Vivofold</p><h2 id="rel-h">Learn it, use it, commission it</h2></div></Reveal>
+          <Reveal className="band-head"><div><p className="kicker">Across Solagene</p><h2 id="rel-h">Learn it, use it, commission it</h2></div></Reveal>
           <div className="cgrid">
             <Reveal className="stack-sm"><p className="label">Vedicgen courses</p><div className="crow-list">{r.courses.map((s) => { const c = courseBySlug(s); return c ? <CourseRowCompact key={s} c={c} /> : null; })}</div>{r.internships.map((s) => { const x = internshipBySlug(s); return x ? <Link key={s} to={`/vedicgen/internships/${s}`} className="textlink small">{x.title} <I.Arrow width={14} height={14} /></Link> : null; })}</Reveal>
             <Reveal index={1} className="stack-sm"><p className="label">Research services</p>{r.services.map((s) => { const x = serviceBySlug(s); return x ? <Link key={s} to={`/services/${s}`} className="aside-prog"><b>{x.title}</b><span>{x.short}</span></Link> : null; })}</Reveal>

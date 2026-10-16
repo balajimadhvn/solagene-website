@@ -20,7 +20,7 @@ const FAQ = [
   { q: 'Is my data uploaded?', a: 'No. Analyses run in your browser. Data leave your computer only when you explicitly ask for a public-database lookup (for example ClinVar or PubChem), and only the identifiers you look up are sent.' },
   { q: 'What are the limits?', a: 'Nayancode is designed for browser-scale data, for example read mapping against references up to about 100 Mb. Heavy pipelines belong on a cluster or cloud; their results can then be imported.' },
   { q: 'Can I use Nayancode for teaching?', a: 'Yes, and it is free for classrooms. Students need only a browser, which makes hands-on workshops possible in any computer lab.' },
-  { q: 'Can Nayancode build custom software for us?', a: 'Yes. Custom scientific software development is offered as a Vivofold service, from analysis tools to complete web applications.' },
+  { q: 'Can Nayancode build custom software for us?', a: 'Yes. Custom scientific software development is offered as a Solagene service, from analysis tools to complete web applications.' },
 ];
 
 export default function NayancodeHome() {
@@ -33,7 +33,7 @@ export default function NayancodeHome() {
       <section className="dhero dhero--nc on-ink" aria-labelledby="nc-hero">
         <div className="container dhero-grid">
           <div className="dhero-copy">
-            <p className="kicker" style={{ color: '#b3a6ff' }}>Vivofold Nayancode · The software of Vivofold</p>
+            <p className="kicker" style={{ color: '#b3a6ff' }}>Solagene Nayancode · The software of Solagene</p>
             <h1 id="nc-hero" className="t-display" style={{ fontSize: 'clamp(2.6rem, 1.6rem + 3.6vw, 4.6rem)' }}>See the biology <span className="grad-text">in your data.</span></h1>
             <p className="lede">{DIVISIONS.nayancode.line} Nine analysis studios, a gene atlas, a report builder and {TOOLS.length} free tools. No installation, no account, and your files are never uploaded.</p>
             <div className="inline"><Link to="/workbench" className="button button--grad button--lg"><I.Grid width={18} height={18} />Launch the Workbench</Link><Link to="/nayancode/demo" className="button button--secondary button--lg">Request a demo</Link></div>
@@ -53,7 +53,7 @@ export default function NayancodeHome() {
 
       <section className="section section--alt" aria-labelledby="pr-h">
         <div className="container">
-          <Reveal className="band-head"><div><p className="kicker kicker--nc">Principles</p><h2 id="pr-h">Software scientists can trust</h2></div><p className="lede">The same standards we teach at Vedicgen and apply in Vivofold research services, built into every product.</p></Reveal>
+          <Reveal className="band-head"><div><p className="kicker kicker--nc">Principles</p><h2 id="pr-h">Software scientists can trust</h2></div><p className="lede">The same standards we teach at Vedicgen and apply in Solagene research services, built into every product.</p></Reveal>
           <div className="cgrid" style={{ ['--cols' as string]: 4 }}>{PRINCIPLES.map(({ Ic, t, d }, i) => <Reveal key={t} index={i} className="ccard-wrap"><div className="ccard" style={{ ['--accent' as string]: 'var(--violet)' }}><span className="icon-tile" style={{ background: 'var(--violet-tint)', color: 'var(--violet-ink)' }}><Ic width={20} height={20} /></span><h3>{t}</h3><p>{d}</p></div></Reveal>)}</div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-Copyright 2026 Vivofold. All rights reserved, except as stated below.
+Copyright 2026 Solagene. All rights reserved, except as stated below.
 
 1. Nayancode Workbench source code
    The analysis software in src/studios, src/core (except src/core/brand.ts), src/ui, src/pages, src/compute,
@@ -7,8 +7,8 @@ Copyright 2026 Vivofold. All rights reserved, except as stated below.
    information, is https://github.com/balajimadhvn/nayancode
 
 2. Everything else
-   The Vivofold website content and design (text, course and service descriptions, articles, figures, logos,
-   brand names Vivofold, Vedicgen and Nayancode, and the remaining source code) is proprietary to Vivofold and may
-   not be copied or reused without written permission. Contact: contact@vivofold.in
+   The Solagene website content and design (text, course and service descriptions, articles, figures, logos,
+   brand names Solagene, Vedicgen and Nayancode, and the remaining source code) is proprietary to Solagene and may
+   not be copied or reused without written permission. Contact: contact@solagene.com
 
 3. Third-party components keep their own licences; see /licenses on the website.

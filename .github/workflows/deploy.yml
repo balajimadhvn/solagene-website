@@ -1,5 +1,5 @@
 # Deploys the site to GitHub Pages on every push to main (free hosting, no server).
-# One-time set-up: repository Settings → Pages → Source: "GitHub Actions"; add the custom domain vivofold.in there
+# One-time set-up: repository Settings → Pages → Source: "GitHub Actions"; add the custom domain solagene.com there
 # (public/CNAME already contains it) and tick "Enforce HTTPS".
 # Optional repository variables (Settings → Secrets and variables → Actions → Variables):
 #   VITE_FORM_ENDPOINT     e.g. https://formspree.io/f/xxxxxxx   (form backend; without it forms open the e-mail app)

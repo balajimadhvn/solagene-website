@@ -1,11 +1,11 @@
-# Vivofold website: QA report
+# Solagene website: QA report
 
 ## Update 2026-10-15: repositioning and redesign
-**What changed.** Vivofold now leads as a computational biotechnology company (new `/science/`, `/solutions/`,
+**What changed.** Solagene now leads as a computational biotechnology company (new `/science/`, `/solutions/`,
 `/industry/` pages; rewritten home, About and navigation). Vedicgen and Nayancode moved to a smaller but always-visible
 place (top bar, main menu, home, footer). "Available now / In development" tags were removed from company pages.
 The template look (gradient text and buttons, pill shapes, glows, hover lifts, Plus Jakarta Sans) was replaced by a
-restrained identity in `src/site/refine.css`: IBM Plex only, warm paper and ink, one Vivofold blue, square controls,
+restrained identity in `src/site/refine.css`: IBM Plex only, warm paper and ink, one Solagene blue, square controls,
 hairline rules, quiet purposeful animation (strand-folding hero, discovery-loop diagram, funnel bars), all disabled
 under reduced motion. Chennai office added (city only until the street address is supplied). Forms are delivered by
 FormSubmit (no account; one activation click per inbox) with an e-mail fallback if delivery fails.
@@ -29,7 +29,7 @@ support@; optional team, phone and social details.
 
 ## Earlier audit (2026-10-14)
 
-Scope: the whole site (Vivofold, Vedicgen, Nayancode, the Workbench), tested against the **production build** served
+Scope: the whole site (Solagene, Vedicgen, Nayancode, the Workbench), tested against the **production build** served
 exactly as GitHub Pages serves it, with real browsers (Playwright/Chromium), not by reading source code.
 
 ## How it was tested
@@ -83,4 +83,4 @@ exactly as GitHub Pages serves it, with real browsers (Playwright/Chromium), not
 5. **Performance on slow phones**: first paint ≈2–3 s and LCP ≈3–4 s on simulated slow 4G (the stylesheet is 159 KB before compression, the entry script ~390 KB raw). Acceptable; could be improved by splitting the CSS per section.
 6. Inline text links and form checkboxes are 18–20 px tall on phones (allowed by WCAG for inline links; the checkbox's label is also clickable).
 7. Legal pages (privacy, terms, refunds) need a lawyer's review; business policies (refund rule, group discount, instalments) need the owner's confirmation.
-8. The site has not yet been deployed (no GitHub repository exists yet), so DNS/HTTPS on vivofold.in is untested.
+8. The site has not yet been deployed (no GitHub repository exists yet), so DNS/HTTPS on solagene.com is untested.

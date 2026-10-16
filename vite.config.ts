@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 function siteIndex() {
   let t: ReturnType<typeof setTimeout> | undefined;
   return {
-    name: 'vivofold-site-index',
+    name: 'solagene-site-index',
     configureServer(server: { watcher: { on: (e: string, f: (p: string) => void) => void } }) {
       server.watcher.on('change', (p: string) => {
         if (!/src[\\/]site[\\/](data|articles)[\\/]/.test(p) || p.endsWith('site-index.json')) return;

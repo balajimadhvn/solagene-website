@@ -1,4 +1,4 @@
-# Vivofold SEO strategy
+# Solagene SEO strategy
 
 Updated October 2026: research and decisions are in `docs/SEO-RESEARCH-2026.md`; the owner's account tasks (Search Console, Bing, IndexNow, directories) are in `docs/SEO-OWNER-CHECKLIST.md`. Where this older document disagrees (for example about FAQ rich results, which Google retired in May 2026), the research document wins.
 
@@ -7,7 +7,7 @@ No one can guarantee a #1 Google position, and anyone who promises one is not be
 is remove every technical obstacle and give Google well-structured, specific, original pages. Realistic timeline after launch
 and Search Console verification:
 
-* **Brand searches** ("Vivofold", "Vedicgen", "Nayancode", "Vivofold Vedicgen courses"): usually indexed and ranking at or
+* **Brand searches** ("Solagene", "Vedicgen", "Nayancode", "Solagene Vedicgen courses"): usually indexed and ranking at or
   near the top within **days to a few weeks**, because the names are distinctive and the site is the only authority on them.
 * **Specific long-tail searches** ("RNA-seq data analysis course fees India", "qPCR ΔΔCt worked example", "AutoDock Vina
   tutorial redocking"): **1–4 months**, faster with the knowledge-hub guides and free tools linking to course pages.
@@ -19,7 +19,7 @@ and Search Console verification:
 
 | Page | Primary keywords | Supporting keywords |
 |---|---|---|
-| `/` | Vivofold, biotechnology and bioinformatics company | wet-lab and dry-lab training, bioinformatics software, research services |
+| `/` | Solagene, biotechnology and bioinformatics company | wet-lab and dry-lab training, bioinformatics software, research services |
 | `/vedicgen/` | bioinformatics courses India, biotechnology courses | wet-lab training, dry-lab courses, Vedicgen |
 | `/vedicgen/courses/` | bioinformatics courses with fees, biotech courses online | NGS course, RNA-seq course, molecular docking course, Python for biology |
 | `/vedicgen/courses/<slug>/` (73) | the course name + "course" (e.g. "RNA-seq data analysis course") | syllabus, fees, certificate, eligibility, the tools taught |
@@ -51,13 +51,13 @@ and Search Console verification:
 * Accessibility (also a ranking input): labelled forms, keyboard-operable tabs and menus, skip link, alt text, contrast checked.
 
 ## Launch steps (do these in order)
-1. Deploy to `https://vivofold.in` (see `README.md`).
-2. **Google Search Console**: add a *Domain* property for `vivofold.in` and verify it with the DNS TXT record (recommended), or
+1. Deploy to `https://solagene.com` (see `README.md`).
+2. **Google Search Console**: add a *Domain* property for `solagene.com` and verify it with the DNS TXT record (recommended), or
    use the HTML-tag method by setting the `VITE_GOOGLE_SITE_VERIFICATION` repository variable and redeploying.
-3. Submit `https://vivofold.in/sitemap.xml` in Search Console → Sitemaps. Use *URL inspection → Request indexing* for `/`,
+3. Submit `https://solagene.com/sitemap.xml` in Search Console → Sitemaps. Use *URL inspection → Request indexing* for `/`,
    `/vedicgen/`, `/vedicgen/courses/`, `/nayancode/` and `/services/`.
 4. **Bing Webmaster Tools**: import the site from Search Console (one click); this also feeds DuckDuckGo and others.
-5. **Google Business Profile** for Vivofold at the HSR Layout address, with the website link, categories ("Educational
+5. **Google Business Profile** for Solagene at the HSR Layout address, with the website link, categories ("Educational
    institution", "Software company", "Research institute"), hours, photos of the office/lab. This is the biggest single win
    for local searches.
 6. Make the name, address and e-mail identical everywhere (site, Business Profile, LinkedIn, directories).

@@ -9,7 +9,7 @@ import { SCHEDULES } from './data/course-types';
  *  • With a form backend configured (Formspree or Web3Forms, see src/core/brand.ts → INTEGRATIONS or the
  *    VITE_FORM_ENDPOINT build variable), submissions are posted as JSON and the visitor sees a confirmation.
  *  • Without one, the form opens the visitor's e-mail app with the completed application addressed to the right
- *    Vivofold inbox (help@ for admissions, support@ for software, contact@ for everything else).
+ *    Solagene inbox (help@ for admissions, support@ for software, contact@ for everything else).
  * Inline validation with accessible messages, a honeypot against bots, consent capture and clear states.
  */
 export type Inbox = 'general' | 'help' | 'support';
@@ -174,7 +174,7 @@ export const F = {
   phone: { name: 'phone', label: 'Phone or WhatsApp', type: 'tel', autoComplete: 'tel', half: true, placeholder: '+91 …' } as FieldDef,
   phoneReq: { name: 'phone', label: 'Phone or WhatsApp', type: 'tel', autoComplete: 'tel', half: true, placeholder: '+91 …', required: true } as FieldDef,
   org: { name: 'org', label: 'University or organisation', autoComplete: 'organization', half: true } as FieldDef,
-  consent: { name: 'consent', label: 'I agree that Vivofold may use these details to respond to this request.', type: 'checkbox', required: true } as FieldDef,
+  consent: { name: 'consent', label: 'I agree that Solagene may use these details to respond to this request.', type: 'checkbox', required: true } as FieldDef,
   section: (name: string, label: string, hint?: string) => ({ name, label, hint, type: 'section' }) as FieldDef,
   message: (label = 'Message', placeholder = 'A few lines about you and what you are looking for.', required = true) => ({ name: 'message', label, type: 'textarea', required, placeholder }) as FieldDef,
 };
@@ -209,8 +209,8 @@ export function ApplicationForm({ programme, options, groups, formats, durations
     { name: 'updates', label: 'Send me occasional e-mails about new cohorts and free resources.', type: 'checkbox' },
   ];
   const next = isIntern
-    ? ['Our admissions team replies from help@vivofold.in.', 'An admissions reviewer reads your application within five working days.', 'Shortlisted applicants receive a short task and an interview invitation.', 'Successful applicants receive an offer letter with the start date, mentor and fee.']
-    : ['Our admissions team replies from help@vivofold.in.', 'An admissions adviser reviews your application within two working days and confirms the right format and cohort.', 'You receive an admission offer with the dates, timetable and a secure payment link.', 'Your place is confirmed on payment, and onboarding details follow.'];
+    ? ['Our admissions team replies from help@solagene.com.', 'An admissions reviewer reads your application within five working days.', 'Shortlisted applicants receive a short task and an interview invitation.', 'Successful applicants receive an offer letter with the start date, mentor and fee.']
+    : ['Our admissions team replies from help@solagene.com.', 'An admissions adviser reviews your application within two working days and confirms the right format and cohort.', 'You receive an admission offer with the dates, timetable and a secure payment link.', 'Your place is confirmed on payment, and onboarding details follow.'];
   return (
     <Form kind={kind} inbox="help" fields={fields} initial={{ programme: programme ?? '' }}
       subject={(x) => `[${kind}] ${x.programme || 'Vedicgen'}: ${x.name}`} submitLabel={isIntern ? 'Submit application' : 'Apply now'}
@@ -230,7 +230,7 @@ export function Newsletter({ compact, id: idProp }: { compact?: boolean; id?: st
     try {
       if (INTEGRATIONS.newsletterEndpoint) { const r = await fetch(INTEGRATIONS.newsletterEndpoint, { method: 'POST', body: new URLSearchParams({ email: email.trim() }) }); if (!r.ok && r.type !== 'opaque') throw new Error(); }
       else if (backendReady()) await send('Newsletter sign-up', { email: email.trim() }, 'general');
-      else { window.location.href = mailtoHref('Newsletter sign-up', `Please add ${email.trim()} to the Vivofold newsletter.`); }
+      else { window.location.href = mailtoHref('Newsletter sign-up', `Please add ${email.trim()} to the Solagene newsletter.`); }
       setSt('ok');
     } catch { setSt('err'); }
   };

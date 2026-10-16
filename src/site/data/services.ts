@@ -1,4 +1,4 @@
-// Vivofold research services (dry lab, Bio-IT and wet lab). Price and turnaround depend on the data and are agreed
+// Solagene research services (dry lab, Bio-IT and wet lab). Price and turnaround depend on the data and are agreed
 // per project in a written quote. Each service carries a status so that available, on-request and planned
 // capabilities are never confused: change `status` when a planned service opens. Remove any entry you do not offer:
 // its page, navigation links, sitemap entry and structured data disappear with it.
@@ -282,7 +282,7 @@ export const SERVICES: Service[] = [
     seoTitle: 'Custom Scientific Software Development (Bioinformatics)',
     seoDescription: 'Custom scientific software by Nayancode: bioinformatics web apps, analysis tools, visualisation, algorithm implementation in Rust and WebAssembly, with tests and documentation.',
     short: 'Web applications, analysis tools and algorithms built by Nayancode engineers.',
-    intro: 'Nayancode, Vivofold’s software division, builds custom scientific software: internal analysis tools, interactive web applications, visualisations and fast algorithm implementations, engineered with tests and documentation from the first commit.',
+    intro: 'Nayancode, Solagene’s software division, builds custom scientific software: internal analysis tools, interactive web applications, visualisations and fast algorithm implementations, engineered with tests and documentation from the first commit.',
     forWho: ['Research groups that need a tool their students can maintain', 'Biotech teams needing internal analysis applications', 'Organisations turning a published method into usable software'],
     inputs: [{ t: 'Problem description', d: 'Who will use the software, for what, and with which data.' }, { t: 'Existing code or methods', d: 'Scripts, papers or prototypes to build on.' }],
     steps: [
@@ -406,9 +406,9 @@ export const SERVICES: Service[] = [
   {
     slug: 'molecular-biology-services', title: 'Molecular Biology Laboratory Services', category: 'Wet-lab services', figure: 'gel', course: 'gene-cloning-recombinant-dna', status: 'planned', discipline: 'wet',
     seoTitle: 'Molecular Biology Services: PCR, Cloning & Plasmid Prep',
-    seoDescription: 'Planned wet-lab services at Vivofold: PCR and qPCR, gene cloning, plasmid preparation and construct verification. Register interest now.',
+    seoDescription: 'Planned wet-lab services at Solagene: PCR and qPCR, gene cloning, plasmid preparation and construct verification. Register interest now.',
     short: 'PCR, qPCR, cloning and plasmid preparation (planned; register interest).',
-    intro: 'Vivofold plans to offer molecular-biology bench services: PCR and qPCR assays, gene cloning, plasmid preparation and construct verification. The service is not yet open; registering interest helps us prioritise.',
+    intro: 'Solagene plans to offer molecular-biology bench services: PCR and qPCR assays, gene cloning, plasmid preparation and construct verification. The service is not yet open; registering interest helps us prioritise.',
     forWho: ['Research groups without capacity for routine molecular work', 'Start-ups needing constructs and assays', 'Teams needing qPCR validation of sequencing results'],
     inputs: [{ t: 'Samples or sequences', d: 'Templates, target sequences or constructs to build.' }, { t: 'Requirements', d: 'Quantities, quality criteria and timelines.' }],
     steps: [{ t: 'Register interest', d: 'Tell us what you need; we contact you when the service opens.' }, { t: 'Scoping', d: 'Requirements and quality criteria agreed in writing.' }, { t: 'Bench work', d: 'Work performed with documented protocols and controls.' }, { t: 'Delivery', d: 'Materials and data with a QC report.' }],
@@ -422,9 +422,9 @@ export const SERVICES: Service[] = [
   {
     slug: 'cell-microbiology-assay-services', title: 'Cell-Based & Microbiology Assay Services', category: 'Wet-lab services', figure: 'plate', course: 'cell-based-assays', status: 'planned', discipline: 'wet',
     seoTitle: 'Cell-Based & Microbiology Assay Services (Planned)',
-    seoDescription: 'Planned wet-lab services at Vivofold: cell viability and cytotoxicity screening, ELISA, microbial culture and antimicrobial activity screening. Register interest.',
+    seoDescription: 'Planned wet-lab services at Solagene: cell viability and cytotoxicity screening, ELISA, microbial culture and antimicrobial activity screening. Register interest.',
     short: 'Viability and cytotoxicity screening, ELISA and microbial screening (planned).',
-    intro: 'Vivofold plans to offer assay services for research clients: cell viability and cytotoxicity screening with dose–response analysis, ELISA quantification, and microbial culture and antimicrobial-activity screening with non-pathogenic organisms. The service is not yet open.',
+    intro: 'Solagene plans to offer assay services for research clients: cell viability and cytotoxicity screening with dose–response analysis, ELISA quantification, and microbial culture and antimicrobial-activity screening with non-pathogenic organisms. The service is not yet open.',
     forWho: ['Researchers screening compounds, extracts or materials', 'Start-ups needing early activity data', 'Academic groups without cell-culture capacity'],
     inputs: [{ t: 'Test materials', d: 'Compounds, extracts or samples with handling information.' }, { t: 'Assay requirements', d: 'Cell lines or organisms, concentrations and readouts.' }],
     steps: [{ t: 'Register interest', d: 'Describe your assay needs; we contact you when the service opens.' }, { t: 'Scoping', d: 'Assay design and acceptance criteria agreed in writing.' }, { t: 'Assays', d: 'Plates run with controls and replicates.' }, { t: 'Analysis', d: 'Dose–response fits and a report.' }],

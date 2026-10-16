@@ -4,15 +4,16 @@ import { Link } from './Link';
 import { WORDMARK } from './wordmark';
 
 /*
- * Vivofold brand. Vivofold is the company; Vedicgen (its school) and Nayancode (its software) are sub-brands that
- * always appear under the Vivofold logo. The mark is the official Vivofold logo (a folding ribbon "V" with a DNA
- * leaf), vectorised to public/brand/vivofold-mark.svg; the wordmark is drawn as outlines so it can take any colour.
- * To update the logo, replace public/brand/vivofold-mark.svg (and public/favicon.svg), then run `npm run og`.
+ * Solagene brand. Solagene is the company; Vedicgen (its school) and Nayancode (its software) are sub-brands that
+ * always appear under the Solagene logo. The mark is the official Solagene logo (a DNA double-helix ribbon in an "S", with two
+ * dots). public/brand/solagene-mark.svg keeps the exact artwork: a traced vector outline clipping the original colours; the
+ * site shows a light WebP render of it (public/brand/solagene-mark.webp). The wordmark is drawn as outlines so it can take
+ * any colour. To update the logo, replace those files and src/site/wordmark.ts, then run `npm run og`.
  */
 export const asset = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\//, '')}`;
 
-export function VivofoldMark({ size = 32, className = '', alt = '' }: { size?: number; className?: string; alt?: string }) {
-  return <img src={asset('/brand/vivofold-mark.svg')} width={Math.round(size * 0.974)} height={size} alt={alt} className={`mark ${className}`} decoding="async" />;
+export function SolageneMark({ size = 32, className = '', alt = '' }: { size?: number; className?: string; alt?: string }) {
+  return <img src={asset('/brand/solagene-mark.webp')} width={Math.round(size * 0.6225)} height={size} alt={alt} className={`mark ${className}`} decoding="async" />;
 }
 
 export function Wordmark({ height = 16, className = '' }: { height?: number; className?: string }) {
@@ -27,13 +28,13 @@ const SUB_ICON = { vedicgen: I.Book, nayancode: I.Code } as const;
 export function SubMark({ div, size = 16 }: { div: DivisionId; size?: number }) { const Ic = SUB_ICON[div]; return <span className={`submark submark--${div}`}><Ic width={size} height={size} /></span>; }
 
 /**
- * Logo lockup: mark + VIVOFOLD wordmark. With `div`, the sub-brand name follows a divider ("VIVOFOLD | Vedicgen").
+ * Logo lockup: mark + SOLAGENE wordmark. With `div`, the sub-brand name follows a divider ("SOLAGENE | Vedicgen").
  * `tagline` shows "Research · Education · Innovation" under the wordmark, as in the official logo.
  */
 export function Logo({ size = 34, to, div, tagline, className = '' }: { size?: number; to?: string; div?: DivisionId; tagline?: boolean; className?: string }) {
   const inner = (
     <>
-      <VivofoldMark size={size} />
+      <SolageneMark size={size} />
       <span className="logo-text">
         <Wordmark height={Math.round(size * 0.4)} />
         {tagline && !div && <span className="logo-tag">Research · Education · Innovation</span>}

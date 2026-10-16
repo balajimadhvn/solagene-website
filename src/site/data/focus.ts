@@ -1,4 +1,4 @@
-// Vivofold's company focus: what we work on (FOCUS), what partners can buy from us (SOLUTIONS) and where the field is
+// Solagene's company focus: what we work on (FOCUS), what partners can buy from us (SOLUTIONS) and where the field is
 // heading (LANDSCAPE, from the October 2026 market review in docs/MARKET-RESEARCH.md). Written at positioning level and
 // without inflated claims: nothing here claims a pipeline asset, partner, dataset or result. Edit freely.
 

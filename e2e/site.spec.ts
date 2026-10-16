@@ -1,6 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 
-// Vivofold public site, tested against the production build (prerendered HTML + hydration), served exactly like
+// Solagene public site, tested against the production build (prerendered HTML + hydration), served exactly like
 // GitHub Pages (scripts/serve.mjs): /path/ → path/index.html, /path → 301 /path/, unknown → 404.html (status 404).
 
 function watch(page: Page) {
@@ -32,7 +32,7 @@ test('every public page is prerendered, hydrates without errors and has a unique
     expect(res.status(), `${route} status`).toBe(200);
     const html = await res.text();
     expect(html, `${route} should be prerendered`).toMatch(/<h1[^>]*>/);
-    expect(html).toContain(`<link rel="canonical" href="https://vivofold.in${route}"`);
+    expect(html).toContain(`<link rel="canonical" href="https://solagene.com${route}"`);
     expect(html.match(/<h1[\s>]/g)?.length, `${route} has exactly one h1`).toBe(1);
     await page.goto(route); await expect(page.locator('h1').first()).toHaveText(h1, { timeout: 15_000 });
     titles.add(await page.title());
@@ -133,18 +133,18 @@ test('header navigation: mega menus, Workbench button and mobile menu', async ({
 
 test('contact page routes messages to the right inbox', async ({ page }) => {
   const errs = watch(page); await page.goto('/contact/');
-  await expect(page.locator('.form-foot small')).toContainText('contact@vivofold.in');
-  await page.getByRole('tab', { name: 'Admissions & help' }).click(); await expect(page.locator('.form-foot small')).toContainText('help@vivofold.in');
-  await page.getByRole('tab', { name: 'Software support' }).click(); await expect(page.locator('.form-foot small')).toContainText('support@vivofold.in');
+  await expect(page.locator('.form-foot small')).toContainText('contact@solagene.com');
+  await page.getByRole('tab', { name: 'Admissions & help' }).click(); await expect(page.locator('.form-foot small')).toContainText('help@solagene.com');
+  await page.getByRole('tab', { name: 'Software support' }).click(); await expect(page.locator('.form-foot small')).toContainText('support@solagene.com');
   expect(errs).toEqual([]);
 });
 
 test('sitemap, robots and structured data are valid', async ({ request }) => {
   const sm = await (await request.get('/sitemap.xml')).text();
-  expect(sm).toContain('<loc>https://vivofold.in/vedicgen/courses/rna-seq-data-analysis/</loc>');
-  expect(sm).toContain('<loc>https://vivofold.in/nayancode/products/genome-studio/</loc>');
+  expect(sm).toContain('<loc>https://solagene.com/vedicgen/courses/rna-seq-data-analysis/</loc>');
+  expect(sm).toContain('<loc>https://solagene.com/nayancode/products/genome-studio/</loc>');
   expect((sm.match(/<loc>/g) ?? []).length).toBeGreaterThan(150);
-  expect(await (await request.get('/robots.txt')).text()).toContain('Sitemap: https://vivofold.in/sitemap.xml');
+  expect(await (await request.get('/robots.txt')).text()).toContain('Sitemap: https://solagene.com/sitemap.xml');
   expect((await request.get('/CNAME')).status()).toBe(200);
   const html = await (await request.get('/vedicgen/courses/rna-seq-data-analysis/')).text();
   const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)![1]);
@@ -213,7 +213,7 @@ test('a completed application is delivered to the admissions inbox through FormS
   await form.getByRole('button', { name: /Apply now/ }).click();
   await expect(page.locator('#apply .form-done')).toContainText('Application received');
   expect(posts).toHaveLength(1);
-  expect(posts[0].url).toBe('https://formsubmit.co/ajax/help@vivofold.in');
+  expect(posts[0].url).toBe('https://formsubmit.co/ajax/help@solagene.com');
   expect(posts[0].body['Preferred duration and schedule']).toBe('Standard (up to 4 weeks)');
   expect(posts[0].body._replyto).toBe('learner@example.org');
   expect(posts[0].body['Full name']).toBe('Test Learner');
@@ -227,11 +227,11 @@ test('if delivery fails or the inbox is not yet activated, the visitor gets a pr
   await form.getByRole('button', { name: /Apply now/ }).click();
   const err = form.locator('.notice--err');
   await expect(err).toContainText('could not be sent');
-  expect(await err.getByRole('link', { name: /e-mail app/ }).getAttribute('href')).toMatch(/^mailto:help@vivofold\.in\?subject=/);
+  expect(await err.getByRole('link', { name: /e-mail app/ }).getAttribute('href')).toMatch(/^mailto:help@solagene\.com\?subject=/);
   await expect(page.locator('#apply .form-done')).toHaveCount(0);
 });
 
-test('Vivofold leads with its science, Vedicgen and Nayancode stay one click away, both offices are listed', async ({ page, request }) => {
+test('Solagene leads with its science, Vedicgen and Nayancode stay one click away, both offices are listed', async ({ page, request }) => {
   const errs = watch(page); await page.setViewportSize({ width: 1440, height: 900 }); await page.goto('/');
   await expect(page.locator('main')).toContainText('identify targets');
   await expect(page.locator('.flist').first().locator('li')).toHaveCount(6);

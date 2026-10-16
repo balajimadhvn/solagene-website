@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { BRAND, DIVISIONS, TEAM, addressLines, mapUrl, otherLocations } from '@/core/brand';
-import { SubMark, VivofoldMark } from '../brand';
+import { SubMark, SolageneMark } from '../brand';
 import { COURSES, INTERNSHIPS, PRODUCTS, SERVICES } from '../data/lite';
 import { PROGRAMS } from '../data/programs';
 import { RESEARCH } from '../data/research';
@@ -28,7 +28,7 @@ export function About() {
             <h1 id="about-h" className="t-display" style={{ fontSize: 'clamp(2.4rem, 1.5rem + 3.2vw, 4.2rem)', color: '#fff' }}>A computational life-science company, built to be checked.</h1>
             <p className="lede" style={{ color: '#c3cce4' }}>{BRAND.name} uses machine learning, physics-based simulation and multi-omics data to find drug targets and design candidate medicines. The same team runs Vedicgen, a school for wet-lab and computational scientists, and Nayancode, our analysis software.</p>
           </div>
-          <Reveal className="about-mark"><VivofoldMark size={220} /><p className="small" style={{ color: '#a7b2cf', textAlign: 'center' }}>Science · Software · Education</p></Reveal>
+          <Reveal className="about-mark"><SolageneMark size={220} /><p className="small" style={{ color: '#a7b2cf', textAlign: 'center' }}>Science · Software · Education</p></Reveal>
         </div>
       </section>
 
@@ -45,11 +45,11 @@ export function About() {
         <div className="container">
           <Reveal className="band-head"><div><p className="kicker">How we are organised</p><h2 id="arch-h">One company. Science first. Two arms that support it.</h2></div><p className="lede">{BRAND.name} is the company, and its science is the main work. Vedicgen is our school and Nayancode is our software: both are part of {BRAND.name} and both are open to the public.</p></Reveal>
           <div className="arch">
-            <Reveal className="arch-root"><VivofoldMark size={44} /><div><b>{BRAND.name}</b><span>{BRAND.tagline}</span></div></Reveal>
+            <Reveal className="arch-root"><SolageneMark size={44} /><div><b>{BRAND.name}</b><span>{BRAND.tagline}</span></div></Reveal>
             <div className="arch-kids">
-              <Reveal index={1} className="ccard-wrap"><Link to="/science" className="arch-kid arch-kid--vf"><span className="submark" style={{ background: 'linear-gradient(135deg,#1f6fe0,#4f8bff)' }}><I.Microscope width={22} height={22} /></span><b>Vivofold Science & Solutions</b><span className="arch-role">Core</span><p>Generative AI and physics-based drug discovery, multi-omics, target discovery and contract services for biopharma partners.</p><small>6 focus areas · {SERVICES.length} services · {RESEARCH.length} research areas</small></Link></Reveal>
-              <Reveal index={2} className="ccard-wrap"><Link to="/vedicgen" className="arch-kid arch-kid--vg"><SubMark div="vedicgen" size={22} /><b>Vivofold Vedicgen</b><span className="arch-role">School</span><p>{DIVISIONS.vedicgen.line}</p><small>{COURSES.length} courses · {PROGRAMS.length} programmes · {INTERNSHIPS.length} internships</small></Link></Reveal>
-              <Reveal index={3} className="ccard-wrap"><Link to="/nayancode" className="arch-kid arch-kid--nc"><SubMark div="nayancode" size={22} /><b>Vivofold Nayancode</b><span className="arch-role">Software</span><p>{DIVISIONS.nayancode.line}</p><small>{PRODUCTS.length} products · free during the public preview</small></Link></Reveal>
+              <Reveal index={1} className="ccard-wrap"><Link to="/science" className="arch-kid arch-kid--vf"><span className="submark" style={{ background: 'linear-gradient(135deg,#1f6fe0,#4f8bff)' }}><I.Microscope width={22} height={22} /></span><b>Solagene Science & Solutions</b><span className="arch-role">Core</span><p>Generative AI and physics-based drug discovery, multi-omics, target discovery and contract services for biopharma partners.</p><small>6 focus areas · {SERVICES.length} services · {RESEARCH.length} research areas</small></Link></Reveal>
+              <Reveal index={2} className="ccard-wrap"><Link to="/vedicgen" className="arch-kid arch-kid--vg"><SubMark div="vedicgen" size={22} /><b>Solagene Vedicgen</b><span className="arch-role">School</span><p>{DIVISIONS.vedicgen.line}</p><small>{COURSES.length} courses · {PROGRAMS.length} programmes · {INTERNSHIPS.length} internships</small></Link></Reveal>
+              <Reveal index={3} className="ccard-wrap"><Link to="/nayancode" className="arch-kid arch-kid--nc"><SubMark div="nayancode" size={22} /><b>Solagene Nayancode</b><span className="arch-role">Software</span><p>{DIVISIONS.nayancode.line}</p><small>{PRODUCTS.length} products · free during the public preview</small></Link></Reveal>
             </div>
           </div>
         </div>

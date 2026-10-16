@@ -17,7 +17,7 @@ const FAQ = [
   { q: 'Can I study online?', a: 'Yes. All bioinformatics, computing and life-science courses are offered as live online cohorts and most also as self-paced courses with mentor-reviewed projects.' },
   { q: 'How do I apply and when will I hear back?', a: 'Apply online from any course or internship page, or from the Apply page. Course applications are reviewed within two working days and internship applications within five; you receive an admission offer with dates and a secure payment link.' },
   { q: 'Are fees fixed and published?', a: 'Yes. Every fee is shown on the course page and the pricing page, in INR and exclusive of 18% GST. International learners can pay in USD for online courses.' },
-  { q: 'Is the certificate recognised?', a: 'Vedicgen certificates are issued by Vivofold, a private company, and carry a unique verification ID. They document skills and hours; they are not university degrees. Many universities accept internships for credit; check your institution’s rules.' },
+  { q: 'Is the certificate recognised?', a: 'Vedicgen certificates are issued by Solagene, a private company, and carry a unique verification ID. They document skills and hours; they are not university degrees. Many universities accept internships for credit; check your institution’s rules.' },
 ];
 
 function Search() {
@@ -39,7 +39,7 @@ export default function VedicgenHome() {
       <section className="dhero dhero--vg" aria-labelledby="vg-hero">
         <div className="container dhero-grid">
           <div className="dhero-copy">
-            <p className="kicker kicker--vg">Vivofold Vedicgen · The school of Vivofold</p>
+            <p className="kicker kicker--vg">Solagene Vedicgen · The school of Solagene</p>
             <h1 id="vg-hero" className="t-display" style={{ fontSize: 'clamp(2.6rem, 1.6rem + 3.6vw, 4.6rem)' }}>From pipette <span className="grad-text">to pipeline.</span></h1>
             <p className="lede">Bioinformatics and biotechnology courses, certificate programmes, internships and workshops in India, online and in our laboratory. {DIVISIONS.vedicgen.line} Learn at the bench in our laboratory, analyse data online with expert instructors, and leave with work you can show.</p>
             <Search />
@@ -116,7 +116,7 @@ export default function VedicgenHome() {
       <section className="section section--alt" aria-labelledby="cert-h">
         <div className="container split-5-7 align-center">
           <Reveal className="stack-md"><p className="kicker kicker--vg">Certificates</p><h2 id="cert-h">Proof anyone can check.</h2><p className="lede">Every Vedicgen certificate carries a unique ID and QR code. Employers and admissions offices can confirm it in seconds on our verification page.</p><div className="inline"><Link to="/verify" className="button button--secondary">Verify a certificate <I.Arrow /></Link></div></Reveal>
-          <Reveal index={1}><div className="cert-card"><div className="cert-head"><span className="label">Certificate of completion</span><span className="tag tag--plain">Sample</span></div><b>Molecular Biology Techniques: DNA, RNA, PCR & Electrophoresis</b><span className="small subtle">Awarded to the learner named on the certificate · 30 hours of bench training</span><div className="cert-foot"><span className="mono xsmall">ID · VG-XXXX-XXXX</span><span className="small">Vivofold Vedicgen</span></div></div></Reveal>
+          <Reveal index={1}><div className="cert-card"><div className="cert-head"><span className="label">Certificate of completion</span><span className="tag tag--plain">Sample</span></div><b>Molecular Biology Techniques: DNA, RNA, PCR & Electrophoresis</b><span className="small subtle">Awarded to the learner named on the certificate · 30 hours of bench training</span><div className="cert-foot"><span className="mono xsmall">ID · VG-XXXX-XXXX</span><span className="small">Solagene Vedicgen</span></div></div></Reveal>
         </div>
       </section>
 

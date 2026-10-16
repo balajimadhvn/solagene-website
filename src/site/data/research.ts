@@ -1,4 +1,4 @@
-// Vivofold research areas. Status is stated honestly: "Active" areas have working methods and software today;
+// Solagene research areas. Status is stated honestly: "Active" areas have working methods and software today;
 // "Building" areas are being set up; "Planned" areas are on the roadmap. Open projects are proposals open to
 // collaborators and student researchers, not completed work. No publication or partner is claimed.
 import type { FigureKind } from '../figures';
@@ -21,7 +21,7 @@ export const RESEARCH: ResearchArea[] = [
     methods: ['Global and local alignment with affine gaps', 'Read mapping and SNV calling (minimap2 + samtools, WebAssembly)', 'Maximum-likelihood phylogenetics with model selection', 'SNN-Louvain clustering with clean-room UMAP and t-SNE', 'ComBat batch correction, ORA and preranked GSEA', 'Interaction profiling, pockets, SASA and TM-score'],
     courses: ['algorithms-for-bioinformatics', 'research-software-engineering', 'high-performance-scientific-programming'], internships: ['scientific-software-engineering-internship'], services: ['scientific-software-development'], products: ['workbench', 'genome-studio'],
     seoTitle: 'Scientific Software Research: Validated Bioinformatics Methods',
-    seoDescription: 'Vivofold research on validated, browser-based scientific software: clean-room algorithms tested against known answers, private computation and automatic provenance.',
+    seoDescription: 'Solagene research on validated, browser-based scientific software: clean-room algorithms tested against known answers, private computation and automatic provenance.',
     keywords: ['bioinformatics software research', 'validated bioinformatics methods', 'WebAssembly bioinformatics'],
   },
   {
@@ -33,8 +33,8 @@ export const RESEARCH: ResearchArea[] = [
     projects: [{ t: 'Robustness of RNA-seq conclusions', d: 'Re-analyse published RNA-seq studies under alternative, defensible pipelines and measure how conclusions change.' }, { t: 'Batch correction in small designs', d: 'Benchmark correction methods on simulated and public data with known batch structure.' }, { t: 'Annotation agreement in single-cell data', d: 'Quantify agreement between automated cell-type annotation methods across public atlases.' }],
     methods: ['Moderated-t differential expression with FDR control', 'ComBat batch correction', 'Over-representation and preranked GSEA', 'Graph-based single-cell clustering'],
     courses: ['rna-seq-data-analysis', 'single-cell-rna-seq-analysis', 'multi-omics-data-integration'], internships: ['bioinformatics-genomics-internship', 'integrated-wet-dry-research-internship'], services: ['rna-seq-analysis', 'single-cell-analysis', 'multi-omics-integration'], products: ['expression-studio', 'single-cell-studio'],
-    seoTitle: 'Genomics & Transcriptomics Research | Vivofold',
-    seoDescription: 'Vivofold research in genomics and transcriptomics: robustness of RNA-seq conclusions, batch correction in small designs and validation of single-cell annotation.',
+    seoTitle: 'Genomics & Transcriptomics Research | Solagene',
+    seoDescription: 'Solagene research in genomics and transcriptomics: robustness of RNA-seq conclusions, batch correction in small designs and validation of single-cell annotation.',
     keywords: ['genomics research India', 'transcriptomics research', 'RNA-seq robustness'],
   },
   {
@@ -46,8 +46,8 @@ export const RESEARCH: ResearchArea[] = [
     projects: [{ t: 'Docking validation audit', d: 'Systematically test docking protocols on public targets with known actives and decoys.' }, { t: 'QSAR split study', d: 'Quantify performance inflation from random splits across ChEMBL targets.' }, { t: 'Predicted structures for docking', d: 'Compare docking outcomes on experimental and predicted structures of the same targets.' }],
     methods: ['Random forest, kNN and ridge QSAR with applicability domains', 'Butina clustering of chemical space', 'Interaction profiling and pocket detection', 'Kabsch superposition and TM-score'],
     courses: ['molecular-docking-drug-discovery', 'cheminformatics-qsar-modelling', 'computer-aided-drug-design'], internships: ['computational-drug-discovery-internship'], services: ['molecular-docking-virtual-screening', 'qsar-cheminformatics', 'structural-bioinformatics'], products: ['chemistry-studio', 'structure-studio'],
-    seoTitle: 'Computational Drug Discovery Research | Vivofold',
-    seoDescription: 'Vivofold research in structural bioinformatics and computational drug discovery: docking validation, leakage-free QSAR and predicted structures.',
+    seoTitle: 'Computational Drug Discovery Research | Solagene',
+    seoDescription: 'Solagene research in structural bioinformatics and computational drug discovery: docking validation, leakage-free QSAR and predicted structures.',
     keywords: ['computational drug discovery research', 'docking validation', 'QSAR research India'],
   },
   {
@@ -59,8 +59,8 @@ export const RESEARCH: ResearchArea[] = [
     projects: [{ t: 'Leakage in biological ML benchmarks', d: 'Re-evaluate public benchmarks with biologically aware splits.' }, { t: 'Literature extraction accuracy', d: 'Measure how well LLM pipelines extract experimental parameters from methods sections.' }, { t: 'Communicating uncertainty', d: 'Design and test ways of showing model applicability to bench scientists.' }],
     methods: ['Cluster cross-validation and Y-randomisation', 'Applicability-domain estimation', 'NMF signature extraction'],
     courses: ['machine-learning-for-biology', 'deep-learning-genomics-drug-discovery', 'llms-for-life-sciences'], internships: ['ai-ml-biology-internship'], services: ['machine-learning-biology'], products: ['chemistry-studio'],
-    seoTitle: 'AI & Machine Learning in Biology Research | Vivofold',
-    seoDescription: 'Vivofold research on trustworthy machine learning for biology: leakage-free evaluation, baselines, applicability domains and LLM extraction accuracy.',
+    seoTitle: 'AI & Machine Learning in Biology Research | Solagene',
+    seoDescription: 'Solagene research on trustworthy machine learning for biology: leakage-free evaluation, baselines, applicability domains and LLM extraction accuracy.',
     keywords: ['AI in biology research', 'machine learning bioinformatics research', 'trustworthy ML biology'],
   },
   {
@@ -72,8 +72,8 @@ export const RESEARCH: ResearchArea[] = [
     projects: [{ t: 'Genotype–phenotype agreement', d: 'Compare predicted and recorded resistance in public isolate collections.' }, { t: 'Plasmid backgrounds of resistance genes', d: 'Characterise the mobile elements carrying resistance genes in public genomes.' }],
     methods: ['MinHash genome similarity', 'Phylogenetic inference with bootstrap support'],
     courses: ['bacterial-genomics-amr', 'microbiome-metagenomics-analysis'], internships: ['bioinformatics-genomics-internship'], services: ['microbiome-microbial-genomics'], products: ['genome-studio', 'phylogenetics-studio'],
-    seoTitle: 'Microbial Genomics & AMR Research | Vivofold',
-    seoDescription: 'Vivofold research in microbial genomics and antimicrobial resistance: open, reproducible workflows for public bacterial genomes.',
+    seoTitle: 'Microbial Genomics & AMR Research | Solagene',
+    seoDescription: 'Solagene research in microbial genomics and antimicrobial resistance: open, reproducible workflows for public bacterial genomes.',
     keywords: ['AMR genomics research', 'microbial genomics India', 'antimicrobial resistance bioinformatics'],
   },
   {
@@ -85,8 +85,8 @@ export const RESEARCH: ResearchArea[] = [
     projects: [{ t: 'Travel time to primary care', d: 'Estimate access to health facilities from open road and facility data.' }, { t: 'Crop condition from Sentinel-2', d: 'Track seasonal crop condition with spectral indices in public imagery.' }],
     methods: [],
     courses: ['gis-remote-sensing', 'spatial-epidemiology-health-gis', 'health-informatics-fhir'], internships: ['geoinformatics-health-data-internship'], services: ['geospatial-health-analytics'], products: [],
-    seoTitle: 'Spatial & Health Data Science Research | Vivofold',
-    seoDescription: 'Vivofold research in geoinformatics and health data science: access to care, crop condition from satellites and interoperable health data.',
+    seoTitle: 'Spatial & Health Data Science Research | Solagene',
+    seoDescription: 'Solagene research in geoinformatics and health data science: access to care, crop condition from satellites and interoperable health data.',
     keywords: ['geoinformatics research', 'health data science India', 'spatial epidemiology research'],
   },
   {
@@ -98,8 +98,8 @@ export const RESEARCH: ResearchArea[] = [
     projects: [{ t: 'Assay reproducibility study', d: 'Compare viability-assay readouts across protocols with shared reference compounds.' }, { t: 'qPCR versus RNA-seq agreement', d: 'Measure agreement for transcripts across abundance ranges.' }],
     methods: [],
     courses: ['qpcr-gene-expression', 'cell-based-assays', 'microbiology-techniques'], internships: ['integrated-wet-dry-research-internship', 'cell-culture-assays-internship'], services: ['molecular-biology-services', 'cell-microbiology-assay-services'], products: [],
-    seoTitle: 'Molecular & Cell Biology Research (Planned) | Vivofold',
-    seoDescription: 'Vivofold’s planned wet-lab research programme connecting molecular and cell biology experiments with computational analysis.',
+    seoTitle: 'Molecular & Cell Biology Research (Planned) | Solagene',
+    seoDescription: 'Solagene’s planned wet-lab research programme connecting molecular and cell biology experiments with computational analysis.',
     keywords: ['molecular biology research India', 'cell biology research India'],
   },
 ];

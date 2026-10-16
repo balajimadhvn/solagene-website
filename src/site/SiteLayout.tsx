@@ -102,7 +102,7 @@ function TopBar() {
   return (
     <div className="topbar on-ink">
       <div className="container topbar-in">
-        <nav className="topbar-group" aria-label="Vivofold group">
+        <nav className="topbar-group" aria-label="Solagene group">
           <Link to="/" className="tb-brand">{BRAND.name}</Link>
           <span className="tb-sep" aria-hidden>/</span>
           <Link to="/vedicgen"><SubMark div="vedicgen" size={14} />Vedicgen <span>Education</span></Link>
@@ -210,7 +210,7 @@ function Header() {
             {SERVICES.map((s) => <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.title}</Link></li>)}
             <li><Link to="/services"><b>All services</b></Link></li>
           </MobileGroup>
-          {[['/research', 'Research'], ['/industry', 'Industry landscape'], ['/learn', 'Knowledge hub'], ['/about', 'About Vivofold'], ['/contact', 'Contact']].map(([to, t], k) => <div key={to} className="mnav-group" style={{ ['--i' as string]: k + 5 }}><Link to={to} className="mnav-top">{t}<I.Arrow width={18} height={18} /></Link></div>)}
+          {[['/research', 'Research'], ['/industry', 'Industry landscape'], ['/learn', 'Knowledge hub'], ['/about', 'About Solagene'], ['/contact', 'Contact']].map(([to, t], k) => <div key={to} className="mnav-group" style={{ ['--i' as string]: k + 5 }}><Link to={to} className="mnav-top">{t}<I.Arrow width={18} height={18} /></Link></div>)}
           <div className="mnav-contact"><a href={`mailto:${BRAND.emails.general}`}>{BRAND.emails.general}</a></div>
         </nav>
       </div>
@@ -274,7 +274,7 @@ function Footer() {
           </div>
         </div>
         <div className="ftr-top">
-          <div className="ftr-col"><p className="label">Vivofold</p><Link to="/about">About the company</Link><Link to="/science">Our science</Link><Link to="/solutions">Solutions</Link><Link to="/industry">Industry landscape</Link><Link to="/research">Research</Link><Link to="/services">Research services</Link><Link to="/services#quote">Request a quote</Link><Link to="/learn">Knowledge hub</Link><Link to="/contact">Contact</Link></div>
+          <div className="ftr-col"><p className="label">Solagene</p><Link to="/about">About the company</Link><Link to="/science">Our science</Link><Link to="/solutions">Solutions</Link><Link to="/industry">Industry landscape</Link><Link to="/research">Research</Link><Link to="/services">Research services</Link><Link to="/services#quote">Request a quote</Link><Link to="/learn">Knowledge hub</Link><Link to="/contact">Contact</Link></div>
           <div className="ftr-col"><p className="label">Vedicgen · Education</p><Link to="/vedicgen/courses">All courses</Link><Link to="/vedicgen/programs">Professional programmes</Link><Link to="/vedicgen/internships">Internships</Link><Link to="/vedicgen/workshops">Workshops</Link><Link to="/vedicgen/research-training">Research training</Link><Link to="/vedicgen/institutions">For institutions</Link><Link to="/vedicgen/pricing">Fees & pricing</Link><Link to="/vedicgen/apply">Apply</Link><Link to="/verify">Verify a certificate</Link></div>
           <div className="ftr-col"><p className="label">Nayancode · Software</p><Link to="/workbench">Open the Workbench</Link><Link to="/nayancode/products">All products</Link>{PRODUCTS.slice(1, 5).map((p) => <Link key={p.slug} to={`/nayancode/products/${p.slug}`}>{p.name.replace('Nayancode ', '')}</Link>)}<Link to="/nayancode/tools">Free online tools</Link><Link to="/nayancode/docs">Documentation</Link><Link to="/nayancode/pricing">Licensing</Link></div>
           <div className="ftr-col ftr-contact-col">
@@ -292,7 +292,7 @@ function Footer() {
             </dl>
           </div>
         </div>
-        <div className="ftr-news-row"><div><p className="label">The Vivofold letter</p><p className="small">One practical guide a month, new cohorts and software releases. No spam.</p></div><Newsletter compact id="ftr-news" /></div>
+        <div className="ftr-news-row"><div><p className="label">The Solagene letter</p><p className="small">One practical guide a month, new cohorts and software releases. No spam.</p></div><Newsletter compact id="ftr-news" /></div>
         <div className="ftr-base">
           <span>© <span suppressHydrationWarning>{new Date().getFullYear()}</span> {BRAND.legalName || BRAND.name}. Vedicgen and Nayancode are divisions of {BRAND.name}. Research and education use; not for clinical decisions.</span>
           <nav className="ftr-legal" aria-label="Legal"><Link to="/privacy">Privacy</Link><Link to="/privacy#cookies">Cookie policy</Link><Link to="/terms">Terms</Link><Link to="/refund-policy">Refunds & cancellations</Link><Link to="/licenses">Open-source licences</Link>{BRAND.socials.map((s) => <a key={s.url} href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>)}</nav>

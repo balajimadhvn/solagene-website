@@ -44,7 +44,7 @@ export function ServicesHub() {
   const list = SERVICES.filter((s) => lane === 'all' || laneOf(s) === lane);
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }]} label="Vivofold Research & Services" title="Research services, from data to decision"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }]} label="Solagene Research & Services" title="Research services, from data to decision"
         lede="Genomics, transcriptomics, single-cell, multi-omics, structural biology, docking, QSAR, imaging, pipelines, cloud and custom scientific software, with every capability labelled honestly as available, on request or planned."
         actions={<><a href="#quote" onClick={jump('quote')} className="button button--accent button--lg">Request a free quote <I.Arrow /></a><a href="#process" onClick={jump('process')} className="button button--secondary button--lg">How an engagement runs</a></>}
         aside={<Figure caption={FIGURES.workflow.caption}><FIGURES.workflow.C /></Figure>} />

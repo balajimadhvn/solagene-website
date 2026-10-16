@@ -13,7 +13,7 @@ import NotFound from '../NotFound';
 export function ProductsHub() {
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Nayancode', path: '/nayancode' }, { name: 'Products', path: '/nayancode/products' }]} label="Vivofold Nayancode · Products" title="Scientific software products"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Nayancode', path: '/nayancode' }, { name: 'Products', path: '/nayancode/products' }]} label="Solagene Nayancode · Products" title="Scientific software products"
         lede={`${PRODUCTS.length} products that run in your browser: the Workbench suite, nine analysis studios, a gene atlas, a report builder and pipeline import. All live, all free during the public preview.`}
         actions={<Link to="/workbench" className="button button--accent button--lg"><I.Grid width={17} height={17} />Launch the Workbench</Link>} />
       {PRODUCT_LINES.map((line) => { const ps = PRODUCTS.filter((p) => p.line === line); return ps.length ? (

@@ -1,6 +1,6 @@
-# Plan: free tools that earn citations and a DOI for Vivofold (Nayancode Workbench)
+# Plan: free tools that earn citations and a DOI for Solagene (Nayancode Workbench)
 
-Goal: the Nayancode Workbench and free tools become a **citable, peer-reviewed, free web resource** from Vivofold,
+Goal: the Nayancode Workbench and free tools become a **citable, peer-reviewed, free web resource** from Solagene,
 with DOIs, registry entries and a journal paper, while everything stays **free to host**.
 
 Hard rule kept throughout: no paid hosting, no servers, no user accounts on the tools.
@@ -32,7 +32,7 @@ Hard rule kept throughout: no paid hosting, no servers, no user accounts on the 
 | **RRID** (SciCrunch) | Research Resource Identifier; many journals ask authors to cite tools by RRID | After the preprint |
 | **bioRxiv preprint** | A **DOI for the paper** within days, indexed by Google Scholar | Month 3 |
 | **Peer-reviewed paper** (see §4) | The citation target | Month 4–7 |
-| **ROR ID** for Vivofold | Organisation identifier; ROR asks for publications that list the organisation as affiliation, so request it **after** the preprint/paper | After first DOI |
+| **ROR ID** for Solagene | Organisation identifier; ROR asks for publications that list the organisation as affiliation, so request it **after** the preprint/paper | After first DOI |
 | Google Scholar profile, Wikidata item, GitHub topics, awesome-lists, Galaxy Training Network tutorial | Discovery and citations | Ongoing |
 
 Crossref DOIs (paid membership) are **not** needed: Zenodo and bioRxiv issue DataCite/Crossref DOIs for free.
@@ -76,7 +76,7 @@ Rule: one journal paper per substantial piece. Do not split the same work into s
 
 | Weeks | Work | Output |
 |---|---|---|
-| 1 | Licence, CITATION.cff, Zenodo link, first release, Software Heritage, ORCIDs, privacy wording, GitHub org `vivofold` (optional) | **Software DOI** |
+| 1 | Licence, CITATION.cff, Zenodo link, first release, Software Heritage, ORCIDs, privacy wording, GitHub org `solagene` (optional) | **Software DOI** |
 | 2–6 | Design-matrix DE, indels, SVG figures, qPCR, IC50, power, igv viewer | New tools live |
 | 3–8 | Benchmark suite in CI vs DESeq2/limma, Scanpy, bcftools, IQ-TREE; benchmark data on Zenodo | **Benchmark DOI** + public results page |
 | 6–9 | Three case studies; usability study (students + external users) | Supplementary material |
@@ -92,7 +92,7 @@ Rule: one journal paper per substantial piece. Do not split the same work into s
    The repository is already public but, without a licence, legally "all rights reserved"; JOSS and NAR need an open licence.
 2. **Repository layout**: keep one repository, or move the Workbench into its own `nayancode` repository so the paper,
    DOI and citations point to the software and not to the company website. Recommended: separate repository.
-3. **Authors**: names, ORCIDs and affiliation ("Vivofold, India").
+3. **Authors**: names, ORCIDs and affiliation ("Solagene, India").
 4. **Usability study**: permission to invite Vedicgen students (consent form, anonymous data).
 5. **Primary venue**: NAR Web Server Issue (recommended) or Bioinformatics.
 

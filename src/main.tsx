@@ -5,7 +5,7 @@ import '@fontsource/ibm-plex-mono/500.css';
 import './styles/tokens.css';
 import './styles/global.css';
 import './site/site.css';
-import './site/vivofold.css';
+import './site/solagene.css';
 import './site/science.css';
 import './site/refine.css';
 import './core/ui-store';

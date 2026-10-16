@@ -7,7 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build } from 'vite';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const out = mkdtempSync(join(tmpdir(), 'vivofold-index-'));
+const out = mkdtempSync(join(tmpdir(), 'solagene-index-'));
 await build({ root, configFile: false, logLevel: 'error', resolve: { alias: { '@': join(root, 'src') } }, build: { ssr: join(root, 'src/site/data/index-source.ts'), outDir: out, emptyOutDir: true, rollupOptions: { output: { entryFileNames: 'index.mjs' } } } });
 const { buildIndex } = await import(pathToFileURL(join(out, 'index.mjs')).href);
 const index = buildIndex();

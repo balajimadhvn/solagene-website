@@ -39,7 +39,7 @@ const SELECTION_CORE = ['Academic record and relevant coursework (no minimum per
 
 const FEE_FAQ = { q: 'Is there a stipend, and what does the fee cover?', a: 'Vedicgen training internships are fee-based and do not pay a stipend. The fee covers mentorship, computing or laboratory resources, materials and the certificate. Fees are listed on this page and are exclusive of 18% GST.' };
 const DATES_FAQ = { q: 'When can I start?', a: 'Applications are reviewed on a rolling basis. Start dates are offered in the first week of each month, subject to mentor availability, and confirmed in your offer letter. Apply at least three weeks before you want to start.' };
-const CERT_FAQ = { q: 'Will I receive a certificate?', a: 'Yes. Interns who complete the project and the final presentation receive a Vedicgen internship certificate, issued by Vivofold, with a unique ID that anyone can check on the verification page.' };
+const CERT_FAQ = { q: 'Will I receive a certificate?', a: 'Yes. Interns who complete the project and the final presentation receive a Vedicgen internship certificate, issued by Solagene, with a unique ID that anyone can check on the verification page.' };
 const UNI_FAQ = { q: 'Can my university count the internship for credit?', a: 'Many universities accept it. On request we provide a joining letter, a weekly attendance and progress record, and a completion letter in your institution’s format. Check your university’s requirements before applying.' };
 
 export const INTERNSHIPS: Internship[] = [
@@ -132,7 +132,7 @@ export const INTERNSHIPS: Internship[] = [
     slug: 'scientific-software-engineering-internship', title: 'Scientific Software Engineering Internship (Nayancode)', discipline: 'dry', mode: 'Remote or hybrid', figure: 'heatmap', courses: ['scientific-web-applications', 'high-performance-scientific-programming', 'research-software-engineering'],
     options: [{ label: '12 weeks', weeks: 12, fee: 0 }, { label: '24 weeks', weeks: 24, fee: 0 }],
     seoTitle: 'Scientific Software Engineering Internship | Nayancode',
-    seoDescription: 'Selective internship with Nayancode, Vivofold’s software division: build features in browser-based scientific software with TypeScript, React, Rust and WebAssembly.',
+    seoDescription: 'Selective internship with Nayancode, Solagene’s software division: build features in browser-based scientific software with TypeScript, React, Rust and WebAssembly.',
     short: 'Ship features in Nayancode’s browser-based scientific software. Selective; no programme fee.',
     intro: 'Join the Nayancode engineering team and ship real features in scientific software used for genomics, transcriptomics, chemistry and structural biology: interfaces, visualisations, algorithms and tests.',
     about: ['Interns work on the Nayancode Workbench codebase: TypeScript and React interfaces, canvas and WebGL visualisation, algorithms in Web Workers, and Rust or C++ compiled to WebAssembly. Every change goes through code review and automated tests.', 'This internship is selective and carries no programme fee. Places depend on the engineering roadmap and are limited in each intake.'],

@@ -24,7 +24,7 @@ function Hero() {
               <Link to="/science" className="button button--primary button--lg">Our science <I.Arrow /></Link>
               <Link to="/contact" className="button button--secondary button--lg">Work with us</Link>
             </div>
-            <div className="vhero-divs" aria-label="Also from Vivofold">
+            <div className="vhero-divs" aria-label="Also from Solagene">
               <span className="vhero-also">Also from {BRAND.name}</span>
               <Link to="/vedicgen" className="vhero-div"><SubMark div="vedicgen" size={18} /><span>Vedicgen<small>School</small></span></Link>
               <Link to="/nayancode" className="vhero-div"><SubMark div="nayancode" size={18} /><span>Nayancode<small>Software</small></span></Link>

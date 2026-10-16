@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 /**
  * Signature hero visual: a strand of ~180 beads that slowly folds from an extended double helix into a compact,
- * protein-like fold and unfolds again ("Biology, unfolded"). Rendered on a 2D canvas with a simple perspective
+ * protein-like fold and unfolds again. Rendered on a 2D canvas with a simple perspective
  * projection, depth shading and pointer-driven rotation: no WebGL and no dependencies.
  * Honours prefers-reduced-motion (renders one still frame) and pauses when off screen or in a background tab.
  */

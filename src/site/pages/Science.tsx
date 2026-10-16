@@ -78,7 +78,7 @@ export function Science() {
 
       <section className="section" aria-labelledby="fam-h">
         <div className="container">
-          <Reveal className="band-head"><div><p className="kicker">Also from Vivofold</p><h2 id="fam-h">The people and the software behind the science</h2></div></Reveal>
+          <Reveal className="band-head"><div><p className="kicker">Also from Solagene</p><h2 id="fam-h">The people and the software behind the science</h2></div></Reveal>
           <div className="famrow">
             <Reveal className="ccard-wrap"><Link to="/vedicgen" className="fam fam--vg"><b>Vedicgen</b><span>Our school: wet-lab and dry-lab courses, internships and research training.</span><span className="ccard-go">Visit Vedicgen <I.Arrow width={15} height={15} /></span></Link></Reveal>
             <Reveal index={1} className="ccard-wrap"><Link to="/nayancode" className="fam fam--nc"><b>Nayancode</b><span>Our software: nine analysis studios and free tools that run privately in your browser.</span><span className="ccard-go">Visit Nayancode <I.Arrow width={15} height={15} /></span></Link></Reveal>
@@ -86,7 +86,7 @@ export function Science() {
         </div>
       </section>
       <FaqSection items={SCIENCE_FAQ} alt />
-      <CtaBand label="Partner with Vivofold" title="Bring us a target, a dataset or a question." body="Tell us what you need to decide. We reply with a proposed pilot, a timeline and a fixed price." actions={<><Link to="/contact" className="button button--primary button--lg">Start a conversation <I.Arrow /></Link><Link to="/solutions" className="button button--secondary button--lg">See solutions</Link></>} />
+      <CtaBand label="Partner with Solagene" title="Bring us a target, a dataset or a question." body="Tell us what you need to decide. We reply with a proposed pilot, a timeline and a fixed price." actions={<><Link to="/contact" className="button button--primary button--lg">Start a conversation <I.Arrow /></Link><Link to="/solutions" className="button button--secondary button--lg">See solutions</Link></>} />
     </>
   );
 }
@@ -113,9 +113,9 @@ export function Solutions() {
         </section>
       ))}
       <section className="section" aria-labelledby="sol-note">
-        <div className="container"><Reveal className="notice"><I.Shield width={18} height={18} /><span id="sol-note"><b>Research use.</b> Vivofold analyses support research and development. They are not medical devices and are not used for clinical decisions about individual patients. Variant and pharmacogenomic work is delivered for research cohorts and trial sub-studies, with its method documented.</span></Reveal></div>
+        <div className="container"><Reveal className="notice"><I.Shield width={18} height={18} /><span id="sol-note"><b>Research use.</b> Solagene analyses support research and development. They are not medical devices and are not used for clinical decisions about individual patients. Variant and pharmacogenomic work is delivered for research cohorts and trial sub-studies, with its method documented.</span></Reveal></div>
       </section>
-      <CtaBand label="Next step" title="Tell us what you are trying to decide." body="We reply with a scoped pilot, a timeline and a fixed price." actions={<><Link to="/contact" className="button button--primary button--lg">Contact Vivofold <I.Arrow /></Link><Link to="/science" className="button button--secondary button--lg">Our science</Link></>} />
+      <CtaBand label="Next step" title="Tell us what you are trying to decide." body="We reply with a scoped pilot, a timeline and a fixed price." actions={<><Link to="/contact" className="button button--primary button--lg">Contact Solagene <I.Arrow /></Link><Link to="/science" className="button button--secondary button--lg">Our science</Link></>} />
     </>
   );
 }
