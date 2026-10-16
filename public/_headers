@@ -52,6 +52,12 @@
 /microbiome/*
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: credentialless
+/docking/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
+/lab/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
 
 # Scripts and data loaded by Workbench workers must also carry COEP, or isolated pages refuse to start the worker.
 # (A COEP header on a script response has no effect on the non-isolated public pages that load it.)

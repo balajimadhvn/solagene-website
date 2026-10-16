@@ -13,7 +13,7 @@ import { WORDMARK } from './wordmark';
  */
 export const asset = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\//, '')}`;
 
-export function SolageneMark({ size = 32, className = '', alt = '' }: { size?: number; className?: string; alt?: string }) {
+export function SolageneMark({ size = 32, className = '', alt = `${BRAND.name} logo` }: { size?: number; className?: string; alt?: string }) {
   return <img src={asset(size <= 44 ? '/brand/solagene-mark-sm.webp' : '/brand/solagene-mark.webp')} width={Math.round(size * 0.6225)} height={size} alt={alt} className={`mark ${className}`} decoding="async" />;
 }
 
