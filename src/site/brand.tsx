@@ -7,13 +7,14 @@ import { WORDMARK } from './wordmark';
  * Solagene brand. Solagene is the company; Vedicgen (its school) and Nayancode (its software) are sub-brands that
  * always appear under the Solagene logo. The mark is the official Solagene logo (a DNA double-helix ribbon in an "S", with two
  * dots). public/brand/solagene-mark.svg keeps the exact artwork: a traced vector outline clipping the original colours; the
- * site shows a light WebP render of it (public/brand/solagene-mark.webp). The wordmark is drawn as outlines so it can take
+ * site shows a light WebP render of it (public/brand/solagene-mark.webp, and solagene-mark-sm.webp, 132 px tall, for marks up
+ * to 44 px so small logos don't download the full image). The wordmark is drawn as outlines so it can take
  * any colour. To update the logo, replace those files and src/site/wordmark.ts, then run `npm run og`.
  */
 export const asset = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\//, '')}`;
 
 export function SolageneMark({ size = 32, className = '', alt = '' }: { size?: number; className?: string; alt?: string }) {
-  return <img src={asset('/brand/solagene-mark.webp')} width={Math.round(size * 0.6225)} height={size} alt={alt} className={`mark ${className}`} decoding="async" />;
+  return <img src={asset(size <= 44 ? '/brand/solagene-mark-sm.webp' : '/brand/solagene-mark.webp')} width={Math.round(size * 0.6225)} height={size} alt={alt} className={`mark ${className}`} decoding="async" />;
 }
 
 export function Wordmark({ height = 16, className = '' }: { height?: number; className?: string }) {

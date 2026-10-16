@@ -43,7 +43,9 @@ export function organization(): Json {
   };
 }
 const vedicgen = (): Json => ({ '@type': 'EducationalOrganization', '@id': VG, name: `${BRAND.name} ${DIVISIONS.vedicgen.name}`, alternateName: DIVISIONS.vedicgen.name, url: abs('/vedicgen'), description: DIVISIONS.vedicgen.line, slogan: DIVISIONS.vedicgen.tagline, parentOrganization: { '@id': ORG }, email: BRAND.emails.help, address: postal() });
-const nayancode = (): Json => ({ '@type': 'Organization', '@id': NC, name: `${BRAND.name} ${DIVISIONS.nayancode.name}`, alternateName: DIVISIONS.nayancode.name, url: abs('/nayancode'), description: DIVISIONS.nayancode.line, slogan: DIVISIONS.nayancode.tagline, parentOrganization: { '@id': ORG }, email: BRAND.emails.support });
+// Public profiles of the Nayancode Workbench: source repository and Zenodo DOI.
+const NAYANCODE_SAME_AS = ['https://github.com/balajimadhvn/nayancode', 'https://doi.org/10.5281/zenodo.23393495'];
+const nayancode = (): Json => ({ '@type': 'Organization', '@id': NC, name: `${BRAND.name} ${DIVISIONS.nayancode.name}`, alternateName: DIVISIONS.nayancode.name, url: abs('/nayancode'), description: DIVISIONS.nayancode.line, slogan: DIVISIONS.nayancode.tagline, parentOrganization: { '@id': ORG }, email: BRAND.emails.support, sameAs: NAYANCODE_SAME_AS });
 const faqLd = (items: { q: string; a: string }[]): Json => ({ '@type': 'FAQPage', mainEntity: items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) });
 const crumbLd = (c: { name: string; path: string }[]): Json => ({ '@type': 'BreadcrumbList', itemListElement: c.map((x, i) => ({ '@type': 'ListItem', position: i + 1, name: x.name, item: abs(x.path) })) });
 const list = (items: { name: string; path: string }[]): Json => ({ '@type': 'ItemList', itemListElement: items.map((x, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(x.path), name: x.name })) });
