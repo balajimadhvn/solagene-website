@@ -1,4 +1,4 @@
-# ▶ RESUME HERE (written 2026-10-16, before /clear)
+# ▶ RESUME HERE (updated 2026-10-16, evening)
 
 **The company was renamed Vivofold → Solagene on 2026-10-16** (owner's decision). Domain is now **solagene.com**
 (registered at Namecheap 2026-10-16, auto-renew OFF — owner should turn it on). vivofold.in stays only as a 301
@@ -36,37 +36,35 @@ and Namecheap signed in (Namecheap sessions expire; ask the owner to sign in aga
   - GitHub Pages custom domain of solagene-website set to solagene.com (fallback origin only).
 - Verified live: https://solagene.com → 200, Solagene title, security headers; vivofold.in/* → 301 solagene.com/*.
 
-## NOT finished — do these next, in order
-1. **www.solagene.com → solagene.com redirect**: currently returns 200 (rule from template "Redirect from WWW to root"
-   on zone solagene.com may not have saved). Check Rules → Redirect Rules on solagene.com; create/deploy it.
-2. **Docking PR #3** (balajimadhvn/nayancode, branch claude/docking-studio-4ae2f0, worktree
-   ../nayancode/.claude/worktrees/docking-studio-4ae2f0): CONFLICTING after genome PR #1 merged. Session
-   `docking-studio` (local_9bd173e3-79e8-4f7a-8931-a6ed07c2c974) hit its usage limit (resets 17:00 IST); either
-   message it to rebase, or rebase yourself: `git fetch && git rebase origin/main`, keep both sides in
-   studios.ts / App.tsx / provenance.ts / data-sources.ts / e2e / RESULTS.md / fetch.sh; `npm test`, `npm run build`,
-   `GH_PAGES=1 npm run e2e --workers=1` (RAM is tight: run e2e with one worker), push --force-with-lease, wait for
-   checks, `gh pr merge 3 --squash`. Result to report: redocking 15/42 = 35.7 % top pose < 2 Å, identical to native
-   Vina 1.2.7 on the same inputs (r = 0.991 scores).
-3. **Sync the Workbench into the website** after docking merges: in company-webpage `git pull`, `node
-   scripts/sync-workbench.mjs`, stage ONLY Workbench paths (src/studios, src/core except brand.ts, src/ui, src/pages,
-   src/compute, src/viz, src/styles, public/wasm, public/rdkit, public/data, benchmarks), check `git grep -i vivofold`
-   is empty, `npx vitest run`, `npm run build`, `GH_PAGES=1 E2E_PORT=4182 npx playwright test --workers=1`, commit, push.
-4. **nayancode v1.1.0 release** (makes Zenodo mint a new version DOI with Solagene metadata): move CHANGELOG
-   "Unreleased" to "1.1.0 (date)", bump package.json, CITATION.cff (version, date-released) and .zenodo.json version;
-   update test counts in README; commit, push, CI green, `gh release create v1.1.0`. Then check
-   `https://zenodo.org/api/records?q=%22Nayancode%20Workbench%22&sort=mostrecent` for the new DOI and add it to
-   README/CITATION identifiers. Optionally edit the 1.0.0 Zenodo record's affiliation (needs owner's Zenodo login).
-5. **Search engines**: Search Console Domain property for solagene.com (ask the owner which Google account; the
-   signed-in one showed avatar "P"), submit https://solagene.com/sitemap.xml, request indexing for /, /vedicgen/courses/,
-   /vedicgen/internships/; in Search Console use "Change of address" from vivofold.in if that property exists;
-   Bing Webmaster import; run `node scripts/indexnow.mjs` (key file in public/).
-6. Update memory notes (company is Solagene) and this file's older sections when convenient (they still describe
-   the vivofold.in-era setup historically).
+## Done 2026-10-16 (second session)
+- www.solagene.com → solagene.com 301 rule deployed (keeps path and query). Verified.
+- Docking PR #3 rebased and merged (nayancode 8e9223a). Workbench synced into the website (0ed8c0a): Docking, Lab,
+  Genome Studio + bundled genomes. sync-workbench.mjs now copies public/genomes; website App.tsx has /docking and /lab
+  routes (App.tsx is NOT synced, add routes by hand for new studios); _headers isolates /docking/* and /lab/*.
+- Product pages for Docking Studio and Lab Studio (screens via scripts/screens.mjs); courses, internships, articles,
+  validation and formats tables link them; "eleven analysis studios" everywhere.
+- Search Console: Domain property solagene.com verified under balajimadhvn@gmail.com (DNS TXT via Cloudflare), sitemap
+  submitted, indexing requested for 8 key pages, vivofold.in → solagene.com Change of address done. Home page INDEXED
+  (crawled 2026-10-16). Bing: owner imported from Search Console. IndexNow: 189 URLs accepted.
+- SEO: Cloudflare Web Analytics allowed in CSP; small logo variant; Nayancode sameAs (GitHub, Zenodo); home title fits
+  580 px; logo alt text; courses page targets "bioinformatics courses online" + Bengaluru with FAQ (Ubersuggest India:
+  "bioinformatics course" 9.9K/mo, difficulty 21; "... online" 720; "... bangalore" 260). Seobility home score 78 %,
+  main gap is backlinks (3 %).
+- GitHub: nayancode homepage → solagene.com/nayancode/, topics added on both repos.
+- nayancode v1.1.0 released (richer .zenodo.json keywords and solagene.com links; README Docking/Lab rows).
+- bio.tools entry prepared in nayancode/docs/biotools.json (EDAM terms verified); owner must submit (needs account).
+
+## NOT finished — next
+1. Add the v1.1.0 version DOI from Zenodo to nayancode README/CITATION identifiers once minted.
+2. Owner: submit docs/biotools.json at bio.tools (Add content → JSON); Ubersuggest/Semrush account if a full site audit
+   is wanted; LinkedIn company page (then add to BRAND.socials); Google Business Profile; ORCID website field;
+   college/department backlinks (see docs/SEO-OWNER-CHECKLIST.md).
+3. Recheck Search Console in a few days: Pages report, sitemap status ("Couldn't fetch" on day 1 is normal), favicon.
 
 ## Sub-sessions (linked to the original session)
 | name | id | state |
 |---|---|---|
-| docking-studio | local_9bd173e3-79e8-4f7a-8931-a6ed07c2c974 | PR #3 open, conflicting; hit usage limit |
+| docking-studio | local_9bd173e3-79e8-4f7a-8931-a6ed07c2c974 | DONE, merged (#3, 8e9223a) |
 | genome-tools | local_b28c1fdb-2d4b-49fe-8972-0d0121c627d4 | DONE, merged (#1) |
 | lab-and-figures-2 | local_51cbb3b3-1ee6-4ef2-a573-2a856baefee4 | DONE, merged (#2) |
 | seo-visibility | local_1c26dbeb-bfd5-4dbe-ad0e-aa551d79f3b0 | DONE, merged (website #1) |
