@@ -40,7 +40,7 @@ describe('titles and descriptions', () => {
   it('hub pages carry the words people search for', () => {
     const t = (p: string) => fullTitle(metaFor(p)!).toLowerCase();
     expect(t('/')).toMatch(/bioinformatics courses/);
-    expect(t('/vedicgen/courses')).toMatch(/bioinformatics.*courses.*india/);
+    expect(t('/vedicgen/courses')).toMatch(/bioinformatics courses online.*bengaluru/); // Ubersuggest, India, Oct 2026: 'bioinformatics course online' 720/mo, '... bangalore' 260/mo
     expect(t('/vedicgen/internships')).toMatch(/bioinformatics internships/);
     expect(t('/vedicgen/programs')).toMatch(/certificate programmes/);
     expect(t('/vedicgen/workshops')).toMatch(/workshops/);

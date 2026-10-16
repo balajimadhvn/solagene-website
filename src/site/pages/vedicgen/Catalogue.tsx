@@ -17,6 +17,9 @@ const FAQ = [
   { q: 'Which course should I take first?', a: 'Use the course finder on this page. Most biology students start with Bioinformatics Foundations or Essential Laboratory Skills; computing students often start with Scientific Computing with Python or Molecular & Cell Biology Essentials.' },
   { q: 'What is the difference between live and self-paced?', a: 'Live cohorts meet online with an instructor three times a week for four weeks at most (intensive and weekend-only schedules on request), with a weekly lab clinic and recordings. Self-paced courses use the same lessons and labs with six months of access and mentor review of your project, at a lower fee.' },
   { q: 'Are wet-lab courses available online?', a: 'No. Bench skills need a bench, so wet-lab courses run in person at our laboratory. Their theory is supported by online pre-reading, and hybrid programmes combine bench and online analysis.' },
+  { q: 'Can I join a bioinformatics course after 12th?', a: 'The courses are written for undergraduate and postgraduate students, graduates and professionals. If you have finished 12th and started a B.Sc., B.Tech., B.Pharm. or similar degree, begin with a life-science course (school-level biology is enough) or Bioinformatics Foundations (undergraduate molecular biology, no programming needed). Each course page lists its own eligibility.' },
+  { q: 'Do you offer bioinformatics courses in Bangalore?', a: 'Bioinformatics courses are taught live online, so you can join from Bengaluru (Bangalore) or anywhere in India. Solagene\'s office is in HSR Layout, Bengaluru, and wet-lab courses run in person at our laboratory.' },
+  { q: 'Where is the syllabus for each course?', a: 'Every course page has a module-wise syllabus, the practicals and tools, eligibility, fees and the certificate. Open any course in the catalogue above and choose View the syllabus.' },
   { q: 'Do fees include GST?', a: 'No. Fees are shown exclusive of 18% GST, which is added at payment. The pricing page lists totals including GST.' },
   { q: 'Can my department book a course for a group?', a: 'Yes. Any course can run as a private cohort, workshop or semester-long certificate course for your institution. See the institutions page.' },
 ];
@@ -128,7 +131,7 @@ export default function CourseCatalogue() {
 
   return (
     <>
-      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Courses', path: '/vedicgen/courses' }]} label="Solagene Vedicgen · Course catalogue" title="Bioinformatics, biotechnology and computing courses in India"
+      <PageHeader crumbs={[{ name: 'Home', path: '/' }, { name: 'Vedicgen', path: '/vedicgen' }, { name: 'Courses', path: '/vedicgen/courses' }]} label="Solagene Vedicgen · Course catalogue" title="Bioinformatics, biotechnology and computing courses, online and in Bengaluru"
         lede={`${COURSES.length} courses of up to four weeks with published syllabi and fees: in-person wet-lab bench training, live online cohorts and self-paced online study, each ending in assessed work and a certificate you can verify online.`}
         actions={<><a href="#catalogue" className="button button--accent button--lg">Browse the catalogue <I.Arrow /></a><a href="#finder" className="button button--secondary button--lg">Find my course</a></>} />
 
