@@ -2,6 +2,7 @@
 // URLs, sitemap.xml and robots.txt. Runs after `vite build` (client) and `vite build --ssr` (server entry).
 // Output layout suits GitHub Pages (and any static host): /path/ is served from path/index.html with no redirect,
 // and canonical URLs, the sitemap and internal links all use the trailing-slash form.
+import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -68,7 +69,11 @@ for (const [from, to] of legacyRedirects()) {
 const nf = { path: '/404', title: 'Page not found', description: BRAND.description, type: 'website', noindex: true, jsonLd: [] };
 writeFileSync(join(dist, '404.html'), page(headHtml(nf).replace(/<link rel="canonical"[^>]*>\n\s*/, ''), render('/this-page-does-not-exist'), '*'));
 
-const today = new Date().toISOString().slice(0, 10);
+// lastmod is the date of the last commit that touched site content, not the build day: Google ignores lastmod
+// once it is seen to change on every deploy. Falls back to today when git history is unavailable.
+const today = (() => {
+  try { return execSync('git log -1 --format=%cs -- src/site src/core/brand.ts public/brand', { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() || new Date().toISOString().slice(0, 10); } catch { return new Date().toISOString().slice(0, 10); }
+})();
 const loc = (route) => `${BRAND.siteUrl}${route === '/' ? '/' : `${route}/`}`;
 const urls = routeList().map((rt) => { const m = metaFor(rt); return `  <url><loc>${loc(rt)}</loc><lastmod>${today}</lastmod><priority>${(m.priority ?? 0.5).toFixed(2)}</priority></url>`; });
 urls.push(`  <url><loc>${loc('/workbench')}</loc><lastmod>${today}</lastmod><priority>0.70</priority></url>`);

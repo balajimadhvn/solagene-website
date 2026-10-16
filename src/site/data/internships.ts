@@ -219,7 +219,7 @@ export const INTERNSHIPS: Internship[] = [
   {
     slug: 'dissertation-project-programme', title: 'Dissertation & Major Project Programme', discipline: 'hybrid', mode: 'Remote, in-person or hybrid', figure: 'workflow', courses: ['research-methodology-scientific-writing', 'biostatistics-experimental-design'],
     options: [{ label: 'Dry lab, 12 weeks', weeks: 12, fee: 17999 }, { label: 'Dry lab, 24 weeks', weeks: 24, fee: 32999 }, { label: 'Wet lab, 12 weeks', weeks: 12, fee: 34999 }, { label: 'Wet lab, 24 weeks', weeks: 24, fee: 59999 }],
-    seoTitle: 'M.Sc. / B.Tech. Dissertation Project in Biotechnology & Bioinformatics',
+    seoTitle: 'M.Sc. & B.Tech. Dissertation Project: Biotech, Bioinformatics',
     seoDescription: 'Supervised dissertation and major-project programme for M.Sc., B.Tech., M.Tech. and M.Pharm. students in bioinformatics and biotechnology, dry lab or wet lab.',
     short: 'A supervised final-year dissertation in bioinformatics or biotechnology, dry or wet lab.',
     intro: 'Complete your degree’s dissertation or major project under expert supervision, with a defined question, a realistic plan and the documentation your university requires.',

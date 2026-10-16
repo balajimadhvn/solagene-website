@@ -1,5 +1,7 @@
 # Vivofold SEO strategy
 
+Updated October 2026: research and decisions are in `docs/SEO-RESEARCH-2026.md`; the owner's account tasks (Search Console, Bing, IndexNow, directories) are in `docs/SEO-OWNER-CHECKLIST.md`. Where this older document disagrees (for example about FAQ rich results, which Google retired in May 2026), the research document wins.
+
 ## What to expect, honestly
 No one can guarantee a #1 Google position, and anyone who promises one is not being straight with you. What this site does
 is remove every technical obstacle and give Google well-structured, specific, original pages. Realistic timeline after launch

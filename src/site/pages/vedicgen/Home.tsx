@@ -41,7 +41,7 @@ export default function VedicgenHome() {
           <div className="dhero-copy">
             <p className="kicker kicker--vg">Vivofold Vedicgen · The school of Vivofold</p>
             <h1 id="vg-hero" className="t-display" style={{ fontSize: 'clamp(2.6rem, 1.6rem + 3.6vw, 4.6rem)' }}>From pipette <span className="grad-text">to pipeline.</span></h1>
-            <p className="lede">{DIVISIONS.vedicgen.line} Learn at the bench in our laboratory, analyse data online with expert instructors, and leave with work you can show.</p>
+            <p className="lede">Bioinformatics and biotechnology courses, certificate programmes, internships and workshops in India, online and in our laboratory. {DIVISIONS.vedicgen.line} Learn at the bench in our laboratory, analyse data online with expert instructors, and leave with work you can show.</p>
             <Search />
             <div className="quick-chips">{[['RNA-seq', 'rna-seq-data-analysis'], ['PCR & gel', 'molecular-biology-techniques'], ['Molecular docking', 'molecular-docking-drug-discovery'], ['Cell culture', 'animal-cell-culture'], ['Python', 'python-for-bioinformatics'], ['Cloud', 'cloud-computing-for-bioinformatics'], ['GIS', 'gis-remote-sensing']].map(([t, s]) => <Link key={s} to={`/vedicgen/courses/${s}`}>{t}</Link>)}</div>
           </div>
