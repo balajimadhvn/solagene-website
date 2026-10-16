@@ -55,7 +55,7 @@ and Namecheap signed in (Namecheap sessions expire; ask the owner to sign in aga
 - bio.tools entry prepared in nayancode/docs/biotools.json (EDAM terms verified); owner must submit (needs account).
 
 ## NOT finished — next
-1. Add the v1.1.0 version DOI from Zenodo to nayancode README/CITATION identifiers once minted.
+1. (done) v1.1.0 DOI 10.5281/zenodo.23418144 is in nayancode README and CITATION; Zenodo record shows Solagene metadata.
 2. Owner: submit docs/biotools.json at bio.tools (Add content → JSON); Ubersuggest/Semrush account if a full site audit
    is wanted; LinkedIn company page (then add to BRAND.socials); Google Business Profile; ORCID website field;
    college/department backlinks (see docs/SEO-OWNER-CHECKLIST.md).
