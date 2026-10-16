@@ -18,13 +18,13 @@ It is a static site: no server, no database and no paid service. Hosting on GitH
 
 ## Deploy to GitHub Pages (step by step)
 
-1. **Create a repository** on GitHub (for example `vivofold-website`) and push this folder to its `main` branch:
+1. **Create a repository** on GitHub (for example `solagene-website`) and push this folder to its `main` branch:
    ```bash
    git init
    git add .
    git commit -m "Solagene website"
    git branch -M main
-   git remote add origin https://github.com/<your-account>/vivofold-website.git
+   git remote add origin https://github.com/<your-account>/solagene-website.git
    git push -u origin main
    ```
    (`node_modules/`, `dist/` and test output are in `.gitignore`, so they are not uploaded.)
@@ -38,7 +38,7 @@ It is a static site: no server, no database and no paid service. Hosting on GitH
    | `VITE_FORM_ENDPOINT` | `https://formspree.io/f/<form-id>` (or `https://api.web3forms.com/submit`) | Forms are delivered straight to your inbox instead of opening the visitor's e-mail app |
    | `VITE_FORM_ACCESS_KEY` | Web3Forms access key | Only when using Web3Forms |
    | `VITE_GOOGLE_SITE_VERIFICATION` | the `content` value of Google's HTML tag | Search Console HTML-tag verification (DNS verification needs nothing here) |
-   | `BASE_PATH` | `/vivofold-website/` | **Only** if you serve from `https://<account>.github.io/<repo>/` without a custom domain |
+   | `BASE_PATH` | `/solagene-website/` | **Only** if you serve from `https://<account>.github.io/<repo>/` without a custom domain |
    After changing a variable, re-run the workflow (Actions → Deploy to GitHub Pages → Run workflow).
 
 ### Custom domain: solagene.com (bought at Namecheap)

@@ -125,8 +125,8 @@ Tool roadmap (free-hosting-only): `nayancode/docs/ROADMAP.md`.
 
 **HTTPS on solagene.com (open).** DNS is right (4 GitHub A records, www CNAME) but GitHub's certificate was stuck at
 "authorization_created"; the custom domain was removed and re-added on 2026-10-15 and a watcher was set to enforce HTTPS
-when issued. Check: `gh api repos/balajimadhvn/vivofold-website/pages -q '.https_certificate.state'`; when `approved`:
-`gh api -X PUT repos/balajimadhvn/vivofold-website/pages -F https_enforced=true`. If still stuck after a day, contact GitHub
+when issued. Check: `gh api repos/balajimadhvn/solagene-website/pages -q '.https_certificate.state'`; when `approved`:
+`gh api -X PUT repos/balajimadhvn/solagene-website/pages -F https_enforced=true`. If still stuck after a day, contact GitHub
 Support or move to Cloudflare Pages (free; reads `public/_headers`, which already holds frame-ancestors, HSTS, nosniff).
 robustdevs.co scan findings that GitHub Pages cannot fix: X-Content-Type-Options / X-Frame-Options headers and
 `Access-Control-Allow-Origin: *` (harmless for a public static site). **DMARC** needs a TXT record at Namecheap (owner):
@@ -146,8 +146,8 @@ Cloudflare Pages `_headers`).
   (still DNS-only; switch to proxied), MX route1/2/3.mx.cloudflare.net, SPF include:_spf.mx.cloudflare.net, DKIM
   cf2024-1._domainkey, DMARC p=reject, google-site-verification TXT. So right now Cloudflare proxies GitHub Pages:
   https comes from Cloudflare's Universal SSL automatically once issued.
-- Workers project `vivofold-website` (Git-connected to balajimadhvn/vivofold-website, build `npm run build`, deploy
-  `npx wrangler deploy`, config `wrangler.jsonc`) builds green; live at https://vivofold-website.balajimadhvn.workers.dev
+- Workers project `solagene-website` (Git-connected to balajimadhvn/solagene-website, build `npm run build`, deploy
+  `npx wrangler deploy`, config `wrangler.jsonc`) builds green; live at https://solagene-website.balajimadhvn.workers.dev
   with all security headers from public/_headers.
 - DONE 2026-10-16: Worker route `*solagene.com/*` (fail open → falls back to the GitHub Pages origin) serves the
   Cloudflare build with all security headers; www CNAME proxied; Always Use HTTPS on (http → 301 https); Redirect Rule

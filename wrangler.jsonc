@@ -3,7 +3,7 @@
 // `npx wrangler deploy`. Security and cross-origin-isolation headers come from public/_headers (copied into dist/).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "vivofold-website",
+  "name": "solagene-website",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",

@@ -40,7 +40,7 @@ exactly as GitHub Pages serves it, with real browsers (Playwright/Chromium), not
 | Lighthouse 12 (mobile, slow-4G simulation, gzip on like GitHub Pages) | 8 key pages. |
 | Interaction scripts | All 11 free tools (example, garbage input, copy), catalogue filters/search/URL state, listings, all 7 mega-menus (71 links), footer (35 links), mobile menu, skip link, theme switch, print view, 404 + deep-link refresh, certificate verification. |
 | Forms | Validation on empty submit; full course application → e-mail fallback content checked; **with a form backend configured** (separate build, network intercepted): contact + course application POST correct JSON (subject, reply-to, target inbox, every answer), success message on 200, error + fallback address on 500. |
-| Hosting variants | Custom-domain build and **sub-path build** (`https://<account>.github.io/vivofold-website/`), the latter crawled in full. |
+| Hosting variants | Custom-domain build and **sub-path build** (`https://<account>.github.io/solagene-website/`), the latter crawled in full. |
 | Automated suites | `npm test` 198/198 · `npm run e2e` 29/29 (GitHub Pages mode and normal mode) · `npm run build` OK (licence audit, type-check, 199 prerendered pages, 91 redirects, sitemap 186 URLs). |
 
 ## Requested changes made
